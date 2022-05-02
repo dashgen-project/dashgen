@@ -1,0 +1,23 @@
+<%- include('../partials/header'); -%>
+
+<h1><%= video.title %></h1>
+<h2><%= video._id %></h2>
+
+<form action="/courseDashboards/<%= dashboard._id %>/<%= video._id %>?_method=PUT" method="POST">
+    <div class="mb-3">
+        <label for="supportMaterial" class="form-label">Inserir material de apoio:</label>
+        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material">
+        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material">
+        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material">
+        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material">
+        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material">
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<%- include('../partials/footer'); -%>

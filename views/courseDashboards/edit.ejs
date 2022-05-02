@@ -1,0 +1,28 @@
+<%- include('../partials/header'); -%>
+
+<h1>Editar dashboard</h1>
+
+<form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Título do dashboard</label>
+        <input type="text" class="form-control" name="dashboard[title]" id="title" aria-describedby="dashboard-title"
+            value="<%= dashboard.title %>">
+    </div>
+    <h3>Vídeos na playlist:</h3>
+    <ul>
+        <% for (let video of dashboard.videos) { %>
+        <li>
+            <h4><a href="/courseDashboards/<%= dashboard._id %>/<%= video._id %>"><%= video.title %></a></h4>
+            <h5><%= video.videoId %></h5>
+        </li>
+        <% } %>
+    </ul>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <button class="btn btn-primary">Ver dashboard</button>
+</form>
+<form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Deletar dashboard</button>
+</form>
+<!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
+
+<%- include('../partials/footer'); -%>

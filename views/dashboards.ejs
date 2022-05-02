@@ -1,0 +1,29 @@
+<%- include('partials/header'); -%>
+
+<h3 class="mb-4">Meus dashboards</h3>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <% for (let dashboard of courseDashboards) { %>
+
+    <div class="col">
+        <div class="card">
+            <img src="imgs/placeholder.png.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= dashboard.title %></h5>
+                <p class="card-text">ID da playlist: <%= dashboard.playlistId %></p>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <a type="button" class="btn btn-outline-primary"
+                        href="https://www.youtube.com/playlist?list=<%= dashboard.playlistId %>">Acessar no YouTube</a>
+                    <a type="button" class="btn btn-outline-primary"
+                        href="/courseDashboards/<%= dashboard._id %>/edit">Editar</a>
+                    <a type="button" class="btn btn-outline-primary" href="#">Visualizar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% } %>
+
+</div>
+
+<%- include('partials/footer'); -%>

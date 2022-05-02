@@ -1,0 +1,17 @@
+<%- include('../partials/header'); -%>
+
+<h1><%= title %></h1>
+
+<% for (let video of videos) { %>
+<div>
+    <h2><%= video.snippet.title %></h2>
+    <% if (video.snippet.description) { %>
+    <p><%= JSON.stringify(video.snippet.description) %></p>
+    <% } else {%>
+    <p>No description found</p>
+    <% } %>
+</div>
+<hr>
+<% } %>
+
+<%- include('../partials/footer'); -%>
