@@ -1,27 +1,31 @@
 <%- include('../partials/header'); -%>
 
-<h1>Editar dashboard</h1>
+<h3 class="mb-4">Editar dashboard</h3>
 
-<form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST">
+<form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
     <div class="mb-3">
-        <label for="title" class="form-label">Título do dashboard</label>
+        <label for="title" class="form-label">
+            <h4>Título do dashboard:</h4>
+        </label>
         <input type="text" class="form-control" name="dashboard[title]" id="title" aria-describedby="dashboard-title"
             value="<%= dashboard.title %>">
     </div>
-    <h3>Vídeos na playlist:</h3>
-    <ul>
+    <h4>Vídeos na playlist:</h4>
+    <ol class="list-group list-group-numbered mb-4">
         <% for (let video of dashboard.videos) { %>
-        <li>
-            <h4><a href="/courseDashboards/<%= dashboard._id %>/<%= video._id %>"><%= video.title %></a></h4>
-            <h5><%= video.videoId %></h5>
+        <li class="list-group-item">
+            <a class="link-primary" href="/courseDashboards/<%= dashboard._id %>/<%= video._id %>"><%= video.title %> -
+                <%= video.videoId %></a>
         </li>
         <% } %>
-    </ul>
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <button class="btn btn-primary">Ver dashboard</button>
+    </ol>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <button class="btn btn-outline-primary">Ver dashboard</button>
+    </div>
 </form>
 <form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
-    <button class="btn btn-danger">Deletar dashboard</button>
+    <button class="btn btn-outline-danger">Deletar dashboard</button>
 </form>
 <!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
 

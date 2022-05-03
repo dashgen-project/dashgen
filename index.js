@@ -135,6 +135,21 @@ app.post('/videoDashboards', async (req, res) => {
     res.redirect('/dashboards');
 });
 
+app.get('/courseDashboards/dash', (req, res) => {
+    res.render('dashboards/courseDashboard')
+});
+
+app.get('/courseDashboards/supportMaterial', (req, res) => {
+    res.render('dashboards/supportMaterial');
+
+    ////// implementar depois para identificar se é PDF ou não //////
+    ////// ref: https://stackoverflow.com/questions/6293893/how-do-i-force-files-to-open-in-the-browser-instead-of-downloading-pdf //////
+    // res.set({
+    //     'Content-Type': 'application/pdf',
+    //     'Content-Disposition': 'inline'; filename="filename.pdf"
+    // });
+});
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
