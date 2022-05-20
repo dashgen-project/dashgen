@@ -6,7 +6,7 @@ const wrapAsync = require('../utils/wrapAsync');
 const { validateLogin, validateUser, isNotLoggedIn } = require('../middleware');
 
 router.route('/register')
-    .get(isNotLoggedIn, wrapAsync(users.renderRegister))
+    .get(isNotLoggedIn, users.renderRegister)
     .post(validateUser, wrapAsync(users.register));
 
 router.route('/login')
@@ -17,9 +17,9 @@ router.route('/login')
             failureFlash: true,
             failureRedirect: '/',
         }),
-        wrapAsync(users.login)
+        users.login
     );
 
-router.get('/logout', wrapAsync(users.logout));
+router.get('/logout', users.logout);
 
 module.exports = router;

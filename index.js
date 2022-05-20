@@ -25,7 +25,7 @@ const User = require('./models/user');
 
 main().catch(err => console.log(err));
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/dashgen');
+    await mongoose.connect(dbUrl);
 }
 
 app.set('view engine', 'ejs');
