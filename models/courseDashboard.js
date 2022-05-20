@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const SupportMaterial = require('./supportMaterial');
 const { Schema } = mongoose;
 const Video = require('./video');
 
@@ -18,14 +17,15 @@ const CourseDashboardSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Video'
         }
-    ]
+    ],
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, opts);
 
 CourseDashboardSchema.post('findOneAndDelete', async doc => {
     if (doc) {
-        for (let video of doc.videos) {
-            await SupportMaterial.remove({ _id: { $in: video.supportMaterial } });
-        }
         await Video.remove({ _id: { $in: doc.videos } });
     }
 });

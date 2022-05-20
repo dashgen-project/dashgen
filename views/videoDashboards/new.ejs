@@ -1,9 +1,16 @@
-<% layout('layout/boilerplate') %>
+<%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
 
-<h1>Criar dashboard de vídeo</h1>
+<h3 class="mb-4">Você está a um click de criar seu dashboard de vídeo!</h3>
 
 <form action="/videoDashboards" method="POST">
-    <label for="videoUrl">Insira o URL do vídeo:</label>
-    <input type="text" name="videoUrl" id="videoUrl">
-    <button>Criar dashboard</button>
+    <div class="mb-3">
+        <label class="form-label" for="videoUrl">Insira o URL do vídeo:</label>
+        <input class="form-control" type="text" name="videoDashboard[videoUrl]" id="videoUrl" required>
+    </div>
+    <div>
+        <button class="btn btn-success">Criar dashboard</button>
+    </div>
 </form>
+
+<%- include('../partials/footer'); -%>

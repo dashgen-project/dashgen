@@ -1,0 +1,32 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
+
+<h3 class="mb-4">Editar dashboard</h3>
+
+<form action="/playlistDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
+    <div class="mb-3">
+        <label for="title" class="form-label">
+            <h4>Título do dashboard:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[title]" id="title"
+            aria-describedby="dashboard-title" value="<%= dashboard.title %>" required>
+    </div>
+    <h4>Vídeos na playlist:</h4>
+    <ol class="list-group list-group-numbered mb-4">
+        <% for (let video of videos) { %>
+        <li class="list-group-item">
+            <%= video.title %>
+        </li>
+        <% } %>
+    </ol>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <a class="btn btn-outline-primary" href="/playlistDashboards/<%= dashboard._id %>/dash/0" target="_blank">Ver
+            dashboard</a>
+    </div>
+</form>
+<form class="d-inline" action="/playlistDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-outline-danger">Deletar dashboard</button>
+</form>
+
+<%- include('../partials/footer'); -%>

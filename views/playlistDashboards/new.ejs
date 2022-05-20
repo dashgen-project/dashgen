@@ -1,9 +1,16 @@
-<% layout('layout/boilerplate') %>
+<%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
 
-<h1>Criar dashboard de playlist</h1>
+<h3 class="mb-4">Você está a um click de criar seu dashboard de playlist!</h3>
 
 <form action="/playlistDashboards" method="POST">
-    <label for="playlistUrl">Insira o URL da playlist:</label>
-    <input type="text" name="playlistUrl" id="playlistUrl">
-    <button>Criar dashboard</button>
+    <div class="mb-3">
+        <label class="form-label" for="playlistUrl">Insira o URL da playlist:</label>
+        <input class="form-control" type="text" name="playlistDashboard[playlistUrl]" id="playlistUrl" required>
+    </div>
+    <div>
+        <button class="btn btn-success">Criar dashboard</button>
+    </div>
 </form>
+
+<%- include('../partials/footer'); -%>

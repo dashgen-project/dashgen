@@ -1,17 +1,44 @@
 <%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
 
-<h1><%= title %></h1>
+<h3 class="mb-4">Editar dashboard</h3>
 
-<% for (let video of videos) { %>
-<div>
-    <h2><%= video.snippet.title %></h2>
-    <% if (video.snippet.description) { %>
-    <p><%= JSON.stringify(video.snippet.description) %></p>
-    <% } else {%>
-    <p>No description found</p>
-    <% } %>
-</div>
-<hr>
-<% } %>
+<form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
+    <div class="mb-3">
+        <label for="title" class="form-label">
+            <h4>Título do dashboard:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[title]" id="title"
+            aria-describedby="dashboard-title" value="<%= dashboard.title %>" required>
+        <label for="environmentUrl" class="form-label">
+            <h4>Ambiente da disciplina:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[environmentUrl]" id="environmentUrl"
+            aria-describedby="dashboard-environmentUrl" value="<%= dashboard.environmentUrl %>">
+        <label for="forumUrl" class="form-label">
+            <h4>Fórum da disciplina:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[forumUrl]" id="forumUrl"
+            aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
+    </div>
+    <h4>Vídeos na playlist:</h4>
+    <ol class="list-group list-group-numbered mb-4">
+        <% for (let video of dashboard.videos) { %>
+        <li class="list-group-item">
+            <a class="link-primary" href="/courseDashboards/<%= dashboard._id %>/<%= video._id %>"><%= video.title %> -
+                <%= video.videoId %></a>
+        </li>
+        <% } %>
+    </ol>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <a class="btn btn-outline-primary" href="/courseDashboards/<%= dashboard._id %>/dash/0" target="_blank">Ver
+            dashboard</a>
+    </div>
+</form>
+<form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-outline-danger">Deletar dashboard</button>
+</form>
+<!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
 
 <%- include('../partials/footer'); -%>

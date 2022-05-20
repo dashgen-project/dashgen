@@ -1,23 +1,49 @@
 <%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
 
-<h1><%= video.title %></h1>
-<h2><%= video._id %></h2>
+<h3 class="mb-4"><%= video.title %></h3>
 
-<form action="/courseDashboards/<%= dashboard._id %>/<%= video._id %>?_method=PUT" method="POST">
+<form action="/courseDashboards/<%= dashboard._id %>/<%= video._id %>?_method=PUT" method="POST"
+    id="videoInformationForm">
     <div class="mb-3">
         <label for="supportMaterial" class="form-label">Inserir material de apoio:</label>
-        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
-            aria-describedby="video-support-material">
-        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
-            aria-describedby="video-support-material">
-        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
-            aria-describedby="video-support-material">
-        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
-            aria-describedby="video-support-material">
-        <input type="text" class="form-control" name="video[supportMaterial][]" id="supportMaterial"
-            aria-describedby="video-support-material">
+        <input type="text" class="form-control mb-3" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material" value="<%= video.supportMaterial[0] %>">
+        <input type="text" class="form-control mb-3" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material" value="<%= video.supportMaterial[1] %>">
+        <input type="text" class="form-control mb-3" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material" value="<%= video.supportMaterial[2] %>">
+        <input type="text" class="form-control mb-3" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material" value="<%= video.supportMaterial[3] %>">
+        <input type="text" class="form-control mb-3" name="video[supportMaterial][]" id="supportMaterial"
+            aria-describedby="video-support-material" value="<%= video.supportMaterial[4] %>">
+    </div>
+    <div class="mb-3">
+        <label for="inClassExercises" class="form-label">Inserir exercícios em aula:</label>
+        <input type="text" class="form-control mb-3" name="video[inClassExercises][]" id="inClassExercises"
+            aria-describedby="video-in-class-exercises" value="<%= video.inClassExercises[0] %>">
+        <input type="text" class="form-control mb-3" name="video[inClassExercises][]" id="inClassExercises"
+            aria-describedby="video-in-class-exercises" value="<%= video.inClassExercises[1] %>">
+        <input type="text" class="form-control mb-3" name="video[inClassExercises][]" id="inClassExercises"
+            aria-describedby="video-in-class-exercises" value="<%= video.inClassExercises[2] %>">
+        <input type="text" class="form-control mb-3" name="video[inClassExercises][]" id="inClassExercises"
+            aria-describedby="video-in-class-exercises" value="<%= video.inClassExercises[3] %>">
+        <input type="text" class="form-control mb-3" name="video[inClassExercises][]" id="inClassExercises"
+            aria-describedby="video-in-class-exercises" value="<%= video.inClassExercises[4] %>">
+    </div>
+    <div class="mb-3">
+        <label for="outOfClassExercises" class="form-label">Inserir exercícios fora de aula:</label>
+        <input type="text" class="form-control mb-3" name="video[outOfClassExercises][]" id="outOfClassExercises"
+            aria-describedby="video-out-of-class-exercises" value="<%= video.outOfClassExercises[0] %>">
+        <input type="text" class="form-control mb-3" name="video[outOfClassExercises][]" id="outOfClassExercises"
+            aria-describedby="video-out-of-class-exercises" value="<%= video.outOfClassExercises[1] %>">
+        <input type="text" class="form-control mb-3" name="video[outOfClassExercises][]" id="outOfClassExercises"
+            aria-describedby="video-out-of-class-exercises" value="<%= video.outOfClassExercises[2] %>">
+        <input type="text" class="form-control mb-3" name="video[outOfClassExercises][]" id="outOfClassExercises"
+            aria-describedby="video-out-of-class-exercises" value="<%= video.outOfClassExercises[3] %>">
+        <input type="text" class="form-control mb-3" name="video[outOfClassExercises][]" id="outOfClassExercises"
+            aria-describedby="video-out-of-class-exercises" value="<%= video.outOfClassExercises[4] %>">
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
-
 <%- include('../partials/footer'); -%>

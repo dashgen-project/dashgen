@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script type="application/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title><%= dashboard.title %></title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand px-4" href="#"><%= dashboard.title %></a>
+        </div>
+    </nav>
+    <div class="container-fluid pt-3 pb-3">
+        <div class="row">
+            <% if (chaptersData.length) { %>
+            <div class="col-3">
+                <div class="container-fluid justify-content-center">
+                    <div class="row mb-2">
+                        <h5>Capítulos do vídeo</h5>
+                        <div class="mb-3 ms-2" style="width: 30%; height: 1px; background-color: #555;"></div>
+                        <ul id="chaptersList" class="list-group">
+                            <% for (let i = 0; i < chaptersData.length; i++) { %>
+                            <li class="list-group-item btn btn-link"
+                                id="<%= 3600*chaptersData[i].timestamp[0] + 60*chaptersData[i].timestamp[1] + chaptersData[i].timestamp[2] %>"
+                                onclick="changeChapter(this)">
+                                <%= chaptersData[i].title %>
+                            </li>
+                            <% } %>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div
+                class="<% if (chaptersData.length) {%>col-9<% } else { %>d-inline-flex flex-row align-items-center justify-content-center<% } %>">
+                <div class="ratio ratio-16x9 <% if (!chaptersData.length) {%>d-inline w-75<% } %>">
+                    <iframe src="https://www.youtube.com/embed/<%= dashboard.videoId %>?rel=0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const videoIframe = document.querySelector('iframe');
+        const videoId = videoIframe.src.split('/')[4].substring(0, videoIframe.src.split('/')[4].indexOf('?'));
+        const changeChapter = async (chapter) => {
+            const timeInSeconds = chapter.id;
+            videoIframe.src = `https://www.youtube.com/embed/${videoId}?start=${timeInSeconds}&autoplay=1&rel=0`;
+        }
+    </script>
+</body>
+
+</html>

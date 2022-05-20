@@ -1,16 +1,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const SupportMaterial = require('./supportMaterial');
 
 const VideoSchema = new Schema({
     title: String,
     videoId: String,
-    // supportMaterial: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'SupportMaterial'
-    //     }
-    // ],
     supportMaterial: [
         {
             type: String
@@ -18,12 +11,12 @@ const VideoSchema = new Schema({
     ],
     inClassExercises: [
         {
-            exercisesUrl: String
+            type: String
         }
     ],
     outOfClassExercises: [
         {
-            exercisesUrl: String
+            type: String
         }
     ]
 });

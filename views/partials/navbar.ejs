@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="/imgs/dashGenLogo.png" alt="" width="60" height="44">
@@ -12,14 +12,23 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Início</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/dashboards">Meus dashboards</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Meus
+                        dashboards</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/courseDashboards">Meus dashboards de
+                                curso</a></li>
+                        <li><a class="dropdown-item" href="/playlistDashboards">Meus dashboards de
+                                playlist</a></li>
+                        <li><a class="dropdown-item" href="/videoDashboards">Meus dashboards de
+                                vídeo</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Como usar</a>
+                    <a class="nav-link" href="#">Como usar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Sair</a>
+                    <a class="nav-link" href="/logout">Sair</a>
                 </li>
             </ul>
         </div>
