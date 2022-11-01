@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+const axios = require('axios');
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
 
 const getChaptersData = async (videoId) => {

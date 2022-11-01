@@ -1,6 +1,6 @@
 const CourseDashboard = require('../models/courseDashboard');
 const Video = require('../models/video');
-const axios = require('axios').default;
+const axios = require('axios');
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
 const chapters = require('../utils/chapters');
 
