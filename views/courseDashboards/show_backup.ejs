@@ -21,10 +21,17 @@
                 <input type="text" class="form-control mb-3" name="dashboard[forumUrl]" id="forumUrl"
                     aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
             </div>
-            <div id="classesContainer"></div>
-            <div class="mb-4">
-                <button type="button" class="btn btn-outline-success" id="addClass">Adicionar aula</button>
-            </div>
+            <h4>Vídeos na playlist:</h4>
+            <ol class="list-group list-group-numbered mb-4">
+                <% for (let video of dashboard.videos) { %>
+                    <li class="list-group-item">
+                        <a class="link-primary" href="/courseDashboards/<%= dashboard._id %>/<%= video._id %>">
+                            <%= video.title %> -
+                                <%= video.videoId %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ol>
             <div class="btn-group">
                 <button type="submit" class="btn btn-outline-primary">Salvar</button>
                 <a class="btn btn-outline-primary" href="/courseDashboards/<%= dashboard._id %>/dash/0"
@@ -35,8 +42,6 @@
         <form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger">Deletar dashboard</button>
         </form>
-        <script type="application/javascript" src="../../js/addClass.js">
-        </script>
         <!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
 
         <%- include('../partials/footer'); -%>
