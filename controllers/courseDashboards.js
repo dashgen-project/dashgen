@@ -86,6 +86,13 @@ module.exports.deleteCourseDashboard = async (req, res) => {
     res.redirect('/courseDashboards');
 }
 
+module.exports.renderEditClass = async (req, res) => {
+    // const { id, videoId } = req.params;
+    // const dashboard = await CourseDashboard.findById(id);
+    // const video = await Video.findById(videoId);
+    res.render('courseDashboards/editClass');
+}
+
 module.exports.renderEditVideoInformationForm = async (req, res) => {
     const { id, videoId } = req.params;
     const dashboard = await CourseDashboard.findById(id);
