@@ -1,17 +1,18 @@
 let classes = 0;
 const addClassBtn = document.getElementById("addClass");
 const classesContainer = document.getElementById("classesContainer");
+const dashboardId = window.location.href.substring().split("/")[4];
 classesContainer.classList.add("mb-3");
 
 addClassBtn.addEventListener("click", () => {
     const classCard = document.createElement("div");
     classCard.setAttribute("id", `class_${classes}`);
-    classCard.classList.add("card", "mb-3", "class-card");
+    classCard.classList.add("card", "class-card", "col-4");
     classCard.innerHTML = `
     <div class="card-body">
-        <h5 class="card-title text-center" id="titleAula">Aula ${classes + 1}</h5>
-        <h6 class="text-center" id="titleAula">Título</h6>
-        <a class="btn btn-primary" href="#">Editar aula</a>
+        <h5 class="card-title" id="titleAula">Aula ${classes + 1}</h5>
+        <h6 id="titleAula">Título</h6>
+        <a class="btn btn-primary" href="/courseDashboards/${dashboardId}/editClass">Editar aula</a>
         <button class="btn btn-danger delete-class-btn" type="button" id="deleteClass_${classes}">Deletar aula</button>
     </div>`;
     classesContainer.appendChild(classCard);

@@ -25,6 +25,10 @@ router.route('/:id')
 router.route('/:id/dash/:videoIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard));
 
+router.route('/:id/editClass')
+    .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClass))
+    .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
+
 router.route('/:id/:videoId')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
