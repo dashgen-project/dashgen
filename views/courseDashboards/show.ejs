@@ -20,9 +20,28 @@
                 </label>
                 <input type="text" class="form-control mb-3" name="dashboard[forumUrl]" id="forumUrl"
                     aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
+                <input id="numberOfClasses" type="number" class="d-none" name="dashboard[numberOfClasses]"
+                    value="<%= dashboard.numberOfClasses %>">
             </div>
             <div class="container">
-                <div id="classesContainer" class="row mb-4"></div>
+                <div id="classesContainer" class="row mb-4">
+                    <% if (dashboard.numberOfClasses> 0) { %>
+                        <% for (let i=0; i < dashboard.numberOfClasses; i++) { %>
+                            <div id="class_<%= i %>" class="card class-card col-4">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="titleAula">Aula <%= i + 1 %>
+                                    </h5>
+                                    <h6 id="titleAula">Título</h6>
+                                    <a class="btn btn-primary"
+                                        href="/courseDashboards/<%= dashboard._id %>/<%= i %>">Editar
+                                        aula</a>
+                                    <!-- Make this button trigger a form submit to delete class from db -->
+                                    <button class="btn btn-danger delete-class-btn" type="button"
+                                        id="deleteClass_<%= i %>">Deletar aula</button>
+                                </div>
+                            </div>
+                            <% }} %>
+                </div>
             </div>
             <div class="mb-4">
                 <button type="button" class="btn btn-outline-success" id="addClass">Adicionar aula</button>
