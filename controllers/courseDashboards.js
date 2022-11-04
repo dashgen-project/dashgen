@@ -35,9 +35,11 @@ module.exports.createCourseDashboard = async (req, res) => {
         });
         await videos[i].save();
     }
+    const numberOfClasses = 0;
     const dashboard = new CourseDashboard({
         title,
         playlistId,
+        numberOfClasses,
         videos,
         author: req.user._id
     });

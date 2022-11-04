@@ -33,7 +33,8 @@ module.exports.editCourseDashboardSchema = Joi.object({
     dashboard: Joi.object({
         title: Joi.string().required().escapeHTML(),
         environmentUrl: Joi.string().allow('').escapeHTML(),
-        forumUrl: Joi.string().allow('').escapeHTML()
+        forumUrl: Joi.string().allow('').escapeHTML(),
+        numberOfClasses: Joi.number()
     }).required()
 });
 

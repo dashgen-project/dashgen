@@ -10,8 +10,74 @@ const CourseDashboardSchema = new Schema({
         type: String,
         required: true
     },
+    numberOfClasses: {
+        type: Number
+    },
     environmentUrl: String,
     forumUrl: String,
+    classes: [{
+        title: {
+            type: String
+        },
+        classNumber: {
+            type: Number,
+            required: true
+        },
+        preClassMaterial: {
+            essential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            },
+            nonEssential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            }
+        },
+        forClassMaterial: {
+            essential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            },
+            nonEssential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            }
+        },
+        postClassMaterial: {
+            essential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            },
+            nonEssential: {
+                video: [{ type: String }],
+                slide: [{ type: String }],
+                exerciseList: [{ type: String }],
+                reading: [{ type: String }],
+                quizz: [{ type: String }],
+                externalLink: [{ type: String }]
+            }
+        },
+    }],
     videos: [
         {
             type: Schema.Types.ObjectId,
