@@ -88,11 +88,11 @@ module.exports.deleteCourseDashboard = async (req, res) => {
     res.redirect('/courseDashboards');
 }
 
-module.exports.renderEditClass = async (req, res) => {
-    // const { id, videoId } = req.params;
-    // const dashboard = await CourseDashboard.findById(id);
+module.exports.renderEditClassForm = async (req, res) => {
+    const { id, classId } = req.params;
+    const dashboard = await CourseDashboard.findById(id);
     // const video = await Video.findById(videoId);
-    res.render('courseDashboards/editClass');
+    res.render('courseDashboards/editClass', { dashboard, classId });
 }
 
 module.exports.renderEditVideoInformationForm = async (req, res) => {
@@ -110,6 +110,16 @@ module.exports.updateVideoInformation = async (req, res) => {
         outOfClassExercises: req.body.video.outOfClassExercises
     });
     req.flash('success', 'Dashboard salvo com sucesso!');
+    res.redirect(`/courseDashboards/${id}`);
+}
+
+module.exports.updateClassInformation = async (req, res) => {
+    const { id, classId } = req.params;
+    const dashboard = await CourseDashboard.findById(id);
+    dashboard.classes[classId].title = req.body.title;
+    // mudar
+    await dashboard.save();
+    req.flash('success', 'Aula salva com sucesso!');
     res.redirect(`/courseDashboards/${id}`);
 }
 

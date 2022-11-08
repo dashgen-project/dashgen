@@ -1,5 +1,35 @@
 <%- include('../partials/header'); -%>
     <%- include('../partials/flash'); -%>
 
+        <h1>Adicionar materiais de apoio (<%= dashboard.title %>)
+        </h1>
+
+        <form action="/courseDashboards/<%= dashboard._id %>/<%= classId %>?_method=PUT" method="POST" class="mb-4">
+
+            <label for="title" class="form-label">Título da aula:</label>
+
+            <% if (dashboard.classes[classId].title) { %>
+                <input type="text" class="form-control mb-3" name="title" id="title" aria-describedby="dashboard-title"
+                    value="<%= dashboard.classes[classId].title %>">
+                <% } else { %>
+                    <input type="text" class="form-control mb-3" name="title" id="title"
+                        aria-describedby="dashboard-title">
+                    <% } %>
+
+                        <h2>Materiais pré-aula</h2>
+
+                        <h2>Materiais para a aula</h2>
+
+                        <h2>Materiais pós-aula</h2>
+
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-outline-primary">Salvar</button>
+                            <!-- Colocar botão de deletar aula? -->
+                            <button class="btn btn-danger delete-class-btn" type="button"
+                                id="deleteClass_<%= classId %>">Deletar
+                                aula</button>
+                        </div>
+
+        </form>
 
         <%- include('../partials/footer'); -%>

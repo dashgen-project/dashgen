@@ -29,8 +29,15 @@ router.route('/:id/dash/:videoIndex')
 //     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClass))
 //     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
 
+
+
 router.route('/:id/:classId')
-    .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
-    .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
+    .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm))
+    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation));
+
+
+// router.route('/:id/:videoId')
+//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
+//     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
 
 module.exports = router;

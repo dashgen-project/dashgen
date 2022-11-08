@@ -25,13 +25,21 @@
             </div>
             <div class="container">
                 <div id="classesContainer" class="row mb-4">
-                    <% if (dashboard.numberOfClasses> 0) { %>
+                    <% if (dashboard.numberOfClasses) { %>
                         <% for (let i=0; i < dashboard.numberOfClasses; i++) { %>
                             <div id="class_<%= i %>" class="card class-card col-4">
                                 <div class="card-body">
                                     <h5 class="card-title" id="titleAula">Aula <%= i + 1 %>
                                     </h5>
-                                    <h6 id="titleAula">Título</h6>
+                                    <h6 id="titleAula">
+                                        <% if (dashboard.classes[i].title) { %>
+                                            <%= dashboard.classes[i].title %>
+                                                <% } else { %>
+                                                    Título
+                                                    <% } %>
+                                    </h6>
+                                    <input class="d-none" type="number" name="dashboard[classes][<%= i %>][classNumber]"
+                                        value="<%= i %>">
                                     <a class="btn btn-primary"
                                         href="/courseDashboards/<%= dashboard._id %>/<%= i %>">Editar
                                         aula</a>
@@ -56,7 +64,9 @@
         <form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
             <button class="btn btn-outline-danger">Deletar dashboard</button>
         </form>
-        <script type="application/javascript" src="../../js/addClass.js">
+        <!-- <script data-main="scripts/app" src="../../js/require.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="../../js/addClass.js">
         </script>
         <!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
 

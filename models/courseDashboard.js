@@ -10,15 +10,11 @@ const CourseDashboardSchema = new Schema({
         type: String,
         required: true
     },
-    numberOfClasses: {
-        type: Number
-    },
+    numberOfClasses: Number,
     environmentUrl: String,
     forumUrl: String,
     classes: [{
-        title: {
-            type: String
-        },
+        title: String,
         classNumber: {
             type: Number,
             required: true

@@ -34,7 +34,8 @@ module.exports.editCourseDashboardSchema = Joi.object({
         title: Joi.string().required().escapeHTML(),
         environmentUrl: Joi.string().allow('').escapeHTML(),
         forumUrl: Joi.string().allow('').escapeHTML(),
-        numberOfClasses: Joi.number()
+        numberOfClasses: Joi.number(),
+        classes: Joi.array()
     }).required()
 });
 
