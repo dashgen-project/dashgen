@@ -71,12 +71,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_E_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][slide][<%= i %>]" id="PreC_E_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][slide][<%= i %>]"
+                        id="PreC_E_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][slide][<%= i %>]" id="PreC_E_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][slide][<%= i %>]"
+                        id="PreC_E_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -85,11 +85,11 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][essential][exerciseList][<%= i %>]" id="PreC_E_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][essential][exerciseList][<%= i %>]" id="PreC_E_lista<%= i %>">
                     <% } %>
                     <% } %>
@@ -99,12 +99,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_E_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][reading][<%= i %>]" id="PreC_E_leitura<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][reading][<%= i %>]"
+                        id="PreC_E_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][reading][<%= i %>]" id="PreC_E_leitura<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][reading][<%= i %>]"
+                        id="PreC_E_leitura<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -113,12 +113,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_E_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][quizz][<%= i %>]" id="PreC_E_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][quizz][<%= i %>]"
+                        id="PreC_E_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][essential][quizz][<%= i %>]" id="PreC_E_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][essential][quizz][<%= i %>]"
+                        id="PreC_E_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -128,11 +128,11 @@
                     <label for="PreC_E_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][essential][externalLink][<%= i %>]" id="PreC_E_link<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][essential][externalLink][<%= i %>]" id="PreC_E_link<%= i %>">
                     <% } %>
                     <% } %>
@@ -196,12 +196,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_NE_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]" id="PreC_NE_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="PreC_NE_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]" id="PreC_NE_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="PreC_NE_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -210,12 +210,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="PreC_NE_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.essential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="PreC_NE_lista<%= i %>">
                     <% } %>
@@ -226,12 +226,11 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_NE_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][reading][<%= i %>]" id="PreC_NE_leitura<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][reading][<%= i %>]"
+                        id="PreC_NE_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.nonEssential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][reading][<%= i %>]"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][reading][<%= i %>]"
                         id="PreC_NE_leitura<%= i %>">
                     <% } %>
                     <% } %>
@@ -241,12 +240,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][quizz][<%= i %>]" id="PreC_NE_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="PreC_NE_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.nonEssential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[preClassMaterial][nonEssential][quizz][<%= i %>]" id="PreC_NE_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="PreC_NE_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -256,12 +255,12 @@
                     <label for="PreC_NE_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="PreC_NE_link<%= i %>"
                         value="<%= dashboard.classes[classNum].preClassMaterial.nonEssential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[preClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="PreC_NE_link<%= i %>">
                     <% } %>
@@ -331,12 +330,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_E_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][slide][<%= i %>]" id="forC_E_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
+                        id="forC_E_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.essential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][slide][<%= i %>]" id="forC_E_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
+                        id="forC_E_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -345,11 +344,11 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]" id="forC_E_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.essential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]" id="forC_E_lista<%= i %>">
                     <% } %>
                     <% } %>
@@ -359,12 +358,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_E_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][reading][<%= i %>]" id="forC_E_leitura<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
+                        id="forC_E_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.essential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][reading][<%= i %>]" id="forC_E_leitura<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
+                        id="forC_E_leitura<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -373,12 +372,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_E_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][quizz][<%= i %>]" id="forC_E_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
+                        id="forC_E_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.essential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][essential][quizz][<%= i %>]" id="forC_E_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
+                        id="forC_E_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -388,11 +387,11 @@
                     <label for="forC_E_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]" id="forC_E_link<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.essential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]" id="forC_E_link<%= i %>">
                     <% } %>
                     <% } %>
@@ -456,12 +455,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_NE_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][slide][<%= i %>]" id="forC_NE_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="forC_NE_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.nonEssential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][slide][<%= i %>]" id="forC_NE_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="forC_NE_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -470,12 +469,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="forC_NE_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.nonEssential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="forC_NE_lista<%= i %>">
                     <% } %>
@@ -486,12 +485,11 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_NE_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][reading][<%= i %>]" id="forC_NE_leitura<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][reading][<%= i %>]"
+                        id="forC_NE_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.nonEssential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][reading][<%= i %>]"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][reading][<%= i %>]"
                         id="forC_NE_leitura<%= i %>">
                     <% } %>
                     <% } %>
@@ -501,12 +499,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_NE_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][quizz][<%= i %>]" id="forC_NE_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="forC_NE_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.nonEssential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[forClassMaterial][nonEssential][quizz][<%= i %>]" id="forC_NE_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[forClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="forC_NE_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -516,12 +514,12 @@
                     <label for="forC_NE_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="forC_NE_link<%= i %>"
                         value="<%= dashboard.classes[classNum].forClassMaterial.nonEssential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[forClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="forC_NE_link<%= i %>">
                     <% } %>
@@ -591,12 +589,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_E_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][slide][<%= i %>]" id="postC_E_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][slide][<%= i %>]"
+                        id="postC_E_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.essential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][slide][<%= i %>]" id="postC_E_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][slide][<%= i %>]"
+                        id="postC_E_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -605,12 +603,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][essential][exerciseList][<%= i %>]"
                         id="postC_E_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.essential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][essential][exerciseList][<%= i %>]"
                         id="postC_E_lista<%= i %>">
                     <% } %>
@@ -621,12 +619,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_E_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][reading][<%= i %>]" id="postC_E_leitura<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][reading][<%= i %>]"
+                        id="postC_E_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.essential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][reading][<%= i %>]" id="postC_E_leitura<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][reading][<%= i %>]"
+                        id="postC_E_leitura<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -635,12 +633,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_E_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][quizz][<%= i %>]" id="postC_E_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][quizz][<%= i %>]"
+                        id="postC_E_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.essential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][essential][quizz][<%= i %>]" id="postC_E_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][essential][quizz][<%= i %>]"
+                        id="postC_E_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -650,11 +648,11 @@
                     <label for="postC_E_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][essential][externalLink][<%= i %>]" id="postC_E_link<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.essential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][essential][externalLink][<%= i %>]"
                         id="postC_E_link<%= i %>">
                     <% } %>
@@ -719,12 +717,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_NE_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]" id="postC_NE_slide<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="postC_NE_slide<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.slide[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]" id="postC_NE_slide<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]"
+                        id="postC_NE_slide<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -733,12 +731,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="postC_NE_lista<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.exerciseList[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][exerciseList][<%= i %>]"
                         id="postC_NE_lista<%= i %>">
                     <% } %>
@@ -749,12 +747,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_NE_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][reading][<%= i %>]"
                         id="postC_NE_leitura<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.reading[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][reading][<%= i %>]"
                         id="postC_NE_leitura<%= i %>">
                     <% } %>
@@ -765,12 +763,12 @@
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_NE_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]" id="postC_NE_quizz<%= i %>"
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="postC_NE_quizz<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.quizz[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
-                        name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]" id="postC_NE_quizz<%= i %>">
+                    <input class="form-control mb-1" name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]"
+                        id="postC_NE_quizz<%= i %>">
                     <% } %>
                     <% } %>
                 </div>
@@ -780,12 +778,12 @@
                     <label for="postC_NE_link<%= i %>" class="form-label  fs-5">Link externo
                         <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="postC_NE_link<%= i %>"
                         value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.externalLink[i] %>">
                     <% } else { %>
-                    <input class="form-control mb-1" type="url"
+                    <input class="form-control mb-1"
                         name="thisClass[postClassMaterial][nonEssential][externalLink][<%= i %>]"
                         id="postC_NE_link<%= i %>">
                     <% } %>

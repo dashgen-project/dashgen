@@ -6,6 +6,7 @@ const {
     isLoggedIn,
     validateNewCourseDashboard,
     validateEditCourseDashboard,
+    validateEditClass,
     validateVideo
 } = require('../middleware');
 const wrapAsync = require('../utils/wrapAsync');
@@ -31,7 +32,7 @@ router.route('/:id/dash/:videoIndex')
 
 router.route('/:id/classes/:classNum')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm))
-    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation))
+    .put(isLoggedIn, isCourseDashboardAuthor, validateEditClass, wrapAsync(courseDashboards.updateClassInformation))
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass));
 
 router.route('/:id/:classId')

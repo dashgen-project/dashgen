@@ -35,7 +35,125 @@ module.exports.editCourseDashboardSchema = Joi.object({
         environmentUrl: Joi.string().allow('').escapeHTML(),
         forumUrl: Joi.string().allow('').escapeHTML(),
         numberOfClasses: Joi.number(),
-        classes: Joi.array()
+        classes: Joi.array().items(Joi.object({
+            title: Joi.string().allow('').escapeHTML(),
+            classNumber: Joi.number(),
+            preClassMaterial: Joi.object({
+                essential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                }),
+                nonEssential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                })
+            }),
+            forClassMaterial: Joi.object({
+                essential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                }),
+                nonEssential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                })
+            }),
+            postClassMaterial: Joi.object({
+                essential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                }),
+                nonEssential: Joi.object({
+                    video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                    externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+                })
+            })
+        }))
+    }).required()
+});
+
+module.exports.editClassSchema = Joi.object({
+    thisClass: Joi.object({
+        title: Joi.string().allow('').escapeHTML(),
+        classNumber: Joi.number(),
+        preClassMaterial: Joi.object({
+            essential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            }),
+            nonEssential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            })
+        }),
+        forClassMaterial: Joi.object({
+            essential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            }),
+            nonEssential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            })
+        }),
+        postClassMaterial: Joi.object({
+            essential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            }),
+            nonEssential: Joi.object({
+                video: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                slide: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                exerciseList: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                reading: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                quizz: Joi.array().items(Joi.string().allow('').escapeHTML()),
+                externalLink: Joi.array().items(Joi.string().allow('').escapeHTML())
+            })
+        })
     }).required()
 });
 

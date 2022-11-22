@@ -8,6 +8,7 @@ const {
     editPlaylistDashboardSchema,
     newVideoDashboardSchema,
     editVideoDashboardSchema,
+    editClassSchema,
     videoSchema,
     loginSchema,
     userSchema
@@ -73,6 +74,16 @@ module.exports.validateNewCourseDashboard = (req, res, next) => {
 
 module.exports.validateEditCourseDashboard = (req, res, next) => {
     const { error } = editCourseDashboardSchema.validate(req.body);
+    if (error) {
+        const message = error.details.map(el => el.message).join(',\n')
+        throw new ExpressError(message, 400);
+    } else {
+        next();
+    }
+}
+
+module.exports.validateEditClass = (req, res, next) => {
+    const { error } = editClassSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
         throw new ExpressError(message, 400);
