@@ -89,10 +89,23 @@ module.exports.deleteCourseDashboard = async (req, res) => {
 }
 
 module.exports.renderEditClassForm = async (req, res) => {
-    const { id, classId } = req.params;
+    const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
-    // const video = await Video.findById(videoId);
-    res.render('courseDashboards/editClass', { dashboard, classId });
+    // const numClasses = dashboard.classes.length;
+    // dashboard.classes.push({ classNumber: numClasses });
+    // await dashboard.save();
+    const playlistId = dashboard.playlistId;
+    const videosData = await axios.get(
+        `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&key=${youtubeApiKey}&maxResults=99`,
+        { headers: { 'Accept': 'application/json' } }
+    );
+    let videos = [];
+    for (let video of videosData.data.items) {
+        let title = video.snippet.title;
+        let videoId = video.snippet.resourceId.videoId;
+        videos.push({ title, videoId });
+    }
+    res.render('courseDashboards/editClass', { dashboard, videos, classNum });
 }
 
 module.exports.renderEditVideoInformationForm = async (req, res) => {
@@ -114,12 +127,24 @@ module.exports.updateVideoInformation = async (req, res) => {
 }
 
 module.exports.updateClassInformation = async (req, res) => {
-    const { id, classId } = req.params;
+    const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
-    dashboard.classes[classId].title = req.body.title;
-    // mudar
+    dashboard.classes[classNum] = { ...req.body.thisClass };
     await dashboard.save();
     req.flash('success', 'Aula salva com sucesso!');
+    res.redirect(`/courseDashboards/${id}`);
+}
+
+module.exports.deleteClass = async (req, res) => {
+    const { id, classNum } = req.params;
+    const dashboard = await CourseDashboard.findById(id);
+    dashboard.classes.splice(classNum, 1);
+    console.log(dashboard.classes);
+    for (let i = classNum; i < dashboard.classes.length; i++) {
+        dashboard.classes[i].classNumber--;
+    }
+    await dashboard.save();
+    req.flash('success', 'Aula deletada com sucesso!');
     res.redirect(`/courseDashboards/${id}`);
 }
 

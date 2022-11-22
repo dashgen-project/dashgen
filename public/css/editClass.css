@@ -1,0 +1,18 @@
+.carousel-control-next {
+    justify-content: flex-end;
+    filter: invert(100%);
+}
+
+.carousel-control-prev {
+    justify-content: flex-start;
+    filter: invert(100%);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 5%;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,73 +1,67 @@
 <%- include('../partials/header'); -%>
-    <%- include('../partials/flash'); -%>
+<%- include('../partials/flash'); -%>
 
-        <h3 class="mb-4">Editar dashboard</h3>
+<h3 class="mb-4">Editar dashboard</h3>
 
-        <form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
-            <div class="mb-4">
-                <label for="title" class="form-label">
-                    <h4>Título do dashboard:</h4>
-                </label>
-                <input type="text" class="form-control mb-3" name="dashboard[title]" id="title"
-                    aria-describedby="dashboard-title" value="<%= dashboard.title %>" required>
-                <label for="environmentUrl" class="form-label">
-                    <h4>Ambiente da disciplina:</h4>
-                </label>
-                <input type="text" class="form-control mb-3" name="dashboard[environmentUrl]" id="environmentUrl"
-                    aria-describedby="dashboard-environmentUrl" value="<%= dashboard.environmentUrl %>">
-                <label for="forumUrl" class="form-label">
-                    <h4>Fórum da disciplina:</h4>
-                </label>
-                <input type="text" class="form-control mb-3" name="dashboard[forumUrl]" id="forumUrl"
-                    aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
-                <input id="numberOfClasses" type="number" class="d-none" name="dashboard[numberOfClasses]"
-                    value="<%= dashboard.numberOfClasses %>">
-            </div>
-            <div class="container">
-                <div id="classesContainer" class="row mb-4">
-                    <% if (dashboard.numberOfClasses) { %>
-                        <% for (let i=0; i < dashboard.numberOfClasses; i++) { %>
-                            <div id="class_<%= i %>" class="card class-card col-4">
-                                <div class="card-body">
-                                    <h5 class="card-title" id="titleAula">Aula <%= i + 1 %>
-                                    </h5>
-                                    <h6 id="titleAula">
-                                        <% if (dashboard.classes[i].title) { %>
-                                            <%= dashboard.classes[i].title %>
-                                                <% } else { %>
-                                                    Título
-                                                    <% } %>
-                                    </h6>
-                                    <input class="d-none" type="number" name="dashboard[classes][<%= i %>][classNumber]"
-                                        value="<%= i %>">
-                                    <a class="btn btn-primary"
-                                        href="/courseDashboards/<%= dashboard._id %>/<%= i %>">Editar
-                                        aula</a>
-                                    <!-- Make this button trigger a form submit to delete class from db -->
-                                    <button class="btn btn-danger delete-class-btn" type="button"
-                                        id="deleteClass_<%= i %>">Deletar aula</button>
-                                </div>
-                            </div>
-                            <% }} %>
+<form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
+    <div class="mb-4">
+        <label for="title" class="form-label">
+            <h4>Título do dashboard:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[title]" id="title"
+            aria-describedby="dashboard-title" value="<%= dashboard.title %>" required>
+        <label for="environmentUrl" class="form-label">
+            <h4>Ambiente da disciplina:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[environmentUrl]" id="environmentUrl"
+            aria-describedby="dashboard-environmentUrl" value="<%= dashboard.environmentUrl %>">
+        <label for="forumUrl" class="form-label">
+            <h4>Fórum da disciplina:</h4>
+        </label>
+        <input type="text" class="form-control mb-3" name="dashboard[forumUrl]" id="forumUrl"
+            aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
+        <input id="numberOfClasses" type="number" class="d-none" name="dashboard[numberOfClasses]"
+            value="<%= dashboard.numberOfClasses %>">
+    </div>
+    <div class="container">
+        <div id="classesContainer" class="row mb-4">
+            <% if (dashboard.classes.length) { %>
+            <% for (let i=0; i < dashboard.classes.length; i++) { %>
+            <div id="class_<%= i %>" class="card class-card col-4">
+                <div class="card-body">
+                    <h5 class="card-title" id="titleAula">Aula <%= i + 1 %>
+                    </h5>
+                    <h6 id="titleAula">
+                        <% if (dashboard.classes[i].title) { %>
+                        <%= dashboard.classes[i].title %>
+                        <% } else { %>
+                        Título
+                        <% } %>
+                    </h6>
+                    <input class="d-none" type="number" name="dashboard[classes][<%= i %>][classNumber]"
+                        value="<%= i %>">
+                    <a class="btn btn-primary editbtn"
+                        href="/courseDashboards/<%= dashboard._id %>/classes/<%= i %>">Editar
+                        aula</a>
                 </div>
             </div>
-            <div class="mb-4">
-                <button type="button" class="btn btn-outline-success" id="addClass">Adicionar aula</button>
-            </div>
-            <div class="btn-group">
-                <button type="submit" class="btn btn-outline-primary">Salvar</button>
-                <a class="btn btn-outline-primary" href="/courseDashboards/<%= dashboard._id %>/dash/0"
-                    target="_blank">Ver
-                    dashboard</a>
-            </div>
-        </form>
-        <form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-outline-danger">Deletar dashboard</button>
-        </form>
-        <!-- <script data-main="scripts/app" src="../../js/require.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script type="module" src="../../js/addClass.js">
-        </script>
-        <!-- action="/campgrounds/<%= //campground._id %>?_method=DELETE" -->
+            <% }} %>
+        </div>
+    </div>
+    <div class="mb-4">
+        <button type="button" class="btn btn-outline-success" id="addClass">Adicionar aula*</button>
+        <a type="button" class="btn btn-outline-success"
+            href="/courseDashboards/<%= dashboard._id %>/classes/<%= dashboard.classes.length %>">Adicionar
+            aula</a>
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <a class="btn btn-outline-primary" href="/courseDashboards/<%= dashboard._id %>/dash/0" target="_blank">Ver
+            dashboard</a>
+    </div>
+</form>
+<form class="d-inline" action="/courseDashboards/<%= dashboard._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-outline-danger">Deletar dashboard</button>
+</form>
 
-        <%- include('../partials/footer'); -%>
+<%- include('../partials/footer'); -%>

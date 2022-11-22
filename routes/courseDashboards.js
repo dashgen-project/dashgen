@@ -29,12 +29,15 @@ router.route('/:id/dash/:videoIndex')
 //     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClass))
 //     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
 
-
+router.route('/:id/classes/:classNum')
+    .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm))
+    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation))
+    .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass));
 
 router.route('/:id/:classId')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm))
-    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation));
-
+    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation))
+    .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass));
 
 // router.route('/:id/:videoId')
 //     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
