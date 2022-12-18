@@ -23,6 +23,8 @@ router.route('/:id')
     .put(isLoggedIn, isCourseDashboardAuthor, validateEditCourseDashboard, wrapAsync(courseDashboards.updateCourseDashboard))
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteCourseDashboard));
 
+router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.showMaterial));
+
 router.route('/:id/dash/:videoIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard));
 

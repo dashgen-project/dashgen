@@ -1,6 +1,14 @@
 <%- include('../partials/header'); -%>
 <%- include('../partials/flash'); -%>
 
+<% if (nonMoodleMaterial) { %>
+<div class="bg-warning rounded p-2 px-3 mb-2 bg-opacity-75">
+    Você possui materiais que não estão no ambiente da disciplina. Clique <a
+        href="/courseDashboards/<%= dashboard._id %>/nediscliplinas">aqui</a>
+    para ver estes materiais.
+</div>
+<% } %>
+
 <h3 class="mb-4">Editar dashboard</h3>
 
 <form action="/courseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">

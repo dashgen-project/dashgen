@@ -3,6 +3,7 @@ const Video = require('../models/video');
 const axios = require('axios');
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
 const chapters = require('../utils/chapters');
+const checkUrl = require('../utils/checkUrl');
 
 module.exports.index = async (req, res) => {
     const dashboards = await CourseDashboard.find({ author: req.user._id });
@@ -71,14 +72,29 @@ module.exports.showCourseDashboard = async (req, res) => {
             { $push: { videos: newVideos } }
         );
     }
-    res.render('courseDashboards/show', { dashboard });
+    let nonMoodleMaterial = 0;
+    if (!checkUrl.isMoodle(dashboard.classes)) {
+        console.log("material n está todo no moodle");
+        nonMoodleMaterial = 1;
+    }
+    res.render('courseDashboards/show', { dashboard, nonMoodleMaterial });
 }
 
 module.exports.updateCourseDashboard = async (req, res) => {
     const { id } = req.params;
-    await CourseDashboard.findByIdAndUpdate(id, { ...req.body.dashboard });
+    // await CourseDashboard.findByIdAndUpdate(id, { ...req.body.dashboard });
+    const dashboard = await CourseDashboard.findById(id);
+    dashboard.title = req.body.dashboard.title;
+    dashboard.environmentUrl = req.body.dashboard.environmentUrl;
+    dashboard.forumUrl = req.body.dashboard.forumUrl;
+    await dashboard.save();
     req.flash('success', 'Dashboard salvo com sucesso!');
     res.redirect(`/courseDashboards/${id}`);
+}
+
+module.exports.showMaterial = async (req, res) => {
+    const { id } = req.params;
+    const dashboard = await CourseDashboard.findById(id);
 }
 
 module.exports.deleteCourseDashboard = async (req, res) => {
@@ -129,10 +145,11 @@ module.exports.updateVideoInformation = async (req, res) => {
 module.exports.updateClassInformation = async (req, res) => {
     const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
+    console.log(req.body.thisClass.preClassMaterial.essential);
     dashboard.classes[classNum] = { ...req.body.thisClass };
     await dashboard.save();
     req.flash('success', 'Aula salva com sucesso!');
-    res.redirect(`/courseDashboards/${id}`);
+    res.redirect(`/courseDashboards/${id}/classes/${classNum}`);
 }
 
 module.exports.deleteClass = async (req, res) => {

@@ -21,12 +21,14 @@
     <input type="text" class="form-control mb-3" name="thisClass[title]" id="title" aria-describedby="dashboard title">
     <% } %>
 
-    <h2 class="text-center">Materiais pré-aula</h2>
+    <div class="d-flex justify-content-center">
+        <h2 class="text-center carousel-block-1 d-inline-block rounded p-1">Materiais pré-aula</h2>
+    </div>
 
-    <div class="p-3 bg-secondary rounded mb-3">
-        <h3 class="text-light text-center">Materiais essenciais</h3>
+    <div class="p-3 rounded mb-3 carousel-block-1">
         <div id="carousel1" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
+                <h3 class="text-dark text-center text-decoration-underline">Materiais Essenciais</h3>
                 <div class="carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
@@ -81,7 +83,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
@@ -148,10 +150,9 @@
             </button>
         </div>
 
-
-        <h3 class="text-light text-center">Materiais não essenciais</h3>
-        <div id="carousel2" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
+        <div id="carousel2" class="carousel slide mb-3 carousel-block-1" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
+                <h3 class="text-dark text-center text-decoration-underline">Materiais não essenciais</h3>
                 <div class="carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
@@ -198,7 +199,7 @@
                     <% if (dashboard.classes[classNum]) { %>
                     <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]"
                         id="PreC_NE_slide<%= i %>"
-                        value="<%= dashboard.classes[classNum].preClassMaterial.essential.slide[i] %>">
+                        value="<%= dashboard.classes[classNum].preClassMaterial.nonEssential.slide[i] %>">
                     <% } else { %>
                     <input class="form-control mb-1" name="thisClass[preClassMaterial][nonEssential][slide][<%= i %>]"
                         id="PreC_NE_slide<%= i %>">
@@ -206,7 +207,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="PreC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
@@ -278,14 +279,15 @@
         </div>
     </div>
 
-    <h2 class="text-center">Materiais para a aula</h2>
+    <div class="d-flex justify-content-center">
+        <h2 class="text-center carousel-block-2 d-inline-block rounded p-1">Materiais para a aula</h2>
+    </div>
 
-    <div class="p-3 bg-secondary rounded mb-3">
-
-        <h3 class="text-light text-center">Materiais essenciais</h3>
+    <div class=" p-3 rounded mb-3 carousel-block-2">
 
         <div id="carousel3" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
+                <h3 class="text-dark text-center text-decoration-underline">Materiais essenciais</h3>
                 <div class="carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
@@ -340,7 +342,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
@@ -407,10 +409,11 @@
             </button>
         </div>
 
-        <h3 class="text-light text-center">Materiais não essenciais</h3>
-
         <div id="carousel4" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
+
+                <h3 class="text-dark text-center text-decoration-underline">Materiais não essenciais</h3>
+
                 <div class="carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
@@ -465,7 +468,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="forC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
@@ -537,15 +540,17 @@
         </div>
     </div>
 
-    <h2 class="text-center">Materiais pós aula</h2>
+    <div class="d-flex justify-content-center">
+        <h2 class="text-center carousel-block-3 d-inline-block rounded p-1">Materiais pós-aula</h2>
+    </div>
 
-    <div class="p-3 bg-secondary rounded mb-3">
-
-        <h3 class="text-light text-center">Materiais essenciais</h3>
-
+    <div class="p-3 rounded mb-3 carousel-block-3">
         <div id="carousel5" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
-                <div class="carousel-item active px-5">
+
+                <h3 class="text-dark text-center text-decoration-underline">Materiais essenciais</h3>
+
+                <div class=" carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
                     <label for="video<%= i %>" class="form-label  fs-5">Vídeo <%= i + 1 %></label>
@@ -599,7 +604,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
@@ -669,10 +674,11 @@
             </button>
         </div>
 
-        <h3 class="text-light text-center">Materiais não essenciais</h3>
-
         <div id="carousel6" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
             <div class="carousel-inner px-5 py-3 bg-light rounded">
+
+                <h3 class="text-dark text-center text-decoration-underline">Materiais não essenciais</h3>
+
                 <div class="carousel-item active px-5">
                     <h4 class="">Vídeos</h4>
                     <% for (let i = 0; i < 3; i++) { %>
@@ -727,7 +733,7 @@
                     <% } %>
                 </div>
                 <div class="carousel-item px-5">
-                    <h4 class="">Listas</h4>
+                    <h4 class="">Listas de exercícios</h4>
                     <% for (let i = 0; i < 3; i++)  { %>
                     <label for="postC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
                     <% if (dashboard.classes[classNum]) { %>
