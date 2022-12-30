@@ -1,0 +1,178 @@
+<div class="row mb-2" id="preCEvideoContent">
+    <div class="col-12 col-lg-4 px-1">
+        <div class="container-fluid">
+            <!-- Video 0 chapters -->
+            <% if (chaptersData.preCEchaptersData0 && chaptersData.preCEchaptersData0.length) { %>
+            <div class="row dropdown mb-1" id="preCEchaptersDropdown0">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCEchaptersList0">
+                    <% for (let i = 0; i < chaptersData.preCEchaptersData0.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCEchaptersData0[i].timestamp[0] + 60*chaptersData.preCEchaptersData0[i].timestamp[1] + chaptersData.preCEchaptersData0[i].timestamp[2] %>">
+                        <%= chaptersData.preCEchaptersData0[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p id="preCEchaptersDropdown0">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <!-- Video 1 chapters -->
+            <% if (chaptersData.preCEchaptersData1 && chaptersData.preCEchaptersData1.length) { %>
+            <div class="row dropdown mb-1 d-none" id="preCEchaptersDropdown1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCEchaptersList1">
+                    <% for (let i = 0; i < chaptersData.preCEchaptersData1.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCEchaptersData1[i].timestamp[0] + 60*chaptersData.preCEchaptersData1[i].timestamp[1] + chaptersData.preCEchaptersData1[i].timestamp[2] %>">
+                        <%= chaptersData.preCEchaptersData1[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p class="d-none" id="preCEchaptersDropdown1">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <!-- Video 2 chapters -->
+            <% if (chaptersData.preCEchaptersData2 && chaptersData.preCEchaptersData2.length) { %>
+            <div class="row dropdown mb-1 d-none" id="preCEchaptersDropdown2">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCEchaptersList2">
+                    <% for (let i = 0; i < chaptersData.preCEchaptersData2.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCEchaptersData2[i].timestamp[0] + 60*chaptersData.preCEchaptersData2[i].timestamp[1] + chaptersData.preCEchaptersData2[i].timestamp[2] %>">
+                        <%= chaptersData.preCEchaptersData2[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p class="d-none" id="preCEchaptersDropdown2">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Vídeos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-videos">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.video.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.video[i] !== '') { %>
+                    <li><button class="dropdown-item" id="preCEvideo<%= i %>"
+                            value="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.essential.video[i] %>?rel=0">
+                            Vídeo <%= i + 1 %>
+                        </button></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Slides -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-slides"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Slides
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-slides">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.slide.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.slide[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.essential.slide[i] %>">
+                            Slide <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Exercises lists -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button"
+                    id="pre-aula-essencial-listas-de-exercicios" data-bs-toggle="dropdown" aria-expanded="false">
+                    Listas de exercícios
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-listas-de-exercicios">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.exerciseList.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.exerciseList[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.essential.exerciseList[i] %>">
+                            Lista <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Readings -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-leituras"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Leituras
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-leituras">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.reading.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.reading[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="https://www.youtube.com/watch?v=<%= dashboard.classes[classIndex].preClassMaterial.essential.reading[i] %>">
+                            Leitura <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Quizzes -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-questionarios"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Quizzes
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-questionarios">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.quizz.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.quizz[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.essential.quizz[i] %>">
+                            Quizz <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- External links -->
+            <div class="row dropdown">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-links-externos"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Links externos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-links-externos">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.essential.externalLink.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.essential.externalLink[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.essential.externalLink[i] %>">
+                            Link <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8 px-3 py-2 p-lg-0">
+        <% if (dashboard.classes[classIndex].preClassMaterial.essential.video[0] !== '') { %>
+        <div class="ratio ratio-16x9">
+            <iframe
+                src="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.essential.video[0] %>?rel=0"
+                title="YouTube video" id="preCEvideo" allowfullscreen></iframe>
+        </div>
+        <% } else { %>
+        <p class="text-center">Esta parte da aula não possui vídeos.</p>
+        <% } %>
+    </div>
+</div>

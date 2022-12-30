@@ -11,125 +11,104 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand px-4" href="#"><%= dashboard.title %></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Início</a>
-                    </li> -->
-                    <% if (dashboard.environmentUrl) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<%= dashboard.environmentUrl %>" target="_blank"
-                            aria-disabled="true">Ambiente da
-                            disciplina</a>
-                    </li>
-                    <% } %>
-                    <% if (dashboard.videos[videoIndex].supportMaterial.length) { %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Material de
-                            apoio</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <% for (let i = 0; i < dashboard.videos[videoIndex].supportMaterial.length; i++) { %>
-                            <% if (dashboard.videos[videoIndex].supportMaterial[i]) { %>
-                            <li><a class="dropdown-item" href="<%= dashboard.videos[videoIndex].supportMaterial[i] %>"
-                                    target="_blank">Material
-                                    de apoio <%= i + 1 %></a></li>
-                            <% } %>
-                            <% } %>
-                        </ul>
-                    </li>
-                    <% } %>
-                    <% if (dashboard.videos[videoIndex].inClassExercises.length) { %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Exercícios
-                            em aula</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <% for (let i = 0; i < dashboard.videos[videoIndex].inClassExercises.length; i++) { %>
-                            <% if (dashboard.videos[videoIndex].inClassExercises[i]) { %>
-                            <li><a class="dropdown-item" href="<%= dashboard.videos[videoIndex].inClassExercises[i] %>"
-                                    target="_blank">Exercício em aula
-                                    <%= i + 1 %></a></li>
-                            <% } %>
-                            <% } %>
-                        </ul>
-                    </li>
-                    <% } %>
-                    <% if (dashboard.videos[videoIndex].outOfClassExercises.length) { %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Exercícios
-                            em aula</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <% for (let i = 0; i < dashboard.videos[videoIndex].outOfClassExercises.length; i++) { %>
-                            <% if (dashboard.videos[videoIndex].outOfClassExercises[i]) { %>
-                            <li><a class="dropdown-item"
-                                    href="<%= dashboard.videos[videoIndex].outOfClassExercises[i] %>"
-                                    target="_blank">Exercício fora de
-                                    aula <%= i + 1 %></a></li>
-                            <% } %>
-                            <% } %>
-                        </ul>
-                    </li>
-                    <% } %>
-                    <% if (dashboard.forumUrl) { %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<%= dashboard.forumUrl %>" aria-disabled="true" target="_blank">Fórum
-                            da
-                            disciplina</a>
-                    </li>
-                    <% } %>
-                </ul>
+    <div class="container-fluid bg-secondary">
+        <!-- Classes -->
+        <div class="row py-2 px-5 bg-dark">
+            <div class="col-12 col-lg-6 text-center text-lg-start">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+            </div>
+            <div class="col-12 col-lg-6 text-center text-lg-end">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                        aria-expanded="false">Aulas</button>
+                    <ul class="dropdown-menu" aria-labelledby="aulas">
+                        <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
+                        <li><a class="dropdown-item fs-5"
+                                href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
+                                <% if (dashboard.classes[i].title) { %>
+                                : <%= dashboard.classes[i].title %>
+                                <% } %></a>
+                        </li>
+                        <% }} %>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container-fluid pt-3 pb-3">
-        <div class="row">
-            <div class="col-3">
-                <div class="container-fluid justify-content-center">
-                    <div class="row mb-2">
-                        <% if (chaptersData.length) { %>
-                        <h5>Capítulos do vídeo</h5>
-                        <div class="mb-3 ms-2" style="width: 30%; height: 1px; background-color: #555;"></div>
-                        <ul id="chaptersList" class="list-group">
-                            <% for (let i = 0; i < chaptersData.length; i++) { %>
-                            <li class="list-group-item btn btn-link"
-                                id="<%= 3600*chaptersData[i].timestamp[0] + 60*chaptersData[i].timestamp[1] + chaptersData[i].timestamp[2] %>">
-                                <%= chaptersData[i].title %>
-                            </li>
-                            <% } %>
-                        </ul>
-                        <% } %>
-                    </div>
-                    <div class="row">
-                        <h5>Aulas</h5>
-                        <div class="mb-3 ms-2" style="width: 30%; height: 1px; background-color: #555;"></div>
-                        <ul id="videosList" class="list-group">
-                            <% for (let i = 0; i < dashboard.videos.length; i++) { %>
-                            <li class="list-group-item btn btn-link""
-                                id=" /courseDashboards/<%= dashboard._id %>/dash/<%= i %>">
-                                <%= dashboard.videos[i].title %>
-                            </li>
-                            <% } %>
-                        </ul>
-                    </div>
-                </div>
+
+        <!-- Class parts -->
+        <div class="row py-2">
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-secondary" aria-current="page" href="#preClassMaterial">Pré-aula</a>
             </div>
-            <div class="col-9">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/<%= dashboard.videos[videoIndex].videoId %>?rel=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-secondary" aria-current="page" href="#forClassMaterial">Para
+                    aula</a>
+            </div>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-secondary" aria-current="page" href="#postClassMaterial">Pós-aula</a>
             </div>
         </div>
     </div>
+
+    <main>
+        <div id="preClassMaterial" class="container-fluid py-2" style="background-color: #ffab74;">
+            <div class="row">
+                <h1 class="col-12 text-center">Pré-aula</h1>
+            </div>
+
+            <!-- Pre-class material (essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/essentialPreClass") %>
+
+            <!-- Pre-class material (non-essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/nonEssentialPreClass") %>
+        </div>
+
+        <div id="forClassMaterial" class="container-fluid py-2" style="background-color: #ffe08a;">
+            <div class="row">
+                <h1 class="col-12 text-center">Para aula</h1>
+            </div>
+
+            <!-- For class material (essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/essentialForClass") %>
+
+            <!-- For class material (non-essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/nonEssentialForClass") %>
+        </div>
+
+        <div id="postClassMaterial" class="container-fluid py-2" style="background-color: #ffa7d0;">
+            <div class="row">
+                <h1 class="col-12 text-center">Pós-aula</h1>
+            </div>
+
+            <!-- Post-class material (essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/essentialPostClass") %>
+
+            <!-- Post-class material (non-essential) -->
+            <div class="row">
+                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            </div>
+            <%- include("./courseDashboardParts/nonEssentialPostClass") %>
+        </div>
+    </main>
+
     <script src="../../../js/videoControls.js">
+    </script>
+    <script src="../../../js/disableBtns.js">
     </script>
 </body>
 
