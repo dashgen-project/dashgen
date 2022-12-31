@@ -25,7 +25,7 @@ router.route('/:id')
 
 router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.showMaterial));
 
-router.route('/:id/dash/:videoIndex')
+router.route('/:id/dash/:classIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard));
 
 // router.route('/:id/editClass')

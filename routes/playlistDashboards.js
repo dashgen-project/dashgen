@@ -21,7 +21,7 @@ router.route('/:id')
     .put(isLoggedIn, isPlaylistDashboardAuthor, validateEditPlaylistDashboard, wrapAsync(playlistDashboards.updatePlaylistDashboard))
     .delete(isLoggedIn, isPlaylistDashboardAuthor, wrapAsync(playlistDashboards.deletePlaylistDashboard));
 
-router.route('/:id/dash/:videoIndex')
+router.route('/:id/dash/:classIndex')
     .get(wrapAsync(playlistDashboards.renderPlaylistDashboard));
 
 module.exports = router;

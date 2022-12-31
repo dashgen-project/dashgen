@@ -1,0 +1,178 @@
+<div class="row mb-2" id="preCNEvideoContent">
+    <div class="col-12 col-lg-4 px-1">
+        <div class="container-fluid">
+            <!-- Video 0 chapters -->
+            <% if (chaptersData.preCNEchaptersData0 && chaptersData.preCNEchaptersData0.length) { %>
+            <div class="row dropdown mb-1" id="preCNEchaptersDropdown0">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCNEchaptersList0">
+                    <% for (let i = 0; i < chaptersData.preCNEchaptersData0.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCNEchaptersData0[i].timestamp[0] + 60*chaptersData.preCNEchaptersData0[i].timestamp[1] + chaptersData.preCNEchaptersData0[i].timestamp[2] %>">
+                        <%= chaptersData.preCNEchaptersData0[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p id="preCNEchaptersDropdown0">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <!-- Video 1 chapters -->
+            <% if (chaptersData.preCNEchaptersData1 && chaptersData.preCNEchaptersData1.length) { %>
+            <div class="row dropdown mb-1 d-none" id="preCNEchaptersDropdown1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCNEchaptersList1">
+                    <% for (let i = 0; i < chaptersData.preCNEchaptersData1.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCNEchaptersData1[i].timestamp[0] + 60*chaptersData.preCNEchaptersData1[i].timestamp[1] + chaptersData.preCNEchaptersData1[i].timestamp[2] %>">
+                        <%= chaptersData.preCNEchaptersData1[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p class="d-none" id="preCNEchaptersDropdown1">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <!-- Video 2 chapters -->
+            <% if (chaptersData.preCNEchaptersData2 && chaptersData.preCNEchaptersData2.length) { %>
+            <div class="row dropdown mb-1 d-none" id="preCNEchaptersDropdown2">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video" id="preCNEchaptersList2">
+                    <% for (let i = 0; i < chaptersData.preCNEchaptersData2.length; i++) { %>
+                    <li class="dropdown-item btn btn-link"
+                        id="<%= 3600*chaptersData.preCNEchaptersData2[i].timestamp[0] + 60*chaptersData.preCNEchaptersData2[i].timestamp[1] + chaptersData.preCNEchaptersData2[i].timestamp[2] %>">
+                        <%= chaptersData.preCNEchaptersData2[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } else { %>
+            <p class="d-none" id="preCNEchaptersDropdown2">Este vídeo não está separado em capítulos.</p>
+            <% } %>
+
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Vídeos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-videos">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.video.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.video[i] !== '') { %>
+                    <li><button class="dropdown-item" id="preCNEvideo<%= i %>"
+                            value="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.video[i] %>?rel=0">
+                            Vídeo <%= i + 1 %>
+                        </button></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Slides -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-nao-essencial-slides"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Slides
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-slides">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.slide.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.slide[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.slide[i] %>">
+                            Slide <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Exercises lists -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button"
+                    id="pre-aula-nao-essencial-listas-de-exercicios" data-bs-toggle="dropdown" aria-expanded="false">
+                    Listas de exercícios
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-listas-de-exercicios">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.exerciseList.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.exerciseList[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.exerciseList[i] %>">
+                            Lista <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Readings -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-nao-essencial-leituras"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Leituras
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-leituras">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.reading.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.reading[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="https://www.youtube.com/watch?v=<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.reading[i] %>">
+                            Leitura <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- Quizzes -->
+            <div class="row dropdown mb-1">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button"
+                    id="pre-aula-nao-essencial-questionarios" data-bs-toggle="dropdown" aria-expanded="false">
+                    Quizzes
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-questionarios">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.quizz.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.quizz[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.quizz[i] %>">
+                            Quizz <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- External links -->
+            <div class="row dropdown">
+                <button class="btn btn-dark dropdown-toggle w-100" type="button"
+                    id="pre-aula-nao-essencial-links-externos" data-bs-toggle="dropdown" aria-expanded="false">
+                    Links externos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="pre-aula-nao-essencial-links-externos">
+                    <% for (let i = 0; i < dashboard.classes[classIndex].preClassMaterial.nonEssential.externalLink.length; i++) { %>
+                    <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.externalLink[i] !== '') { %>
+                    <li><a target="_blank" class="dropdown-item"
+                            href="<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.externalLink[i] %>">
+                            Link <%= i + 1 %>
+                        </a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8 px-3 py-2 p-lg-0">
+        <% if (dashboard.classes[classIndex].preClassMaterial.nonEssential.video[0] !== '') { %>
+        <div class="ratio ratio-16x9">
+            <iframe
+                src="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.nonEssential.video[0] %>?rel=0"
+                title="YouTube video" id="preCNEvideo" allowfullscreen></iframe>
+        </div>
+        <% } else { %>
+        <p class="text-center">Esta parte da aula não possui vídeos.</p>
+        <% } %>
+    </div>
+</div>

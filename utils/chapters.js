@@ -2,6 +2,11 @@ const axios = require('axios');
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
 
 const getChaptersData = async (videoId) => {
+    // If video ID is null, return false
+    if (videoId === '') {
+        return false;
+    }
+
     // Function for filtering array elements which don't contain a timestamp
     const notText = (array) => {
         const regexTimePattern = /\d:\d/;
