@@ -62,7 +62,7 @@ module.exports.deletePlaylistDashboard = async (req, res) => {
 }
 
 module.exports.renderPlaylistDashboard = async (req, res) => {
-    const { id, videoIndex } = req.params;
+    const { id, classIndex } = req.params;
     const dashboard = await PlaylistDashboard.findById(id);
     const videosData = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${dashboard.playlistId}&key=${youtubeApiKey}&maxResults=99`,
@@ -75,7 +75,7 @@ module.exports.renderPlaylistDashboard = async (req, res) => {
             videoId: video.snippet.resourceId.videoId
         });
     }
-    const { videoId } = videos[videoIndex];
+    const { videoId } = videos[classIndex];
     const chaptersData = await chapters.getChaptersData(videoId);
-    res.render('dashboards/playlistDashboard', { dashboard, videoIndex, chaptersData, videos });
+    res.render('dashboards/playlistDashboard', { dashboard, classIndex, chaptersData, videos });
 }

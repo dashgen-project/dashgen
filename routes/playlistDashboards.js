@@ -5,23 +5,24 @@ const {
     isPlaylistDashboardAuthor,
     isLoggedIn,
     validateNewPlaylistDashboard,
-    validateEditPlaylistDashboard
+    validateEditPlaylistDashboard,
+    renderError
 } = require('../middleware');
 const wrapAsync = require('../utils/wrapAsync');
 
 router.route('/')
-    .get(wrapAsync(playlistDashboards.index))
-    .post(isLoggedIn, validateNewPlaylistDashboard, wrapAsync(playlistDashboards.createPlaylistDashboard));
+    .get(wrapAsync(playlistDashboards.index), renderError)
+    .post(isLoggedIn, validateNewPlaylistDashboard, wrapAsync(playlistDashboards.createPlaylistDashboard), renderError);
 
 router.route('/new')
-    .get(isLoggedIn, wrapAsync(playlistDashboards.renderNewPlaylistDashboardForm));
+    .get(isLoggedIn, wrapAsync(playlistDashboards.renderNewPlaylistDashboardForm), renderError);
 
 router.route('/:id')
-    .get(isLoggedIn, wrapAsync(playlistDashboards.showPlaylistDashboard))
-    .put(isLoggedIn, isPlaylistDashboardAuthor, validateEditPlaylistDashboard, wrapAsync(playlistDashboards.updatePlaylistDashboard))
-    .delete(isLoggedIn, isPlaylistDashboardAuthor, wrapAsync(playlistDashboards.deletePlaylistDashboard));
+    .get(isLoggedIn, wrapAsync(playlistDashboards.showPlaylistDashboard), renderError)
+    .put(isLoggedIn, isPlaylistDashboardAuthor, validateEditPlaylistDashboard, wrapAsync(playlistDashboards.updatePlaylistDashboard), renderError)
+    .delete(isLoggedIn, isPlaylistDashboardAuthor, wrapAsync(playlistDashboards.deletePlaylistDashboard), renderError);
 
-router.route('/:id/dash/:videoIndex')
-    .get(wrapAsync(playlistDashboards.renderPlaylistDashboard));
+router.route('/:id/dash/:classIndex')
+    .get(wrapAsync(playlistDashboards.renderPlaylistDashboard), renderError);
 
 module.exports = router;

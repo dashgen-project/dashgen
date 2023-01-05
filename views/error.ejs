@@ -1,0 +1,12 @@
+<%- include('partials/header'); -%>
+<%- include('partials/flash'); -%>
+
+<h3>Ops, houve um problema inesperado, pedimos desculpas pelo inconveniente. Caso o erro persista, entre em contato com
+    o desenvolvedor através do e-mail henriquesander27@gmail.com</h3>
+<% if (message !== '') { %>
+<p class="fs-5">Erro: <%= message %></p>
+<% } else { %>
+<p class="fs-5">Erro desconhecido</p>
+<% } %>
+
+<%- include('partials/footer'); -%>

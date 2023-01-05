@@ -12,8 +12,8 @@ const {
     videoSchema,
     loginSchema,
     userSchema
-} = require('./schemas')
-const ExpressError = require('./utils/ExpressError')
+} = require('./schemas');
+const ExpressError = require('./utils/ExpressError');
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
@@ -65,7 +65,8 @@ module.exports.isVideoDashboardAuthor = async (req, res, next) => {
 module.exports.validateNewCourseDashboard = (req, res, next) => {
     const { error } = newCourseDashboardSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -75,7 +76,8 @@ module.exports.validateNewCourseDashboard = (req, res, next) => {
 module.exports.validateEditCourseDashboard = (req, res, next) => {
     const { error } = editCourseDashboardSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -85,7 +87,8 @@ module.exports.validateEditCourseDashboard = (req, res, next) => {
 module.exports.validateEditClass = (req, res, next) => {
     const { error } = editClassSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -95,7 +98,8 @@ module.exports.validateEditClass = (req, res, next) => {
 module.exports.validateNewPlaylistDashboard = (req, res, next) => {
     const { error } = newPlaylistDashboardSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -105,7 +109,8 @@ module.exports.validateNewPlaylistDashboard = (req, res, next) => {
 module.exports.validateEditPlaylistDashboard = (req, res, next) => {
     const { error } = editPlaylistDashboardSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -116,6 +121,7 @@ module.exports.validateNewVideoDashboard = (req, res, next) => {
     const { error } = newVideoDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -126,6 +132,7 @@ module.exports.validateEditVideoDashboard = (req, res, next) => {
     const { error } = editVideoDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -136,6 +143,7 @@ module.exports.validateVideo = (req, res, next) => {
     const { error } = videoSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -145,7 +153,8 @@ module.exports.validateVideo = (req, res, next) => {
 module.exports.validateLogin = (req, res, next) => {
     const { error } = loginSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -155,9 +164,15 @@ module.exports.validateLogin = (req, res, next) => {
 module.exports.validateUser = (req, res, next) => {
     const { error } = userSchema.validate(req.body);
     if (error) {
-        const message = error.details.map(el => el.message).join(',\n')
+        const message = error.details.map(el => el.message).join(',\n');
+        res.render('error', { message });
         throw new ExpressError(message, 400);
     } else {
         next();
     }
+}
+
+module.exports.renderError = (req, res, next) => {
+    message = '';
+    res.render('error', { message });
 }
