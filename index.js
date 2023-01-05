@@ -10,6 +10,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
+const howToUseRoutes = require('./routes/howToUse');
 const courseDashboardRoutes = require('./routes/courseDashboards');
 const playlistDashboardRoutes = require('./routes/playlistDashboards');
 const videoDashboardRoutes = require('./routes/videoDashboards');
@@ -129,7 +130,8 @@ app.get('/', wrapAsync(async (req, res) => {
     res.render('home');
 }));
 
-app.use('/', userRoutes)
+app.use('/', userRoutes);
+app.use('/howToUse', howToUseRoutes);
 app.use('/courseDashboards', courseDashboardRoutes);
 app.use('/playlistDashboards', playlistDashboardRoutes);
 app.use('/videoDashboards', videoDashboardRoutes);

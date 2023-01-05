@@ -171,3 +171,8 @@ module.exports.validateUser = (req, res, next) => {
         next();
     }
 }
+
+module.exports.renderError = (req, res, next) => {
+    message = '';
+    res.render('error', { message });
+}
