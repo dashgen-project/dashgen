@@ -14,9 +14,11 @@ module.exports.renderNewVideoDashboardForm = async (req, res) => {
 
 module.exports.createVideoDashboard = async (req, res) => {
     const { videoUrl } = req.body.videoDashboard;
-    const queryString = videoUrl.substring(videoUrl.indexOf('?'));
-    const urlParams = new URLSearchParams(queryString);
-    const videoId = urlParams.getAll('v')[0];
+    // const queryString = videoUrl.substring(videoUrl.indexOf('?'));
+    // const urlParams = new URLSearchParams(queryString);
+    // const videoId = urlParams.getAll('v')[0];
+    videoId = videoUrl.substring(17);
+    console.log(videoId);
     const videoData = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${youtubeApiKey}`,
         { headers: { 'Accept': 'application/json' } }
@@ -28,7 +30,7 @@ module.exports.createVideoDashboard = async (req, res) => {
         author: req.user._id
     });
     await dashboard.save();
-    res.flash('success', 'Dashboard criado com sucesso!');
+    req.flash('success', 'Dashboard criado com sucesso!');
     res.redirect(`/videoDashboards/${dashboard._id}`);
 }
 
@@ -41,8 +43,8 @@ module.exports.showVideoDashboard = async (req, res) => {
 
 module.exports.updateVideoDashboard = async (req, res) => {
     const { id } = req.params;
-    await VideoDashboard.findByIdAndUpdate(id, { ...req.body.dashboard });
-    res.flash('success', 'Dashboard editado com sucesso!');
+    await VideoDashboard.findByIdAndUpdate(id, { ...req.body.videoDashboard });
+    req.flash('success', 'Dashboard editado com sucesso!');
     res.redirect(`/videoDashboards/${id}`);
 }
 
