@@ -14,6 +14,7 @@
     <div class="container-fluid bg-secondary">
         <!-- Classes -->
         <div class="row py-2 px-5 bg-dark">
+            <% if (!dashboard.environmentUrl && !dashboard.forumUrl) { %>
             <div class="col-12 col-lg-6 text-center text-lg-start">
                 <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
             </div>
@@ -33,6 +34,83 @@
                     </ul>
                 </div>
             </div>
+            <% } else if (!dashboard.environmentUrl) { %>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+            </div>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.forumUrl %>"
+                    target="_blank">Fórum</a>
+            </div>
+            <div class="col-12 col-lg-4 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                        aria-expanded="false">Aulas</button>
+                    <ul class="dropdown-menu" aria-labelledby="aulas">
+                        <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
+                        <li><a class="dropdown-item fs-5"
+                                href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
+                                <% if (dashboard.classes[i].title) { %>
+                                : <%= dashboard.classes[i].title %>
+                                <% } %></a>
+                        </li>
+                        <% }} %>
+                    </ul>
+                </div>
+            </div>
+            <% } else if (!dashboard.forumUrl) { %>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+            </div>
+            <div class="col-12 col-lg-4 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.environmentUrl %>"
+                    target="_blank">Ambiente da disciplina</a>
+            </div>
+            <div class="col-12 col-lg-4 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                        aria-expanded="false">Aulas</button>
+                    <ul class="dropdown-menu" aria-labelledby="aulas">
+                        <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
+                        <li><a class="dropdown-item fs-5"
+                                href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
+                                <% if (dashboard.classes[i].title) { %>
+                                : <%= dashboard.classes[i].title %>
+                                <% } %></a>
+                        </li>
+                        <% }} %>
+                    </ul>
+                </div>
+            </div>
+            <% } else { %>
+            <div class="col-12 col-lg-3 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+            </div>
+            <div class="col-12 col-lg-3 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.environmentUrl %>"
+                    target="_blank">Ambiente da disciplina</a>
+            </div>
+            <div class="col-12 col-lg-3 text-center">
+                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.forumUrl %>"
+                    target="_blank">Fórum</a>
+            </div>
+            <div class="col-12 col-lg-3 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                        aria-expanded="false">Aulas</button>
+                    <ul class="dropdown-menu" aria-labelledby="aulas">
+                        <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
+                        <li><a class="dropdown-item fs-5"
+                                href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
+                                <% if (dashboard.classes[i].title) { %>
+                                : <%= dashboard.classes[i].title %>
+                                <% } %></a>
+                        </li>
+                        <% }} %>
+                    </ul>
+                </div>
+            </div>
+            <% } %>
         </div>
 
         <!-- Class parts -->

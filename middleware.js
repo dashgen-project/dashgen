@@ -28,8 +28,8 @@ module.exports.isNotLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return next();
     }
-    req.flash('error', 'Você precisa sair da sua conta para acessar essa página.');
-    res.redirect('back');
+    // req.flash('error', 'Você precisa sair da sua conta para acessar essa página.');
+    res.redirect('/');
 }
 
 module.exports.isCourseDashboardAuthor = async (req, res, next) => {

@@ -12,7 +12,7 @@ module.exports.register = async (req, res, next) => {
         req.login(registeredUser, err => {
             if (err) return next(err);
             req.flash('success', 'Bem-vindo(a) ao DashGen!')
-            res.redirect('/');
+            return res.redirect('/');
         });
     } catch (e) {
         req.flash('error', e.message);
@@ -20,14 +20,14 @@ module.exports.register = async (req, res, next) => {
     }
 }
 
-module.exports.login = (req, res) => {
+module.exports.login = (req, res, next) => {
     req.flash('success', 'Bem-vindo(a) de volta!');
     let redirectUrl = req.session.returnTo || '/';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
 }
 
-module.exports.logout = (req, res) => {
+module.exports.logout = (req, res, next) => {
     req.logout(function (err) {
         if (err) { return next(err); }
         req.flash('success', 'Você saiu da sua conta com sucesso.');
