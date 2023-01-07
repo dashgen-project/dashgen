@@ -123,7 +123,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', wrapAsync(async (req, res) => {
+app.get('/', wrapAsync(async (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.render('users/login');
     }
