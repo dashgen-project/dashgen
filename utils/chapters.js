@@ -99,7 +99,6 @@ const getChaptersData = async (videoId) => {
             timestamp: [hour[i], min[i], sec[i]]
         }
     }
-    // console.log(chaptersData);
     return chaptersData;
 }
 
