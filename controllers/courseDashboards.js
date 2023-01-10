@@ -74,7 +74,6 @@ module.exports.showCourseDashboard = async (req, res) => {
     }
     let nonMoodleMaterial = 0;
     if (!checkUrl.isMoodle(dashboard.classes)) {
-        console.log("material n está todo no moodle");
         nonMoodleMaterial = 1;
     }
     res.render('courseDashboards/show', { dashboard, nonMoodleMaterial });
@@ -145,7 +144,6 @@ module.exports.updateVideoInformation = async (req, res) => {
 module.exports.updateClassInformation = async (req, res) => {
     const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
-    console.log(req.body.thisClass.preClassMaterial.essential);
     dashboard.classes[classNum] = { ...req.body.thisClass };
     await dashboard.save();
     req.flash('success', 'Aula salva com sucesso!');
@@ -156,7 +154,6 @@ module.exports.deleteClass = async (req, res) => {
     const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
     dashboard.classes.splice(classNum, 1);
-    console.log(dashboard.classes);
     for (let i = classNum; i < dashboard.classes.length; i++) {
         dashboard.classes[i].classNumber--;
     }

@@ -18,7 +18,6 @@ module.exports.createVideoDashboard = async (req, res) => {
     // const urlParams = new URLSearchParams(queryString);
     // const videoId = urlParams.getAll('v')[0];
     videoId = videoUrl.substring(17);
-    console.log(videoId);
     const videoData = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${youtubeApiKey}`,
         { headers: { 'Accept': 'application/json' } }

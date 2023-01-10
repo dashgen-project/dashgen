@@ -10,7 +10,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
@@ -22,7 +21,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
@@ -34,7 +32,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
@@ -46,7 +43,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
@@ -58,7 +54,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
@@ -70,7 +65,6 @@ const isMoodle = classesArray => {
                     if (materialType !== 'video' && materialType !== 'externalLink') {
                         if (material[i]) {
                             if (material[i].substring(0, 20) !== edisciplinas) {
-                                console.log(material[i]);
                                 return false;
                             }
                         }
