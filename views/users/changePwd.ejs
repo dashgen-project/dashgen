@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script type="application/javascript" src="/js/bootstrap.bundle.min.js"></script>
-    <title>Entrar</title>
+    <title>Escolher nova senha</title>
 </head>
 
 <body class="container bg-light">
@@ -26,7 +26,7 @@
                         <a class="nav-link active" aria-current="page" href="/register">Fazer cadastro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Entrar</a>
+                        <a class="nav-link active" aria-current="page" href="/login">Entrar</a>
                     </li>
                 </ul>
             </div>
@@ -35,24 +35,22 @@
 
     <%- include('../partials/flash'); -%>
 
-    <h1 class="mb-4">Entrar</h1>
-    <form class="mb-4" action="/login" method="POST">
+    <h1 class="mb-4">Escolher nova senha</h1>
+    <p class="mb-4">Um código de recuperação de senha foi enviado para <%= email %>. Cheque também a
+        sua caixa de spam. Caso não tenha recebido o email, tente novamente dentro de alguns minutos.</p>
+    <form class="mb-4" action="/changePwd" method="POST">
         <div class="mb-3">
-            <label for="username" class="form-label">Email</label>
-            <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+            <label for="email" class="form-label">Código recebido no email</label>
+            <input type="text" class="form-control mb-2" id="code" name="code">
+            <label for="password" class="form-label">Nova senha</label>
+            <input type="password" name="password" id="password" class="form-control" min="5" max="20">
+            <input type="email" class="d-none" name="email" value="<%= email %>">
+            <% if (typeof message !== "undefined") { %>
+            <div class="form-text text-danger"><%= message %></div>
+            <% } %>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input type="password" name="password" class="form-control" id="password">
-        </div>
-        <!-- <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Permanecer conectado</label>
-        </div> -->
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary">Mudar senha</button>
     </form>
-    <p><a href="/forgotPwd">Esqueci minha senha</a></p>
-    <p>Ainda não tem uma conta? <a href="/register">Fazer cadastro</a></p>
 </body>
 
 </html>
