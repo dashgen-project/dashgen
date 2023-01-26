@@ -106,9 +106,6 @@ module.exports.deleteCourseDashboard = async (req, res) => {
 module.exports.renderEditClassForm = async (req, res) => {
     const { id, classNum } = req.params;
     const dashboard = await CourseDashboard.findById(id);
-    // const numClasses = dashboard.classes.length;
-    // dashboard.classes.push({ classNumber: numClasses });
-    // await dashboard.save();
     const playlistId = dashboard.playlistId;
     const videosData = await axios.get(
         `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&key=${youtubeApiKey}&maxResults=99`,
@@ -147,7 +144,7 @@ module.exports.updateClassInformation = async (req, res) => {
     dashboard.classes[classNum] = { ...req.body.thisClass };
     await dashboard.save();
     req.flash('success', 'Aula salva com sucesso!');
-    res.redirect(`/courseDashboards/${id}/classes/${classNum}`);
+    res.redirect(`/courseDashboards/${id}`);
 }
 
 module.exports.deleteClass = async (req, res) => {
