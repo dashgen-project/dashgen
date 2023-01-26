@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const randomString = require('../utils/randomString');
 const { userSchema } = require('../schemas');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
