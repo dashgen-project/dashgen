@@ -33,6 +33,7 @@
     "joi": "^17.6.0",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.2",
+    "node-gyp": "^9.3.1",
     "nodemailer": "^6.9.0",
     "passport": "^0.6.0",
     "passport-google": "^0.1.0",
