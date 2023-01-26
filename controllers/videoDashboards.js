@@ -12,7 +12,7 @@ module.exports.renderNewVideoDashboardForm = async (req, res) => {
     res.render('videoDashboards/new');
 }
 
-module.exports.createVideoDashboard = async (req, res) => {
+module.exports.createVideoDashboard = async (req, res, next) => {
     const { videoUrl } = req.body.videoDashboard;
     // const queryString = videoUrl.substring(videoUrl.indexOf('?'));
     // const urlParams = new URLSearchParams(queryString);
