@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     randCodeHash: {
         type: String
+    },
+    randCodeTimeStamp: {
+        type: Number
     }
 });
 
