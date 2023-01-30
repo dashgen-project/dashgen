@@ -51,7 +51,7 @@ module.exports.showPlaylistDashboard = async (req, res) => {
 
 module.exports.updatePlaylistDashboard = async (req, res) => {
     const { id } = req.params;
-    await PlaylistDashboard.findByIdAndUpdate(id, { ...req.body.dashboard });
+    await PlaylistDashboard.findByIdAndUpdate(id, { ...req.body.playlistDashboard });
     res.redirect(`/playlistDashboards/${id}`);
 }
 
