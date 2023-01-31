@@ -3,7 +3,13 @@ const router = express.Router();
 const users = require('../controllers/users');
 const passport = require('passport');
 const wrapAsync = require('../utils/wrapAsync');
-const { validateLogin, validateUser, isNotLoggedIn, renderError } = require('../middleware');
+const {
+    validateLogin,
+    validateUser,
+    isNotLoggedIn,
+    renderError,
+    validateForgotPwd,
+    validateChangePwd } = require('../middleware');
 
 router.route('/register')
     .get(isNotLoggedIn, users.renderRegister, renderError)
@@ -26,8 +32,8 @@ router.route('/logout')
 
 router.route('/forgotPwd')
     .get(users.renderForgotPwd)
-    .post(users.sendPwdEmail);
+    .post(validateForgotPwd, users.sendPwdEmail);
 
-router.route('/changePwd').post(users.changePwd);
+router.route('/changePwd').post(validateChangePwd, users.changePwd);
 
 module.exports = router;

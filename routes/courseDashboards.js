@@ -8,7 +8,7 @@ const {
     validateEditCourseDashboard,
     validateEditClass,
     validateVideo,
-    renderError
+    renderError,
 } = require('../middleware');
 const wrapAsync = require('../utils/wrapAsync');
 
@@ -29,10 +29,6 @@ router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrap
 router.route('/:id/dash/:classIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard), renderError);
 
-// router.route('/:id/editClass')
-//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClass))
-//     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
-
 router.route('/:id/classes/:classNum')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm), renderError)
     .put(isLoggedIn, isCourseDashboardAuthor, validateEditClass, wrapAsync(courseDashboards.updateClassInformation), renderError)
@@ -42,9 +38,5 @@ router.route('/:id/:classId')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm), renderError)
     .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation), renderError)
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass), renderError);
-
-// router.route('/:id/:videoId')
-//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
-//     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
 
 module.exports = router;
