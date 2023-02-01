@@ -1,4 +1,6 @@
-// Disable dropdowns which don't have elements inside
+/**
+ * @file Disable dropdown buttons which do not have content
+ */
 
 dropdownBtns = document.getElementsByClassName("dropdown-menu");
 for (let btn of dropdownBtns) {

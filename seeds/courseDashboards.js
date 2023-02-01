@@ -42,6 +42,6 @@ async function main() {
         ]
     });
 
-    await playlistDashboard.save();
+    await playlistDashboard.save(); // save to the database
     mongoose.connection.close();
 }

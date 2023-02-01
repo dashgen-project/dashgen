@@ -20,11 +20,11 @@ router.route('/new')
     .get(isLoggedIn, wrapAsync(courseDashboards.renderNewCourseDashboardForm), renderError);
 
 router.route('/:id')
-    .get(isLoggedIn, wrapAsync(courseDashboards.showCourseDashboard))
+    .get(isLoggedIn, wrapAsync(courseDashboards.showCourseDashboard), renderError)
     .put(isLoggedIn, isCourseDashboardAuthor, validateEditCourseDashboard, wrapAsync(courseDashboards.updateCourseDashboard), renderError)
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteCourseDashboard), renderError);
 
-router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.showMaterial), renderError);
+// router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.showMaterial), renderError);
 
 router.route('/:id/dash/:classIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard), renderError);

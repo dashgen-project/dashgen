@@ -1,3 +1,4 @@
+/* CSS file primarily to adjust bootstrap carousel appearance */
 .carousel-control-next {
     justify-content: flex-end;
     filter: invert(100%);
