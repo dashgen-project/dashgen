@@ -1,3 +1,7 @@
+/**
+ * @file Populates database for testing (currently not being used)
+ */
+
 const mongoose = require('mongoose');
 const CourseDashboard = require('../models/courseDashboard');
 
@@ -42,6 +46,6 @@ async function main() {
         ]
     });
 
-    await playlistDashboard.save();
+    await playlistDashboard.save(); // save to the database
     mongoose.connection.close();
 }

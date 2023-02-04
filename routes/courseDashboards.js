@@ -1,3 +1,7 @@
+/**
+ * @file courseDashboards routes (specify what happens when server receives requests to /courseDashboards/...)
+ */
+
 const express = require('express');
 const router = express.Router();
 const courseDashboards = require('../controllers/courseDashboards');
@@ -7,8 +11,7 @@ const {
     validateNewCourseDashboard,
     validateEditCourseDashboard,
     validateEditClass,
-    validateVideo,
-    renderError
+    renderError,
 } = require('../middleware');
 const wrapAsync = require('../utils/wrapAsync');
 
@@ -20,31 +23,21 @@ router.route('/new')
     .get(isLoggedIn, wrapAsync(courseDashboards.renderNewCourseDashboardForm), renderError);
 
 router.route('/:id')
-    .get(isLoggedIn, wrapAsync(courseDashboards.showCourseDashboard))
+    .get(isLoggedIn, wrapAsync(courseDashboards.showCourseDashboard), renderError)
     .put(isLoggedIn, isCourseDashboardAuthor, validateEditCourseDashboard, wrapAsync(courseDashboards.updateCourseDashboard), renderError)
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteCourseDashboard), renderError);
 
-router.route('/:id/nedisciplinas').get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.showMaterial), renderError);
-
 router.route('/:id/dash/:classIndex')
     .get(wrapAsync(courseDashboards.renderCourseDashboard), renderError);
-
-// router.route('/:id/editClass')
-//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClass))
-//     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
 
 router.route('/:id/classes/:classNum')
     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm), renderError)
     .put(isLoggedIn, isCourseDashboardAuthor, validateEditClass, wrapAsync(courseDashboards.updateClassInformation), renderError)
     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass), renderError);
 
-router.route('/:id/:classId')
-    .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm), renderError)
-    .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation), renderError)
-    .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass), renderError);
-
-// router.route('/:id/:videoId')
-//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditVideoInformationForm))
-//     .put(isLoggedIn, isCourseDashboardAuthor, validateVideo, wrapAsync(courseDashboards.updateVideoInformation));
+// router.route('/:id/:classId')
+//     .get(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.renderEditClassForm), renderError)
+//     .put(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.updateClassInformation), renderError)
+//     .delete(isLoggedIn, isCourseDashboardAuthor, wrapAsync(courseDashboards.deleteClass), renderError);
 
 module.exports = router;

@@ -1,3 +1,7 @@
+/**
+ * @file Gets yt video chapters information from description. Uses youtube api.
+ */
+
 const axios = require('axios');
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
 
