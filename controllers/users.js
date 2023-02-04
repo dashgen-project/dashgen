@@ -1,9 +1,13 @@
-const User = require('../models/user');
-const randomString = require('../utils/randomString');
-const { userSchema } = require('../schemas');
-const bcrypt = require('bcryptjs');
-const nodemailer = require('nodemailer');
+/**
+ * @file Users controllers
+ */
 
+const User = require('../models/user'); // require user mongoose model
+const randomString = require('../utils/randomString'); // require random string utility
+const bcrypt = require('bcryptjs'); // bcrypt to hash passwords and other secret codes
+const nodemailer = require('nodemailer'); // require nodemailer to send pwd recovery email
+
+// Transporter to send pwd recovery email
 const transporter = nodemailer.createTransport({
     service: 'Zoho',
     auth: {
@@ -12,10 +16,12 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// render register form
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
 }
 
+// register new user
 module.exports.register = async (req, res, next) => {
     try {
         const { username, password } = req.body;
@@ -32,6 +38,7 @@ module.exports.register = async (req, res, next) => {
     }
 }
 
+// perform login
 module.exports.login = (req, res, next) => {
     req.flash('success', 'Bem-vindo(a) de volta!');
     let redirectUrl = req.session.returnTo || '/';
@@ -39,6 +46,7 @@ module.exports.login = (req, res, next) => {
     res.redirect(redirectUrl);
 }
 
+// perform logout
 module.exports.logout = (req, res, next) => {
     req.logout(function (err) {
         if (err) { return next(err); }
@@ -47,11 +55,12 @@ module.exports.logout = (req, res, next) => {
     });
 }
 
-// Forgot password
+// Render forgot password form (user types email)
 module.exports.renderForgotPwd = (req, res, next) => {
     res.render('users/forgotPwd');
 }
 
+// Send password recovery email
 module.exports.sendPwdEmail = async (req, res, next) => {
     const { email } = req.body;
     const user = await User.findOne({ username: email });
@@ -108,7 +117,7 @@ module.exports.changePwd = async (req, res, next) => {
                         user.setPassword(password, async function () {
                             user.randCodeHash = undefined;
                             user.randCodeTimeStamp = undefined;
-                            await user.save();
+                            await user.save(); // save to the database
                             req.flash('success', 'Senha atualizada com sucesso.');
                             res.redirect('/');
                         });

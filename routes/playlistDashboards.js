@@ -1,3 +1,7 @@
+/**
+ * @file playlistDashboards routes (specify what happens when server receives requests to /playlistDashboards/...)
+ */
+
 const express = require('express');
 const router = express.Router();
 const playlistDashboards = require('../controllers/playlistDashboards');

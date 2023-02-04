@@ -45,8 +45,8 @@ module.exports.isNotLoggedIn = (req, res, next) => {
 
 // check if user is the author of the course dashboard they are trying to edit
 module.exports.isCourseDashboardAuthor = async (req, res, next) => {
-    const { id } = req.params;
-    const dashboard = await CourseDashboard.findById(id);
+    const { id } = req.params; // get information from request parameters
+    const dashboard = await CourseDashboard.findById(id); // find document in the database
     if (!dashboard.author.equals(req.user._id)) {
         req.flash('error', 'Ops, parece que você não é o autor desse dashboard.');
         return res.redirect('/');
@@ -56,8 +56,8 @@ module.exports.isCourseDashboardAuthor = async (req, res, next) => {
 
 // check if user is the author of the playlist dashboard they are trying to edit
 module.exports.isPlaylistDashboardAuthor = async (req, res, next) => {
-    const { id } = req.params;
-    const dashboard = await PlaylistDashboard.findById(id);
+    const { id } = req.params; // get information from request parameters
+    const dashboard = await PlaylistDashboard.findById(id); // find document in the database
     if (!dashboard.author.equals(req.user._id)) {
         req.flash('error', 'Ops, parece que você não é o autor desse dashboard.');
         return res.redirect('/');
@@ -67,8 +67,8 @@ module.exports.isPlaylistDashboardAuthor = async (req, res, next) => {
 
 // check if user is the author of the video dashboard they are trying to edit
 module.exports.isVideoDashboardAuthor = async (req, res, next) => {
-    const { id } = req.params;
-    const dashboard = await VideoDashboard.findById(id);
+    const { id } = req.params; // get information from request parameters
+    const dashboard = await VideoDashboard.findById(id); // find document in the database
     if (!dashboard.author.equals(req.user._id)) {
         req.flash('error', 'Ops, parece que você não é o autor desse dashboard.');
         return res.redirect('/');

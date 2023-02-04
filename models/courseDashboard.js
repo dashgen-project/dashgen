@@ -1,9 +1,13 @@
-const mongoose = require('mongoose');
+/**
+ * @file Course dashboard mongoose model
+ */
+
+
+const mongoose = require('mongoose'); // require mongoose to create model
 const { Schema } = mongoose;
-const Video = require('./video');
+const opts = { toJSON: { virtuals: true } }; // allow virtuals (https://mongoosejs.com/docs/tutorials/virtuals.html)
 
-const opts = { toJSON: { virtuals: true } };
-
+// course dashboard model
 const CourseDashboardSchema = new Schema({
     title: String,
     playlistId: {
@@ -74,22 +78,22 @@ const CourseDashboardSchema = new Schema({
             }
         },
     }],
-    videos: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Video'
-        }
-    ],
+    // videos: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Video'
+    //     }
+    // ],
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
 }, opts);
 
-CourseDashboardSchema.post('findOneAndDelete', async doc => {
-    if (doc) {
-        await Video.remove({ _id: { $in: doc.videos } });
-    }
-});
+// CourseDashboardSchema.post('findOneAndDelete', async doc => {
+//     if (doc) {
+//         await Video.remove({ _id: { $in: doc.videos } });
+//     }
+// });
 
 module.exports = mongoose.model('CourseDashboard', CourseDashboardSchema);
