@@ -1,8 +1,8 @@
-// Check if material is on e-disciplinas
+// Check if material is on edisciplinas
 // Return false if some material is not
 // Return true if all material is
 const isMoodle = classesArray => {
-    const edisciplinas = 'https://edisciplinas';
+    const edisciplinas = 'https://edisciplinas.usp.br';
     if (classesArray.length) {
         for (individualClass of classesArray) {
             for (let [materialType, material] of Object.entries(individualClass.preClassMaterial.essential)) {

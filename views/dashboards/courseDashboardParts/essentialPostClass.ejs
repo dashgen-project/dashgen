@@ -1,6 +1,6 @@
-<div class="row mb-2" id="postCEvideoContent">
-    <div class="col-12 col-lg-4 px-1">
-        <div class="container-fluid">
+<div class="row px-5" id="postCEvideoContent">
+    <div class="col-12 col-lg-4">
+        <div class="container-fluid px-0">
             <!-- Video 0 chapters -->
             <% if (chaptersData.postCEchaptersData0 && chaptersData.postCEchaptersData0.length) { %>
             <div class="row dropdown mb-1" id="postCEchaptersDropdown0">
@@ -164,7 +164,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-8 px-3 py-2 p-lg-0">
+    <div class="col-12 col-lg-8 py-2 py-lg-0">
         <% if (dashboard.classes[classIndex].postClassMaterial.essential.video[0] !== '') { %>
         <div class="ratio ratio-16x9">
             <iframe

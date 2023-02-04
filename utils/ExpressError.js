@@ -1,3 +1,7 @@
+/**
+ * @file ExpressError class (extension of Error class)
+ */
+
 class ExpressError extends Error {
     constructor(message, status) {
         super();

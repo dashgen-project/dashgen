@@ -1,4 +1,6 @@
-// Generate random string to password recovery
+/**
+ * @file Generate random string to password recovery
+ */
 
 // Random string possible characters
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

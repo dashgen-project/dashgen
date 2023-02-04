@@ -1,3 +1,7 @@
+/**
+ * @file Populates database for testing (currently not being used)
+ */
+
 const mongoose = require('mongoose');
 const CourseDashboard = require('../models/courseDashboard');
 

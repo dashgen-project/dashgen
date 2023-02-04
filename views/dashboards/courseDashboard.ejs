@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body>
+<body class="gradient-bg-2">
     <div class="container-fluid bg-secondary">
         <!-- Classes -->
         <div class="row py-2 px-5 bg-dark">
@@ -140,8 +140,8 @@
         </div>
     </div>
 
-    <main class="gradient-bg-2">
-        <div id="preClassMaterial" class="container-fluid py-2 mb-3 pre-class-bg">
+    <main class="container-fluid p-5">
+        <div id="preClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Pré-aula</h1>
             </div>
@@ -150,19 +150,19 @@
 
             <!-- Pre-class material (essential) -->
             <div class="row">
-                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+                <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
             </div>
             <%- include("./courseDashboardParts/essentialPreClass") %>
 
             <!-- Pre-class material (non-essential) -->
-            <div class="row">
-                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            <div class="row mt-3">
+                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialPreClass") %>
         </div>
 
 
-        <div id="forClassMaterial" class="container-fluid py-2 mb-3 for-class-bg">
+        <div id="forClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Para a aula</h1>
             </div>
@@ -170,19 +170,19 @@
             <div class="row mx-5 mb-3 bg-dark" style="height: 5px"></div>
 
             <!-- For class material (essential) -->
-            <div class="row border-bottom">
-                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+            <div class="row">
+                <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
             </div>
             <%- include("./courseDashboardParts/essentialForClass") %>
 
             <!-- For class material (non-essential) -->
-            <div class="row">
-                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            <div class="row mt-3">
+                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialForClass") %>
         </div>
 
-        <div id="postClassMaterial" class="container-fluid py-2 post-class-bg">
+        <div id="postClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Pós-aula</h1>
             </div>
@@ -191,13 +191,13 @@
 
             <!-- Post-class material (essential) -->
             <div class="row">
-                <h2 class="col-12">&#10148;&nbsp;Essencial</h2>
+                <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
             </div>
             <%- include("./courseDashboardParts/essentialPostClass") %>
 
             <!-- Post-class material (non-essential) -->
-            <div class="row">
-                <h2 class="col-12">&#10148;&nbsp;Não essencial</h2>
+            <div class="row mt-3">
+                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialPostClass") %>
         </div>

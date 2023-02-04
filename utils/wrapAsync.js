@@ -1,3 +1,8 @@
+/**
+ * @description Wrapper for async functions
+ * @param {*} fn Async function
+ * @returns Async function with error handling
+ */
 module.exports = fn => {
     return async (req, res, next) => {
         try {
@@ -7,13 +12,3 @@ module.exports = fn => {
         }
     }
 }
-// module.exports = fn => {
-//     try {
-//         fn(req, res, next);
-//     } catch (e) {
-        
-//     }
-//     return (req, res, next) => {
-//         fn(req, res, next).catch(next);
-//     }
-// }

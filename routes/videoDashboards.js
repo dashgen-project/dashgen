@@ -1,3 +1,8 @@
+/**
+ * @file videoDashboards routes (specify what happens when server receives requests to /videoDashboards/...)
+ */
+
+
 const express = require('express');
 const router = express.Router();
 const videoDashboards = require('../controllers/videoDashboards');

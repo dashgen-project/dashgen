@@ -1,3 +1,7 @@
+/**
+ * @file howToUse routes (specify what happens when server receives requests to /hoeToUse/...)
+ */
+
 const express = require('express');
 const router = express.Router();
 const howToUse = require('../controllers/howToUse');
