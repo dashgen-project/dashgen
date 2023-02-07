@@ -13,7 +13,12 @@
             text-decoration: none;
         }
     </style>
+    <% if (typeof pageTitle !== 'undefined') { %>
+    <title>DashGen - <%= pageTitle %>
+    </title>
+    <% } else { %>
     <title>DashGen</title>
+    <% } %>
 </head>
 
 <body class="container bg-light">

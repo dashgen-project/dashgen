@@ -17,12 +17,14 @@ const youtubeApiKey = process.env.YOUTUBE_API_KEY; // youtube api key in order t
 // show all course dashboards from an specifc user
 module.exports.index = async (req, res) => {
     const dashboards = await CourseDashboard.find({ author: req.user._id }); // get course dashboard from the database
-    res.render('courseDashboards', { dashboards }); // render view
+    const pageTitle = 'Meus dashboards de curso';
+    res.render('courseDashboards', { dashboards, pageTitle }); // render view
 }
 
 // render new course dashboard form
 module.exports.renderNewCourseDashboardForm = async (req, res) => {
-    res.render('courseDashboards/new'); // render view
+    const pageTitle = 'Novo dashboard de curso';
+    res.render('courseDashboards/new', { pageTitle }); // render view
 }
 
 // get youtube playlist data via yt api, create dashboard and save to the database
@@ -85,7 +87,8 @@ module.exports.showCourseDashboard = async (req, res) => {
     if (!checkUrl.isMoodle(dashboard.classes)) {
         nonMoodleMaterial = 1;
     }
-    res.render('courseDashboards/show', { dashboard, nonMoodleMaterial }); // render view
+    const pageTitle = 'Editar dashboard';
+    res.render('courseDashboards/show', { dashboard, nonMoodleMaterial, pageTitle }); // render view
 }
 
 // update course dashboard
@@ -133,8 +136,8 @@ module.exports.renderEditClassForm = async (req, res) => {
         let videoId = video.snippet.resourceId.videoId;
         videos.push({ title, videoId });
     }
-
-    res.render('courseDashboards/editClass', { dashboard, videos, classNum }); // render view
+    const pageTitle = `Editar aula ${classNum + 1}`;
+    res.render('courseDashboards/editClass', { dashboard, videos, classNum, pageTitle }); // render view
 }
 
 // update class information
@@ -244,8 +247,10 @@ module.exports.renderCourseDashboard = async (req, res) => {
             postCEchaptersData0, postCEchaptersData1, postCEchaptersData2, postCNEchaptersData0, postCNEchaptersData1, postCNEchaptersData2
         };
 
-        res.render('dashboards/courseDashboard', { dashboard, classIndex, chaptersData }); // render view
+        const pageTitle = dashboard.title;
+        res.render('dashboards/courseDashboard', { dashboard, classIndex, chaptersData, pageTitle }); // render view
     } else {
-        res.render('dashboards/noClasses', { id }); // render view (there are no classes in the dashboard)
+        const pageTitle = 'Sem aulas no dashboard';
+        res.render('dashboards/noClasses', { id, pageTitle }); // render view (there are no classes in the dashboard)
     }
 }   

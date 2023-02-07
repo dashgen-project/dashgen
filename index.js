@@ -154,7 +154,8 @@ app.get('/', wrapAsync(async (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.render('users/login');
     }
-    res.render('home');
+    const pageTitle = 'Página inicial';
+    res.render('home', { pageTitle });
 }));
 
 /** Mount middleware for all paths */

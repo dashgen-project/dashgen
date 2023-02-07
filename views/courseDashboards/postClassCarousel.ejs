@@ -1,0 +1,294 @@
+<div class="p-3 rounded mb-3 carousel-block-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div id="carousel5" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner px-5 py-3 bg-light rounded">
+                        <h3 class="text-dark text-center text-decoration-underline">Materiais essenciais</h3>
+                        <div class=" carousel-item active px-5">
+                            <h4 class="">Vídeos</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="video<%= i %>" class="form-label  fs-5">Vídeo <%= i + 1 %></label>
+                            <select class="form-select mb-1" aria-label="Select video"
+                                name="thisClass[postClassMaterial][essential][video][<%= i %>]"
+                                id="postC_E_video<%= i %>">
+                                <% if (dashboard.classes[classNum]) { %>
+                                <% if (dashboard.classes[classNum].postClassMaterial.essential.video[i]) { %>
+                                <option value="">Nenhum</option>
+                                <% for (let video of videos) { %>
+                                <% if
+                                                    (video.videoId===dashboard.classes[classNum].postClassMaterial.essential.video[i]){
+                                                    %>
+                                <option selected value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } else { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                                <% } else { %>
+                                <option selected value="">Nenhum</option>
+                                <% for (let video of videos) { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                                <% } else { %>
+                                <option selected value="">Nenhum
+                                </option>
+                                <% for (let video of videos) { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                            </select>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Slides</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_E_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][slide][<%= i %>]"
+                                id="postC_E_slide<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.essential.slide[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][slide][<%= i %>]"
+                                id="postC_E_slide<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Listas de exercícios</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_E_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][exerciseList][<%= i %>]"
+                                id="postC_E_lista<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.essential.exerciseList[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][exerciseList][<%= i %>]"
+                                id="postC_E_lista<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Leituras</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_E_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %>
+                            </label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][reading][<%= i %>]"
+                                id="postC_E_leitura<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.essential.reading[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][reading][<%= i %>]"
+                                id="postC_E_leitura<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Quizzes</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_E_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][quizz][<%= i %>]"
+                                id="postC_E_quizz<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.essential.quizz[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][quizz][<%= i %>]"
+                                id="postC_E_quizz<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Links externos</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_E_link<%= i %>" class="form-label  fs-5">Link externo
+                                <%= i + 1 %>
+                            </label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][externalLink][<%= i %>]"
+                                id="postC_E_link<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.essential.externalLink[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][essential][externalLink][<%= i %>]"
+                                id="postC_E_link<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel5"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel5"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div id="carousel6" class="carousel slide mb-3" data-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner px-5 py-3 bg-light rounded">
+
+                        <h3 class="text-dark text-center text-decoration-underline">Materiais não essenciais</h3>
+
+                        <div class="carousel-item active px-5">
+                            <h4 class="">Vídeos</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="video<%= i %>" class="form-label  fs-5">Vídeo <%= i + 1 %></label>
+                            <select class="form-select mb-1" aria-label="Select video"
+                                name="thisClass[postClassMaterial][nonEssential][video][<%= i %>]"
+                                id="postC_NE_video<%= i %>">
+                                <% if (dashboard.classes[classNum]) { %>
+                                <% if (dashboard.classes[classNum].postClassMaterial.nonEssential.video[i]) { %>
+                                <option value="">Nenhum</option>
+                                <% for (let video of videos) { %>
+                                <% if
+                                                    (video.videoId===dashboard.classes[classNum].postClassMaterial.nonEssential.video[i]){
+                                                    %>
+                                <option selected value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } else { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                                <% } else { %>
+                                <option selected value="">Nenhum</option>
+                                <% for (let video of videos) { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                                <% } else { %>
+                                <option selected value="">Nenhum
+                                </option>
+                                <% for (let video of videos) { %>
+                                <option value="<%= video.videoId %>">
+                                    <%= video.title %>
+                                </option>
+                                <% } %>
+                                <% } %>
+                            </select>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Slides</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_NE_slide<%= i %>" class="form-label  fs-5">Slide <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]"
+                                id="postC_NE_slide<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.slide[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][slide][<%= i %>]"
+                                id="postC_NE_slide<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Listas de exercícios</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_NE_lista<%= i %>" class="form-label  fs-5">Lista <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][exerciseList][<%= i %>]"
+                                id="postC_NE_lista<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.exerciseList[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][exerciseList][<%= i %>]"
+                                id="postC_NE_lista<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Leituras</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_NE_leitura<%= i %>" class="form-label  fs-5">Leitura <%= i + 1 %>
+                            </label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][reading][<%= i %>]"
+                                id="postC_NE_leitura<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.reading[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][reading][<%= i %>]"
+                                id="postC_NE_leitura<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Quizzes</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_NE_quizz<%= i %>" class="form-label  fs-5">Quizz <%= i + 1 %></label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]"
+                                id="postC_NE_quizz<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.quizz[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][quizz][<%= i %>]"
+                                id="postC_NE_quizz<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                        <div class="carousel-item px-5">
+                            <h4 class="">Links externos</h4>
+                            <% for (let i=0; i < 3; i++) { %>
+                            <label for="postC_NE_link<%= i %>" class="form-label  fs-5">Link externo
+                                <%= i + 1 %>
+                            </label>
+                            <% if (dashboard.classes[classNum]) { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][externalLink][<%= i %>]"
+                                id="postC_NE_link<%= i %>"
+                                value="<%= dashboard.classes[classNum].postClassMaterial.nonEssential.externalLink[i] %>">
+                            <% } else { %>
+                            <input class="form-control mb-1"
+                                name="thisClass[postClassMaterial][nonEssential][externalLink][<%= i %>]"
+                                id="postC_NE_link<%= i %>">
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel6"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel6"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

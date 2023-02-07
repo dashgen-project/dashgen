@@ -4,5 +4,6 @@
 
 // render how to use page
 module.exports.renderHowToUse = (req, res) => {
-    res.render('howToUse');
+    const pageTitle = 'Sobre';
+    res.render('howToUse', { pageTitle });
 }

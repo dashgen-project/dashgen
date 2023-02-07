@@ -81,7 +81,8 @@ module.exports.validateNewCourseDashboard = (req, res, next) => {
     const { error } = newCourseDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -92,7 +93,8 @@ module.exports.validateEditCourseDashboard = (req, res, next) => {
     const { error } = editCourseDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -104,7 +106,8 @@ module.exports.validateEditClass = (req, res, next) => {
     const { error } = editClassSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -116,7 +119,8 @@ module.exports.validateNewPlaylistDashboard = (req, res, next) => {
     const { error } = newPlaylistDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -128,7 +132,8 @@ module.exports.validateEditPlaylistDashboard = (req, res, next) => {
     const { error } = editPlaylistDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -140,7 +145,8 @@ module.exports.validateNewVideoDashboard = (req, res, next) => {
     const { error } = newVideoDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -152,7 +158,8 @@ module.exports.validateEditVideoDashboard = (req, res, next) => {
     const { error } = editVideoDashboardSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -164,7 +171,8 @@ module.exports.validateVideo = (req, res, next) => {
     const { error } = videoSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n')
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -176,7 +184,8 @@ module.exports.validateLogin = (req, res, next) => {
     const { error } = loginSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -188,7 +197,8 @@ module.exports.validateUser = (req, res, next) => {
     const { error } = userSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -198,7 +208,8 @@ module.exports.validateUser = (req, res, next) => {
 // renders error page
 module.exports.renderError = (req, res, next) => {
     message = '';
-    res.render('error', { message });
+    const pageTitle = 'Erro';
+    res.render('error', { message, pageTitle });
 }
 
 // validate forgot pwd request (the one in which the user types their email)
@@ -206,7 +217,8 @@ module.exports.validateForgotPwd = (req, res, next) => {
     const { error } = forgotPwdEmailSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();
@@ -218,7 +230,8 @@ module.exports.validateChangePwd = (req, res, next) => {
     const { error } = forgotPwdChangeSchema.validate(req.body);
     if (error) {
         const message = error.details.map(el => el.message).join(',\n');
-        res.render('error', { message });
+        const pageTitle = 'Erro';
+        res.render('error', { message, pageTitle });
         throw new ExpressError(message, 400);
     } else {
         next();

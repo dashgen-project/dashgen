@@ -10,12 +10,14 @@ const chapters = require('../utils/chapters'); // require chapters utilities
 // show all the playlist dashboards from specific user
 module.exports.index = async (req, res) => {
     const dashboards = await PlaylistDashboard.find({ author: req.user._id }); // find dashboards in the database
-    res.render('playlistDashboards', { dashboards });
+    const pageTitle = 'Meus dashboards de playlist';
+    res.render('playlistDashboards', { dashboards, pageTitle });
 }
 
 // render new playlist dashboard form
 module.exports.renderNewPlaylistDashboardForm = async (req, res) => {
-    res.render('playlistDashboards/new');
+    const pageTitle = 'Novo dashboard de playlist';
+    res.render('playlistDashboards/new', { pageTitle });
 }
 
 // create playlist dashboard
@@ -59,7 +61,8 @@ module.exports.showPlaylistDashboard = async (req, res) => {
             videoId: video.snippet.resourceId.videoId
         });
     }
-    res.render('playlistDashboards/show', { dashboard, videos });
+    const pageTitle = 'Editar dashboard';
+    res.render('playlistDashboards/show', { dashboard, videos, pageTitle });
 }
 
 // update playlist dashboard
@@ -95,5 +98,6 @@ module.exports.renderPlaylistDashboard = async (req, res) => {
     }
     const { videoId } = videos[classIndex];
     const chaptersData = await chapters.getChaptersData(videoId);
-    res.render('dashboards/playlistDashboard', { dashboard, classIndex, chaptersData, videos });
+    const pageTitle = dashboard.title;
+    res.render('dashboards/playlistDashboard', { dashboard, classIndex, chaptersData, videos, pageTitle });
 }

@@ -10,12 +10,14 @@ const chapters = require('../utils/chapters'); // require chapters utilities
 // show all video dashboards of specific user
 module.exports.index = async (req, res) => {
     const dashboards = await VideoDashboard.find({ author: req.user._id });
-    res.render('videoDashboards', { dashboards });
+    const pageTitle = 'Meus dashboards de playlist';
+    res.render('videoDashboards', { dashboards, pageTitle });
 }
 
 // render new video dashboard form
 module.exports.renderNewVideoDashboardForm = async (req, res) => {
-    res.render('videoDashboards/new');
+    const pageTitle = 'Novo dashboard de vídeo';
+    res.render('videoDashboards/new', { pageTitle });
 }
 
 // create video dashboard
@@ -45,7 +47,8 @@ module.exports.showVideoDashboard = async (req, res) => {
     const { id } = req.params; // get information from request parameters
     const dashboard = await VideoDashboard.findById(id)
         .populate('author');
-    res.render('videoDashboards/show', { dashboard });
+    const pageTitle = 'Editar dashboard';
+    res.render('videoDashboards/show', { dashboard, pageTitle });
 }
 
 // update video dashboard
@@ -70,5 +73,6 @@ module.exports.renderVideoDashboard = async (req, res) => {
     const dashboard = await VideoDashboard.findById(id); // find document in the database
     const { videoId } = dashboard;
     const chaptersData = await chapters.getChaptersData(videoId);
-    res.render('dashboards/videoDashboard', { dashboard, chaptersData });
+    const pageTitle = dashboard.title;
+    res.render('dashboards/videoDashboard', { dashboard, chaptersData, pageTitle });
 }
