@@ -11,31 +11,31 @@
     <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico">
     <style>
         .gradient-bg {
-            background: rgb(2, 0, 36);
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 2%, rgba(121, 9, 119, 1) 50%, rgba(255, 89, 0, 1) 100%);
+            background: rgb(0,0,0);
+            background: linear-gradient(135deg, rgba(0,0,0,1) 25%, rgba(58,0,109,1) 65%, rgba(205,0,130,1) 100%);
         }
     </style>
 </head>
 
 <body class="gradient-bg">
-    <nav class="navbar navbar-expand-lg px-3">
-        <div class="container-fluid d-flex justify-content-center border-bottom">
-            <a class="navbar-brand text-light fs-4 text-wrap" href="#"><%= dashboard.title %></a>
+    <div class="navbar navbar-expand-lg px-3">
+        <div class="container-fluid d-flex justify-content-center border-bottom border-3">
+            <h1 class="text-light fs-1 text-wrap" href="#"><%= dashboard.title %></h1>
         </div>
-    </nav>
+    </div>
     <div class="container-fluid py-3">
         <div class="row">
             <% if (chaptersData.length) { %>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 overflow-auto py-2">
                 <div class="justify-content-center">
                     <div class="dropdown mb-1">
-                        <button class="btn btn-light dropdown-toggle w-100 text-wrap" type="button"
+                        <button class="btn btn-light dropdown-toggle w-100 text-wrap fs-4" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Capítulos do vídeo
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="capitulos-video">
                             <% for (let i = 0; i < chaptersData.length; i++) { %>
-                            <li class="list-group-item btn btn-link text-wrap chapter-btn"
+                            <li class="list-group-item btn btn-link text-wrap chapter-btn fs-4"
                                 id="<%= 3600*chaptersData[i].timestamp[0] + 60*chaptersData[i].timestamp[1] + chaptersData[i].timestamp[2] %>">
                                 <%= chaptersData[i].title %>
                             </li>
@@ -47,7 +47,7 @@
             </div>
             <% } %>
             <div
-                class="<% if (chaptersData.length) {%>col-12 col-md-9<% } else { %>d-inline-flex flex-row align-items-center justify-content-center<% } %>">
+                class="py-2 <% if (chaptersData.length) {%>col-12 col-md-9<% } else { %>d-inline-flex flex-row align-items-center justify-content-center<% } %>">
                 <div class="ratio ratio-16x9 <% if (!chaptersData.length) {%>d-inline w-75<% } %>">
                     <iframe src="https://www.youtube.com/embed/<%= dashboard.videoId %>?rel=0"
                         title="YouTube video player" frameborder="0"

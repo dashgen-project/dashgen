@@ -5,17 +5,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff4a00">
+    <meta name="description"
+        content="Gerador automático de dashboard com conteúdo educacional visando à modernização das técnicas de ensino">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script type="application/javascript" src="/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico">
     <style>
-        a {
-            text-decoration: none;
+        .form-control, 
+        .form-label,
+        .form-select,
+        .btn,
+        .card-title,
+        .form-text {
+            font-size: 18pt;
         }
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .card-body {
+            text-align: center;
+        }
+
+        .card {
+            border-color: #CD0082;
+        }
+
+        .card .btn-primary {
+            border: none;
+            background-color: #CD0082;
+            color: white;
+        }
+
+        .card .btn-primary:hover {
+            background-color: #ff4a00;
+        } 
+        
+        .card .btn-outline-primary {
+            background-color: transparent;
+            border-color: #CD0082;
+            border-style: solid;
+            border-width: 1px;
+            color: #CD0082;
+        }
+
+        .card .btn-outline-primary:hover {
+            background-color: #CD0082;
+            border-color: #CD0082;
+            border-style: solid;
+            border-width: 1px;
+            color: white;
+        }
+
+        .btn-link-pink {
+            color: #CD0082;
+        }
+
+        .btn-link-pink:hover {
+            color: #ff4a00;
+        }
+
+        /* .nav-link {
+            color: black;
+        }
+
+        .nav-link:hover {
+            color: #505050;
+        } */
     </style>
     <title>DashGen</title>
 </head>
 
-<body class="container bg-light">
+<body class="container fs-4">
     <%- include('../partials/navbar'); -%>
     <main class="container py-3">

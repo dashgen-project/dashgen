@@ -5,14 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gerador automático de dashboard com conteúdo educacional visando à modernização das técnicas de ensino">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script type="application/javascript" src="/js/bootstrap.bundle.min.js"></script>
     <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico">
-    <title>Fazer cadastro</title>
+    <style>
+        .form-control,
+        .form-label,
+        .form-select,
+        .btn,
+        .card-title,
+        .form-text {
+            font-size: 18pt;
+        }
+    
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .card-body {
+            text-align: center;
+        }
+    </style>
+    <title>DashGen - Fazer cadastro</title>
 </head>
 
-<body class="container bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+<body class="container bg-light fs-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 fs-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img src="/imgs/dashGenLogo.png" alt="" width="60" height="44">
@@ -24,10 +45,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Fazer cadastro</a>
+                        <a class="nav-link" href="#">Fazer cadastro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Entrar</a>
+                        <a class="nav-link" href="/">Entrar</a>
                     </li>
                 </ul>
             </div>
@@ -37,33 +58,29 @@
     <%- include('../partials/flash'); -%>
 
     <h1 class="mb-4">Fazer cadastro</h1>
+    <div id="invalidFeedback" class="text-danger mb-3 d-none"></div>
     <form action="/register" method="POST">
         <div class="mb-3">
             <label for="username" class="form-label">Email</label>
-            <input required type="email" class="form-control" name="username" id="username"
-                aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Não iremos compartilhar seu email com ninguém.</div>
+            <p class="form-text">Não iremos compartilhar seu email com ninguém.</p>
+            <input type="text" class="form-control fs-4" name="username" id="username">
         </div>
         <div class="mb-3">
             <label for="emailConfirmation" class="form-label">Confirme seu email</label>
-            <input required type="email" class="form-control" name="emailConfirmation" id="emailConfirmation"
-                aria-describedby="emailHelp">
-            <div class="invalid-feedback">Os emails inseridos são diferentes.</div>
+            <input type="text" class="form-control fs-4" name="emailConfirmation" id="emailConfirmation">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Senha</label>
-            <input required type="password" name="password" class="form-control" id="password" min="5">
-            <div id="passwordHelp" class="form-text">Mínimo de 5 caracteres.</div>
-            <div class="form-text">Sua senha será criptografada.</div>
-            <div class="form-text">Este site ainda se encontra em desenvolvimento e por
-                enquanto não há a opção de recuperar a senha, portanto certifique-se de guardar sua senha em local
-                seguro.</div>
-            <div class="invalid-feedback">Sua senha deve ter no mínimo 5 caracteres.</div>
-
+            <p class="form-text">
+                Sua senha deve ter no mínimo 10 caracteres, uma letra maiúscula, uma letra minúscula, um número e um dos seguintes
+                caracteres
+                especiais: "!", "@", "#", "%", "&", "*", "-", "_", "+" ou "=". A senha será criptografada antes de ser salva.
+            </p>
+            <input type="password" name="password" class="form-control fs-4" id="password">
         </div>
-        <button type="submit" class="btn btn-primary">Entrar</button>
+        <button type="submit" class="btn btn-primary fs-4 mb-4">Entrar</button>
     </form>
-    <script src="../../../js/checkRegistration.js">
+    <script src="/js/checkRegistration.js">
     </script>
 </body>
 

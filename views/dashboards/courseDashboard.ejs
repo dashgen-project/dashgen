@@ -10,11 +10,6 @@
     <title><%= dashboard.title %></title>
     <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico">
     <style>
-        .gradient-bg {
-            background: rgb(2, 0, 36);
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 2%, rgba(121, 9, 119, 1) 50%, rgba(255, 89, 0, 1) 100%);
-        }
-
         .gradient-bg-2 {
             background: rgb(244, 255, 105);
             background: linear-gradient(180deg, rgba(255, 164, 90, 1) 0%, rgba(244, 255, 105, 1) 50%, rgba(242, 93, 255, 1) 100%);
@@ -22,21 +17,24 @@
     </style>
 </head>
 
-<body class="gradient-bg-2">
-    <div class="container-fluid bg-secondary">
+<body class="" style="background-color: #820052;">
+
+    <div class="container-fluid bg-dark">
         <!-- Classes -->
-        <div class="row py-2 px-5 bg-dark">
+        <div class="row py-2 px-5 bg-black">
             <% if (!dashboard.environmentUrl && !dashboard.forumUrl) { %>
             <div class="col-12 col-lg-6 text-center text-lg-start">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+                <div class="text-light btn btn-black fs-4">
+                    <%= dashboard.title %>
+                </div>
             </div>
             <div class="col-12 col-lg-6 text-center text-lg-end">
                 <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                    <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown"
                         aria-expanded="false">Aulas</button>
                     <ul class="dropdown-menu" aria-labelledby="aulas">
                         <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
-                        <li><a class="dropdown-item fs-5"
+                        <li><a class="dropdown-item fs-4"
                                 href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
                                 <% if (dashboard.classes[i].title) { %>
                                 : <%= dashboard.classes[i].title %>
@@ -48,19 +46,21 @@
             </div>
             <% } else if (!dashboard.environmentUrl) { %>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+                <div class="text-light btn btn-black fs-4">
+                    <%= dashboard.title %>
+                </div>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.forumUrl %>"
+                <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.forumUrl %>"
                     target="_blank">Fórum</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
                 <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                    <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown"
                         aria-expanded="false">Aulas</button>
                     <ul class="dropdown-menu" aria-labelledby="aulas">
                         <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
-                        <li><a class="dropdown-item fs-5"
+                        <li><a class="dropdown-item fs-4"
                                 href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
                                 <% if (dashboard.classes[i].title) { %>
                                 : <%= dashboard.classes[i].title %>
@@ -72,19 +72,21 @@
             </div>
             <% } else if (!dashboard.forumUrl) { %>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+                <div class="text-light btn btn-black fs-4">
+                    <%= dashboard.title %>
+                </div>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.environmentUrl %>"
+                <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.environmentUrl %>"
                     target="_blank">Ambiente da disciplina</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
                 <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                    <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown"
                         aria-expanded="false">Aulas</button>
                     <ul class="dropdown-menu" aria-labelledby="aulas">
                         <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
-                        <li><a class="dropdown-item fs-5"
+                        <li><a class="dropdown-item fs-4"
                                 href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
                                 <% if (dashboard.classes[i].title) { %>
                                 : <%= dashboard.classes[i].title %>
@@ -96,23 +98,25 @@
             </div>
             <% } else { %>
             <div class="col-12 col-lg-3 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="#"><%= dashboard.title %></a>
+            <div class="text-light btn btn-black fs-4">
+                <%= dashboard.title %>
+            </div>
             </div>
             <div class="col-12 col-lg-3 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.environmentUrl %>"
+                <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.environmentUrl %>"
                     target="_blank">Ambiente da disciplina</a>
             </div>
             <div class="col-12 col-lg-3 text-center">
-                <a class="text-light btn btn-dark fs-5" aria-current="page" href="<%= dashboard.forumUrl %>"
+                <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.forumUrl %>"
                     target="_blank">Fórum</a>
             </div>
             <div class="col-12 col-lg-3 text-center">
                 <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle fs-5" id="aulas" data-bs-toggle="dropdown"
+                    <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown"
                         aria-expanded="false">Aulas</button>
                     <ul class="dropdown-menu" aria-labelledby="aulas">
                         <% if (dashboard.classes.length) { for (let i = 0; i < dashboard.classes.length; i++) { %>
-                        <li><a class="dropdown-item fs-5"
+                        <li><a class="dropdown-item fs-4"
                                 href="/courseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %>
                                 <% if (dashboard.classes[i].title) { %>
                                 : <%= dashboard.classes[i].title %>
@@ -128,25 +132,32 @@
         <!-- Class parts -->
         <div class="row py-2">
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-secondary" aria-current="page" href="#preClassMaterial">Pré-aula</a>
+                <a class="text-light btn btn-dark fs-4" href="#preClassMaterial">Pré-aula</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-secondary" aria-current="page" href="#forClassMaterial">Para a
+                <a class="text-light btn btn-dark fs-4" href="#forClassMaterial">Para a
                     aula</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-secondary" aria-current="page" href="#postClassMaterial">Pós-aula</a>
+                <a class="text-light btn btn-dark fs-4" href="#postClassMaterial">Pós-aula</a>
             </div>
         </div>
     </div>
+    <!-- <div class="d-flex justify-content-center pt-5">
+                    <a href="/courseDashboards/<%= //dashboard.id %>/accesible" class="text-black fs-4">
+                        Visualizar versão acessível da página
+                    </a>
+                </div> -->
+
 
     <main class="container-fluid p-5">
-        <div id="preClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
+        <h1 class="text-light text-center text-uppercase mb-5">Aula <%= parseInt(classIndex, 10) + 1 %></h1>
+        <section id="preClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Pré-aula</h1>
             </div>
 
-            <div class="row mx-5 mb-3 bg-dark" style="height: 5px"></div>
+            <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052;"></div>
 
             <!-- Pre-class material (essential) -->
             <div class="row">
@@ -159,15 +170,15 @@
                 <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialPreClass") %>
-        </div>
+        </section>
 
 
-        <div id="forClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
+        <section id="forClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Para a aula</h1>
             </div>
 
-            <div class="row mx-5 mb-3 bg-dark" style="height: 5px"></div>
+            <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052;"></div>
 
             <!-- For class material (essential) -->
             <div class="row">
@@ -180,14 +191,14 @@
                 <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialForClass") %>
-        </div>
+        </section>
 
-        <div id="postClassMaterial" class="container-fluid py-3 border border-dark border-5 rounded rounded-3 bg-light mb-3">
+        <section id="postClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
             <div class="row">
                 <h1 class="col-12 text-center">Pós-aula</h1>
             </div>
 
-            <div class="row mx-5 mb-3 bg-dark" style="height: 5px"></div>
+            <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052;"></div>
 
             <!-- Post-class material (essential) -->
             <div class="row">
@@ -200,7 +211,7 @@
                 <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
             </div>
             <%- include("./courseDashboardParts/nonEssentialPostClass") %>
-        </div>
+        </section>
     </main>
 
     <script src="../../../js/videoControls.js">

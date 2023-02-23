@@ -88,7 +88,6 @@ const chaptersListDisplayHandler = (ctrl) => {
     for (let i = 0; i < videoBtns.length; i++) {
         if (videoBtns[i]) {
             videoBtns[i].addEventListener('click', () => {
-                console.log('button clicked', `class part = ${classPart}`);
                 videoFrame.src = videoBtns[i].value;
                 let videoId = videoFrame.src
                     .split('/')[4]

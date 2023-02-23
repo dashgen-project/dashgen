@@ -1,0 +1,75 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
+
+<% if (nonMoodleMaterial) { %>
+<div class="bg-warning rounded p-2 px-3 mb-2 bg-opacity-75">
+    Você possui materiais que não estão no ambiente da disciplina.
+</div>
+<% } %>
+
+<h1 class="mb-4">Editar dashboard</h1>
+
+<form action="/knowmiaCourseDashboards/<%= dashboard._id %>?_method=PUT" method="POST" class="mb-4">
+    <div class="mb-4">
+        <label for="title" class="form-label">
+            Título do dashboard:
+        </label>
+        <input type="text" class="form-control mb-3 fs-4" name="dashboard[title]" id="title"
+            aria-describedby="dashboard-title" value="<%= dashboard.title %>" required>
+        <label for="environmentUrl" class="form-label">
+            Ambiente da disciplina:
+        </label>
+        <input type="text" class="form-control mb-3 fs-4" name="dashboard[environmentUrl]"
+            id="environmentUrl" aria-describedby="dashboard-environmentUrl"
+            value="<%= dashboard.environmentUrl %>">
+        <label for="forumUrl" class="form-label">
+            Fórum da disciplina:
+        </label>
+        <input type="text" class="form-control mb-3 fs-4" name="dashboard[forumUrl]" id="forumUrl"
+            aria-describedby="dashboard-forumUrl" value="<%= dashboard.forumUrl %>">
+        <input id="numberOfClasses" type="number" class="d-none" name="dashboard[numberOfClasses]"
+            value="<%= dashboard.numberOfClasses %>">
+    </div>
+    <div class="container">
+        <div id="classesContainer" class="row mb-4">
+            <% if (dashboard.classes.length) { %>
+                <% for (let i=0; i < dashboard.classes.length; i++) { %>
+                    <div id="class_<%= i %>" class="card class-card col-4">
+                        <div class="card-body">
+                            <h2 class="card-title fs-4" id="titleAula">Aula <%= i + 1 %>
+                            </h2>
+                            <h3 id="titleAula" class="fs-4">
+                                <% if (dashboard.classes[i].title) { %>
+                                    <%= dashboard.classes[i].title %>
+                                        <% } else { %>
+                                            Título
+                                            <% } %>
+                            </h3>
+                            <input class="d-none" type="number"
+                                name="dashboard[classes][<%= i %>][classNumber]" value="<%= i %>">
+                            <a class="btn btn-primary fs-4 editbtn mt-3"
+                                href="/knowmiaCourseDashboards/<%= dashboard._id %>/classes/<%= i %>">Editar
+                                aula</a>
+                        </div>
+                    </div>
+                    <% }} %>
+        </div>
+    </div>
+    <div class="mb-4">
+        <a type="button" class="btn btn-outline-success fs-4"
+            href="/knowmiaCourseDashboards/<%= dashboard._id %>/classes/<%= dashboard.classes.length %>">Adicionar
+            aula</a>
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-outline-primary fs-4">Salvar</button>
+        <a class="btn btn-outline-primary fs-4"
+            href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/0" target="_blank">Ver
+            dashboard</a>
+    </div>
+</form>
+<form class="d-inline" action="/knowmiaCourseDashboards/<%= dashboard._id %>?_method=DELETE"
+    method="POST">
+    <button class="btn btn-outline-danger fs-4">Deletar dashboard</button>
+</form>
+
+<%- include('../partials/footer'); -%>
