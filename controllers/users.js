@@ -29,10 +29,14 @@ module.exports.register = async (req, res, next) => {
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
             if (err) return next(err);
-            req.flash('success', 'Bem-vindo(a) ao DashGen!')
+            req.flash('success', 'Bem-vind@ ao DashGen!')
             return res.redirect('/');
         });
     } catch (e) {
+        if (e.message === 'A user with the given username is already registered')
+        {
+            e.message = 'Ops, um usuário com o email inserido já existe.';
+        }
         req.flash('error', e.message);
         res.redirect('/register');
     }
@@ -122,7 +126,7 @@ module.exports.changePwd = async (req, res, next) => {
                             res.redirect('/');
                         });
                     } else {
-                        const message = 'Código incorreto.'
+                        const message = 'Código incorreto.';
                         res.render('users/changePwd', { message, email });
                     }
                 } else {

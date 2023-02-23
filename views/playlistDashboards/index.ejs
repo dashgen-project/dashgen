@@ -3,39 +3,36 @@
 
 <% if (dashboards.length) { %>
 
-<h3 class="mb-4">Meus dashboards de playlist</h3>
+<h1 class="mb-4 text-center">Meus dashboards de playlist</h1>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<div aria-label="meus-dashboards-de-curso">
     <% for (let dashboard of dashboards) { %>
-
-    <div class="col d-flex align-items-stretch">
-        <div class="card w-100">
-            <!-- <img src="../imgs/placeholder.webp" class="card-img-top" alt="..."> -->
-            <div class="card-body d-flex flex-column justify-content-between">
-                <h5 class="card-title mb-3">
-                    <%= dashboard.title %>
-                </h5>
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a type="button" class="btn btn-outline-primary"
-                        href="https://www.youtube.com/playlist?list=<%= dashboard.playlistId %>" target="_blank">Acessar
-                        no YouTube</a>
-                    <a type="button" class="btn btn-outline-primary"
-                        href="/playlistDashboards/<%= dashboard._id %>">Editar</a>
-                    <a type="button" class="btn btn-outline-primary"
-                        href="/playlistDashboards/<%= dashboard._id %>/dash/0" target="_blank">Visualizar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div class="card border-2 mb-3 p-5 d-flex flex-column justify-content-between">
+        <h2 class="card-title fs-2">
+            <%= dashboard.title %>
+        </h2>
+        <ul role="menubar" class="card-body" aria-label="ações-do-dashboard-<%= dashboard.title %>" id="<%= dashboard.title %>actions">
+            <% if (typeof dashboard.playlistId !== 'undefined' && 
+                dashboard.playlistId !== '') { %>
+            <li class="d-inline" role="menuitem"><a class="btn btn-primary mb-3 mb-xlg-0" target="_blank" href="https://youtube.com/playlist?list=<%= dashboard.playlistId %>">
+                Playlist do curso<span class="visually-hidden"> do dashboard <%= dashboard.title %></span> 
+            </a></li>
+            <% } %>
+            <li class="d-inline" role="menuitem"><a class="btn btn-primary mb-3 mb-xlg-0" href="/playlistDashboards/<%= dashboard._id %>">
+                Editar dashboard<span class="visually-hidden"> <%= dashboard.title %></span>    
+            </a></li>
+            <li class="d-inline" role="menuitem"><a class="btn btn-primary mb-3 mb-xlg-0" target="_blank" href="/playlistDashboards/<%= dashboard._id %>/dash/0">
+                Ver dashboard<span class="visually-hidden"> <%= dashboard.title %></span>   
+            </a></li>
+        </ul>
+    </div> 
     <% } %>
-
 </div>
 
 <% } else { %>
-Parece que você ainda não tem nenhum dashboard de playlist, gostaria de criar um? <a
+<p>Parece que você ainda não tem nenhum dashboard de playlist, gostaria de criar um? <a
     href="/playlistDashboards/new">Criar
-    dashboard de playlist.</a>
+    dashboard de playlist.</a></p>
 <% } %>
 
 <%- include('../partials/footer'); -%>

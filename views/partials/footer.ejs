@@ -1,4 +1,8 @@
 </main>
 </body>
-
+<% if (typeof scripts !== 'undefined') { %>
+<% if (scripts.length) { %>
+<% for (let script of scripts) { %>
+<script type="application/javascript" src="/js/<%= script %>.js"></script>
+<% }}} %>
 </html>

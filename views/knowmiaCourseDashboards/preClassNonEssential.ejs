@@ -1,0 +1,42 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/flash'); -%>
+
+<a href="/knowmiaCourseDashboards/<%= dashboard._id %>/classes/<%= classNum %>" class="d-block mb-3 fs-4">Voltar para
+    editar
+    aula</a>
+
+<h1 class="mb-4">Adicionar material pré-aula não essencial</h1>
+
+<div class="w-100 bg-dark" style="height: 5px"></div>
+
+<form action="/knowmiaCourseDashboards/<%= dashboard._id %>/classes/<%= classNum %>?_method=PUT" method="POST"
+    class="mb-3">
+
+    <input type="number" name="thisClass[classNumber]" value="<%= classNum %>" class="d-none">
+
+    <label for="title" class="form-label fs-4 d-none">Título da aula:</label>
+
+    <% if (dashboard.classes[classNum]) { %>
+    <input type="text" class="form-control mb-3 d-none" name="thisClass[title]" id="title"
+        value="<%= dashboard.classes[classNum].title %>">
+    <% } else { %>
+    <input type="text" class="form-control mb-3 d-none" name="thisClass[title]" id="title">
+    <% } %>
+
+    <div class="d-none"><%- include('./partials/preClassEssential') %></div>
+
+    <div><%- include('./partials/preClassNonEssential') %></div>
+
+    <div class="d-none"><%- include('./partials/forClassEssential') %></div>
+
+    <div class="d-none"><%- include('./partials/forClassNonEssential') %></div>
+
+    <div class="d-none"><%- include('./partials/postClassEssential') %></div>
+
+    <div class="d-none"><%- include('./partials/postClassNonEssential') %></div>
+
+    <button type="submit" class="btn btn-outline-success mt-3">Salvar</button>
+
+</form>
+
+<%- include('../partials/footer'); -%>

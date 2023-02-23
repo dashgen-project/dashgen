@@ -15,7 +15,8 @@ module.exports.index = async (req, res) => {
 
 // render new video dashboard form
 module.exports.renderNewVideoDashboardForm = async (req, res) => {
-    res.render('videoDashboards/new');
+    const scripts = ['checkVideoUrl'];
+    res.render('videoDashboards/new', { scripts });
 }
 
 // create video dashboard

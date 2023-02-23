@@ -1,47 +1,45 @@
 <%- include('partials/header'); -%>
 <%- include('partials/flash'); -%>
 
-<h3 class="mb-4">O que você deseja criar hoje?</h3>
+<h1 class="mb-4 text-center">O que você deseja criar hoje?</h1>
 
-<div class="card-group">
-    <div class="card d-inline-flex flex-column">
-        <!-- <img src="imgs/dashboardCurso.PNG" class="card-img-top" alt="..."> -->
+<div class="card-group mb-3">
+    <div class="card d-flex align-items-stretch border-secondary">
         <div class="card-body d-inline-flex flex-column justify-content-between">
-            <div class="mb-4">
-                <h5 class="card-title">Dashboard de curso</h5>
-                <p class="card-text">Crie um dashboard de curso com material de apoio, exercícios e muito mais, a partir
-                    de
-                    uma playlist no YouTube. </p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            <h2 class="card-title fs-4 mb-0">Dashboard de curso (YouTube)</h2>
+            <p class="card-text fs-4 my-4">Crie um dashboard com material de apoio e separado em aulas a partir
+                de
+                uma playlist do YouTube. </p>
+                <div>
+                    <a type="button" class="btn btn-primary fs-4" href="/courseDashboards/new">Criar<span class="visually-hidden"> dashboard de curso com playlist do YouTube</span></a>
             </div>
+        </div>
+        </div>
+        <div class="card d-flex align-items-stretch border-secondary">
+            <div class="card-body d-inline-flex flex-column justify-content-between">
+                <h2 class="card-title fs-4 mb-0">Dashboard de curso (Knowmia)</h2>
+                <p class="card-text fs-4 my-4">Crie um dashboard com material de apoio e separado em aulas
+                    com vídeos do Knowmia. </p>
             <div>
-                <a type="button" class="btn btn-outline-primary" href="/courseDashboards/new">Criar</a>
+                <a type="button" class="btn btn-primary fs-4" href="/knowmiaCourseDashboards/new">Criar<span class="visually-hidden"> dashboard de curso com vídeos do Knowmia</span></a>
             </div>
         </div>
     </div>
-    <div class="card">
-        <!-- <img src="imgs/dashboardCurso.PNG" class="card-img-top" alt="..."> -->
+    <div class="card d-flex align-items-stretch border-secondary">
         <div class="card-body d-inline-flex flex-column justify-content-between">
-            <div class="mb-4">
-                <h5 class="card-title">Dashboard de playlist</h5>
-                <p class="card-text">Crie um dashboard com qualquer playlist no YouTube.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            </div>
+                <h2 class="card-title fs-4 mb-0">Dashboard de playlist</h2>
+                <p class="card-text fs-4 my-4">Crie um dashboard a partir de uma playlist do YouTube.</p>
             <div>
-                <a type="button" class="btn btn-outline-primary" href="/playlistDashboards/new">Criar</a>
+                <a type="button" class="btn btn-primary fs-4" href="/playlistDashboards/new">Criar<span class="visually-hidden"> dashboard de playlist com link de playlist do YouTube</span></a>
             </div>
         </div>
     </div>
-    <div class="card">
-        <!-- <img src="imgs/dashboardCurso.PNG" class="card-img-top" alt="..."> -->
+    <div class="card d-flex align-items-stretch border-secondary">
         <div class="card-body d-inline-flex flex-column justify-content-between">
-            <div class="mb-4">
-                <h5 class="card-title">Dashboard de vídeo</h5>
-                <p class="card-text">Crie um dashboard com um único vídeo do YouTube.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            </div>
+                <h2 class="card-title fs-4 mb-0">Dashboard de vídeo</h2>
+                <p class="card-text fs-4 my-4">Crie um dashboard a partir de um único vídeo do YouTube.</p>
             <div>
-                <a type="button" class="btn btn-outline-primary" href="/videoDashboards/new">Criar</a>
+                <a type="button" class="btn btn-primary fs-4" href="/videoDashboards/new">Criar<span class="visually-hidden"> dashboard de vídeo com link de vídeo do YouTube</span></a>
             </div>
         </div>
     </div>

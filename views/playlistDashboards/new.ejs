@@ -1,15 +1,22 @@
 <%- include('../partials/header'); -%>
 <%- include('../partials/flash'); -%>
 
-<h3 class="mb-4">Você está a um click de criar seu dashboard de playlist!</h3>
+<h1 class="mb-4">Você está a um click de criar seu dashboard de playlist!</h1>
 
+<div class="d-none text-danger mb-3" id="invalidFeedback"></div>
 <form action="/playlistDashboards" method="POST">
     <div class="mb-3">
         <label class="form-label" for="playlistUrl">Insira o URL da playlist do YouTube:</label>
-        <input class="form-control" type="text" name="playlistDashboard[playlistUrl]" id="playlistUrl" required>
-        <p class="text-secondary mt-2">Não copie o URL direto da barra de endereço, acesse a página da playlist e clique
-            no botão de compartilhar para copiar o link. Para mais detalhes, clique <a href="/howToUse">aqui</a>.
+        <p class="text-secondary mt-2 fs-4">
+            No computador, procure pela playlist desejada no YouTube, clique em "VER PLAYLIST COMPLETA" e copie o URL da barra
+            de endereços.
+            Caso a playlist seja sua, acesse seu canal, clique em "PLAYLISTS", depois em "Ver playlist completa" e copie o URL
+            da barra de endereços. Mais instruções para copiar o URL da playlist, como copiar o URL usando seu smartphone, podem
+            ser encontradas na <a target="_blank"
+                href="https://support.google.com/youtube/answer/57793?hl=pt-BR&ref_topic=9257598">documentação oficial do
+                YouTube<span class="visually-hidden"> para copiar o URL de uma playlist</span></a>.
         </p>
+        <input class="form-control" type="text" name="playlistDashboard[playlistUrl]" id="playlistUrl">
     </div>
     <div>
         <button class="btn btn-success">Criar dashboard</button>

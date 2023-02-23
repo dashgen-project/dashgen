@@ -15,7 +15,8 @@ module.exports.index = async (req, res) => {
 
 // render new playlist dashboard form
 module.exports.renderNewPlaylistDashboardForm = async (req, res) => {
-    res.render('playlistDashboards/new');
+    const scripts = ['checkPlaylistUrl'];
+    res.render('playlistDashboards/new', { scripts });
 }
 
 // create playlist dashboard

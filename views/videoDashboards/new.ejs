@@ -1,14 +1,22 @@
 <%- include('../partials/header'); -%>
 <%- include('../partials/flash'); -%>
 
-<h3 class="mb-4">Você está a um click de criar seu dashboard de vídeo!</h3>
+<h1 class="mb-4">Você está a um click de criar seu dashboard de vídeo!</h1>
 
+<div class="d-none text-danger mb-3" id="invalidFeedback"></div>
 <form action="/videoDashboards" method="POST">
     <div class="mb-3">
         <label class="form-label" for="videoUrl">Insira o URL do vídeo:</label>
-        <input class="form-control" type="text" name="videoDashboard[videoUrl]" id="videoUrl" required>
-        <p class="text-secondary mt-2">Não copie o URL direto da barra de endereço, clique sobre o vídeo com o botão
-            direito do mouse e depois em "Copiar URL do vídeo". Para mais detalhes, clique <a href="/howToUse">aqui</a>.
+        <p class="text-secondary mt-2 fs-4">
+            No computador, acesse o vídeo desejado, clique sobre o mesmo com o botão direito do mouse e selecione a opção de
+            copiar URL do vídeo.
+            Para copiar o URL utilizando seu smartphone, siga as <a target="_blank"
+                href="https://support.google.com/youtube/answer/57741?hl=pt-BR&co=GENIE.Platform%3DAndroid&oco=1#zippy=%2Cv%C3%ADdeos">
+                instruções da
+                documentação oficial
+                do YouTube<span class="visually-hidden"> para copiar o URL do vídeo</span></a>.
+        </p>
+        <input class="form-control" type="text" name="videoDashboard[videoUrl]" id="videoUrl">
     </div>
     <div>
         <button class="btn btn-success">Criar dashboard</button>
