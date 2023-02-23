@@ -3,7 +3,7 @@
  */
 
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
+  require('dotenv').config();
 }
 
 const mongoose = require('mongoose'); /** Interaction with the database */
@@ -13,7 +13,7 @@ const helmet = require('helmet'); /** Security policy */
 const path = require('path'); /** Works with files and directories paths*/
 const methodOverride = require('method-override'); /** Allows PUT and DELETE methods */
 const passport = require('passport'); /** Registration and user stuff */
-const LocalStrategy = require('passport-local');  /** Strategy to perform registration and user-related actions */
+const LocalStrategy = require('passport-local'); /** Strategy to perform registration and user-related actions */
 const MongoStore = require('connect-mongo'); /** MongoDB session store for Connect and Express frameworks */
 const flash = require('connect-flash'); /** Communicates things to the user via flash messages */
 const cors = require('cors'); /** Middleware to enable CORS */
@@ -144,6 +144,7 @@ app.use(
       imgSrc: ["'self'", 'blob:', 'data:'],
       fontSrc: ["'self'", ...fontSrcUrls],
       frameSrc: ["'self'", 'blob:', ...frameSrcUrls],
+      frameAncestors: ['https://edisciplinas.usp.br/'],
     },
   })
 );
@@ -194,13 +195,13 @@ app.use('/videoDashboards', videoDashboardRoutes);
 
 /** Main function */
 async function main() {
-    await mongoose.connect(dbUrl); /** Connect to Mongo database */
+  await mongoose.connect(dbUrl); /** Connect to Mongo database */
 }
 
 /** Creates server listener at specified port */
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });
 
 /** Try to call main and if there are any errors, log it to the console */
-main().catch(err => console.log(err));
+main().catch((err) => console.log(err));
