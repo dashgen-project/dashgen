@@ -11,11 +11,9 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="preCEchaptersDropdownBtn0" id="preCEchaptersList0" role="menu">
                     <% for (let i = 0; i < chaptersData.preCEchaptersData0.length; i++) { %>
-                    <li class="text-wrap"
-                        id="<%= 3600 * chaptersData.preCEchaptersData0[i].timestamp[0] + 
-                                                                                                            60 * chaptersData.preCEchaptersData0[i].timestamp[1] + 
-                                                                                                            chaptersData.preCEchaptersData0[i].timestamp[2] %>">
-                        <button aria-controls="preCEvideo" class="dropdown-item" role="menuitem">
+                    <li class="text-wrap">
+                        <button id="<%= 3600 * chaptersData.preCEchaptersData0[i].timestamp[0] + 60 * chaptersData.preCEchaptersData0[i].timestamp[1] + chaptersData.preCEchaptersData0[i].timestamp[2] %>"
+                            aria-controls="preCEvideo" class="dropdown-item" role="menuitem">
                             <span class="visually-hidden">Capítulo</span>
                             <%= chaptersData.preCEchaptersData0[i].title %>
                         </button>
