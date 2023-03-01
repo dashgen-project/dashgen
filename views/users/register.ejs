@@ -77,11 +77,15 @@
                 especiais: "!", "@", "#", "%", "&", "*", "-", "_", "+" ou "=". A senha será criptografada antes de ser salva.
             </p>
             <input type="password" name="password" class="form-control fs-4" id="password">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-link text-decoration-none fs-4 px-0" id="togglePwdBtn">Mostrar senha</button>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary fs-4 mb-4">Entrar</button>
     </form>
     <script src="/js/checkRegistration.js">
     </script>
+    <script type="text/javascript" src="/js/togglePwdDisplay.js"></script>
 </body>
 
 </html>

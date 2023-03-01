@@ -75,6 +75,9 @@
                 especiais: "!", "@", "#", "%", "&", "*", "-", "_", "+" ou "=". A senha será criptografada antes de ser salva.
             </p>
             <input type="password" name="password" id="password" class="form-control fs-4">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-link text-decoration-none fs-4 px-0" id="togglePwdBtn">Mostrar senha</button>
+            </div>
             <input type="text" class="d-none" name="email" value="<%= email %>">
         </div>
         <button type="submit" class="btn btn-primary fs-4">Mudar senha</button>
@@ -82,5 +85,6 @@
 </body>
 
 <script src="/js/checkNewPwd.js"></script>
+<script type="text/javascript" src="/js/togglePwdDisplay.js"></script>
 
 </html>

@@ -132,14 +132,13 @@
         <!-- Class parts -->
         <div class="row py-2">
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-4" href="#preClassMaterial">Pré-aula</a>
+                <a class="text-light btn btn-dark fs-4" href="#preClassMaterial" id="preClassBtn">Pré-aula</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-4" href="#forClassMaterial">Para a
-                    aula</a>
+                <a class="text-light btn btn-dark fs-2" href="#forClassMaterial" id="forClassBtn">Aula</a>
             </div>
             <div class="col-12 col-lg-4 text-center">
-                <a class="text-light btn btn-dark fs-4" href="#postClassMaterial">Pós-aula</a>
+                <a class="text-light btn btn-dark fs-4" href="#postClassMaterial" id="postClassBtn">Pós-aula</a>
             </div>
         </div>
     </div>
@@ -152,7 +151,7 @@
 
     <main class="container-fluid p-5">
         <h1 class="text-light text-center text-uppercase mb-5">Aula <%= parseInt(classIndex, 10) + 1 %></h1>
-        <section id="preClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
+        <section id="preClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3 d-none">
             <div class="row">
                 <h1 class="col-12 text-center">Pré-aula</h1>
             </div>
@@ -167,7 +166,7 @@
 
             <!-- Pre-class material (non-essential) -->
             <div class="row mt-3">
-                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
+                <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
             </div>
             <%- include("./knowmiaCourseDashboardParts/nonEssentialPreClass") %>
         </section>
@@ -175,7 +174,7 @@
 
         <section id="forClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
             <div class="row">
-                <h1 class="col-12 text-center">Para a aula</h1>
+                <h1 class="col-12 text-center">Aula</h1>
             </div>
 
             <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052;"></div>
@@ -188,12 +187,12 @@
 
             <!-- For class material (non-essential) -->
             <div class="row mt-3">
-                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
+                <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
             </div>
             <%- include("./knowmiaCourseDashboardParts/nonEssentialForClass") %>
         </section>
 
-        <section id="postClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3">
+        <section id="postClassMaterial" class="container-fluid py-3  rounded rounded-5 bg-light mb-3 d-none">
             <div class="row">
                 <h1 class="col-12 text-center">Pós-aula</h1>
             </div>
@@ -208,7 +207,7 @@
 
             <!-- Post-class material (non-essential) -->
             <div class="row mt-3">
-                <h2 class="col-12 px-5">&#10148;&nbsp;Não essencial</h2>
+                <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
             </div>
             <%- include("./knowmiaCourseDashboardParts/nonEssentialPostClass") %>
         </section>
@@ -218,6 +217,8 @@
     </script>
     <script src="../../../js/disableBtns.js">
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YTK52V8E8"></script>
+    <script type="text/javascript" src="/js/googleAnalytics.js"></script>
 </body>
 
 </html>
