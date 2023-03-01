@@ -1,5 +1,5 @@
 <div class="row px-5" id="preCEvideoContent">
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-3">
         <div class="container-fluid px-0">
             <!-- Video 0 chapters -->
             <% if (chaptersData.preCEchaptersData0 && chaptersData.preCEchaptersData0.length) { %>
@@ -21,9 +21,8 @@
                     <% } %>
                 </ul>
             </div>
-            <% } else { %>
-            <p id="preCEchaptersDropdown0">Este vídeo não está separado em capítulos.</p>
             <% } %>
+
 
             <!-- Video 1 chapters -->
             <% if (chaptersData.preCEchaptersData1 && chaptersData.preCEchaptersData1.length) { %>
@@ -41,8 +40,6 @@
                     <% } %>
                 </ul>
             </div>
-            <% } else { %>
-            <p class="d-none" id="preCEchaptersDropdown1">Este vídeo não está separado em capítulos.</p>
             <% } %>
 
             <!-- Video 2 chapters -->
@@ -61,8 +58,6 @@
                     <% } %>
                 </ul>
             </div>
-            <% } else { %>
-            <p class="d-none" id="preCEchaptersDropdown2">Este vídeo não está separado em capítulos.</p>
             <% } %>
 
             <div class="row dropdown mb-1">
@@ -168,7 +163,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-8 py-2 py-lg-0 px-0 px-lg-2">
+    <div class="col-12 col-lg-9 py-2 py-lg-0 px-0 px-lg-2">
         <% if (dashboard.classes[classIndex].preClassMaterial.essential.video[0] !== '') { %>
         <div class="ratio ratio-16x9">
             <iframe
@@ -176,7 +171,7 @@
                 title="YouTube video" id="preCEvideo" allowfullscreen></iframe>
         </div>
         <% } else { %>
-        <p class="text-center">Não há um vídeo para mostrar aqui.</p>
+        <p class="text-center fs-4">Não há um vídeo para mostrar aqui.</p>
         <iframe src="" title="YouTube video" id="preCEvideo" allowfullscreen></iframe>
         <% } %>
     </div>

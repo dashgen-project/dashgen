@@ -74,6 +74,7 @@ const scriptSrcUrls = [
   'https://cdn.jsdelivr.net' /** Jsdelivr (js cloud delivery network) */,
   'https://youtube.googleapis.com' /** YouTube API (get playlist and video data) */,
   'https://www.youtube.com' /** YouTube */,
+  'https://www.googletagmanager.com',
 ];
 
 /** Allowed style sources */
