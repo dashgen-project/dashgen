@@ -1,25 +1,25 @@
-/**
- * @file Disable dropdown buttons which do not have content
- */
+// /**
+//  * @file Disable dropdown buttons which do not have content
+//  */
 
-dropdownBtns = document.getElementsByClassName('dropdown-menu');
-for (let btn of dropdownBtns) {
-  let btnsContainer;
-  if (btn.childElementCount < 1) {
-    btnTag = btn.previousSibling.previousSibling;
-    btnsContainer = btnTag.parentElement.parentElement;
-    btnTag.remove();
-    if (
-      Array.from(btnsContainer).every((el) => {
-        return el.childNodes[1].childElementCount < 1;
-      })
-    ) {
-      btnsContainer.innerText =
-        'Caso não haja nada aqui, esta parte da aula não possui materiais ainda.';
-      btnsContainer.classList.add('fs-4');
-    }
-  }
-}
+// dropdownBtns = document.getElementsByClassName('dropdown-menu');
+// for (let btn of dropdownBtns) {
+//   let btnsContainer;
+//   if (btn.childElementCount < 1) {
+//     btnTag = btn.previousSibling.previousSibling;
+//     btnsContainer = btnTag.parentElement.parentElement;
+//     btnTag.setAttribute("disabled", true);
+//     if (
+//       Array.from(btnsContainer).every((el) => {
+//         return el.childNodes[1].childElementCount < 1;
+//       })
+//     ) {
+//       btnsContainer.innerText =
+//         'Caso não haja nada aqui, esta parte da aula não possui materiais ainda.';
+//       btnsContainer.classList.add('fs-4');
+//     }
+//   }
+// }
 
 const changeClassPartBtns = [
   document.getElementById('preClassBtn'),
@@ -62,9 +62,22 @@ for (let i = 0; i < 3; i++) {
   );
 }
 
-// dropdownBtnContainers = document.getElementsByClassName('dropdown');
-// for (let cont of dropdownBtnContainers) {
-//   if (cont.childElementCount < 1) {
-//     cont.innerText = 'Sem material';
-//   }
-// }
+// // dropdownBtnContainers = document.getElementsByClassName('dropdown');
+// // for (let cont of dropdownBtnContainers) {
+// //   if (cont.childElementCount < 1) {
+// //     cont.innerText = 'Sem material';
+// //   }
+// // }
+
+// /**
+//  * @file Disable dropdown buttons which do not have content
+//  */
+
+dropdownBtns = document.getElementsByClassName("dropdown-menu");
+for (let btn of dropdownBtns) {
+    if (btn.childElementCount < 1) {
+        btnTag = btn.previousSibling.previousSibling;
+        btnTag.innerText += ' (não disponível)';
+        btnTag.classList.add("disabled");
+    }
+}
