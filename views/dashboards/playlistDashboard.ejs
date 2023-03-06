@@ -1,81 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script type="application/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script
+      type="application/javascript"
+      src="/js/bootstrap.bundle.min.js"
+    ></script>
     <title><%= dashboard.title %></title>
-    <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico" />
     <style>
-        .gradient-bg {
-            background: rgb(0,0,0);
-            background: linear-gradient(135deg, rgba(0,0,0,1) 25%, rgba(58,0,109,1) 65%, rgba(205,0,130,1) 100%);
-        }
+      .gradient-bg {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 1) 25%,
+          rgba(58, 0, 109, 1) 65%,
+          rgba(205, 0, 130, 1) 100%
+        );
+      }
     </style>
-</head>
+  </head>
 
-<body class="gradient-bg">
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-0YTK52V8E8"
+  ></script>
+  <script type="text/javascript" src="/js/googleAnalytics.js"></script>
+
+  <body class="gradient-bg">
     <div class="navbar navbar-expand-lg px-3">
-        <div class="container-fluid d-flex justify-content-center border-bottom border-3" style="border-color: #CD0082">
-            <h1 class="text-light fs-1 text-wrap"><%= dashboard.title %></h1>
-        </div>
+      <div
+        class="container-fluid d-flex justify-content-center border-bottom border-3"
+        style="border-color: #cd0082"
+      >
+        <h1 class="text-light fs-1 text-wrap"><%= dashboard.title %></h1>
+      </div>
     </div>
     <div class="container-fluid py-3">
-        <div class="row">
-            <div class="col-12 col-md-3 overflow-auto py-2">
-                <div class="justify-content-center">
-                    <div class="mb-2">
-                        <% if (chaptersData.length) { %>
-                        <div class="dropdown mb-1">
-                            <button class="btn btn-light dropdown-toggle w-100 fs-4" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Capítulos do vídeo
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="capitulos-video">
-                                <% for (let i = 0; i < chaptersData.length; i++) { %>
-                                <li class="list-group-item btn btn-link text-wrap chapter-btn fs-4"
-                                    id="<%= 3600*chaptersData[i].timestamp[0] + 60*chaptersData[i].timestamp[1] + chaptersData[i].timestamp[2] %>">
-                                    <%= chaptersData[i].title %>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </div>
-                        <% } %>
-                    </div>
-                    <div class="">
-                        <div class="dropdown mb-1">
-                            <button class="btn btn-light dropdown-toggle w-100 fs-4" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Vídeos
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="capitulos-video">
-                                <% for (let i = 0; i < videos.length; i++) { %>
-                                <li class="list-group-item btn btn-link text-wrap video-btn fs-4"
-                                    id="/playlistDashboards/<%= dashboard._id %>/dash/<%= i %>">
-                                    <%= videos[i].title %>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-12 col-md-3 overflow-auto py-2">
+          <div class="justify-content-center">
+            <div class="mb-2">
+              <% if (chaptersData.length) { %>
+              <div class="dropdown mb-1">
+                <button
+                  class="btn btn-light dropdown-toggle w-100 fs-4"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Capítulos do vídeo
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video">
+                  <% for (let i = 0; i < chaptersData.length; i++) { %>
+                  <li
+                    class="list-group-item btn btn-link text-wrap chapter-btn fs-4"
+                    id="<%= 3600*chaptersData[i].timestamp[0] + 60*chaptersData[i].timestamp[1] + chaptersData[i].timestamp[2] %>"
+                  >
+                    <%= chaptersData[i].title %>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
+              <% } %>
             </div>
-            <div class="col-12 col-md-9 py-2">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/<%= videos[classIndex].videoId %>?rel=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
+            <div class="">
+              <div class="dropdown mb-1">
+                <button
+                  class="btn btn-light dropdown-toggle w-100 fs-4"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Vídeos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="capitulos-video">
+                  <% for (let i = 0; i < videos.length; i++) { %>
+                  <li
+                    class="list-group-item btn btn-link text-wrap video-btn fs-4"
+                    id="/playlistDashboards/<%= dashboard._id %>/dash/<%= i %>"
+                  >
+                    <%= videos[i].title %>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
+        <div class="col-12 col-md-9 py-2">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/<%= videos[classIndex].videoId %>?rel=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="../../../js/dashboardControls.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YTK52V8E8"></script>
-    <script type="text/javascript" src="/js/googleAnalytics.js"></script>
-</body>
-
+  </body>
 </html>
