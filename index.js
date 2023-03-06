@@ -90,6 +90,7 @@ const styleSrcUrls = [
 const connectSrcUrls = [
   'https://youtube.googleapis.com',
   'https://www.youtube.com',
+  'https://www.google-analytics.com',
 ];
 
 const frameSrcUrls = [
