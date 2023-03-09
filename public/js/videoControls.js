@@ -80,8 +80,12 @@ for (let classPt of classParts) {
 const chaptersSrcHandler = (videoFrame, videoId, chaptersList) => {
   if (chaptersList) {
     chaptersList.addEventListener('click', (e) => {
-      const timeInSeconds = e.target.id;
-      console.log('changed time');
+      let timeInSeconds = e.target.id;
+      // console.log('changed time');
+      // console.log(`time in seconds = ${timeInSeconds}`);
+      // console.log(timeInSeconds);
+      // console.log(typeof timeInSeconds);
+      if (timeInSeconds === '0') timeInSeconds = 1;
       videoFrame.src = `https://www.youtube.com/embed/${videoId}?start=${timeInSeconds}&autoplay=1&rel=0`;
     });
   }
