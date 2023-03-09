@@ -73,11 +73,28 @@ for (let i = 0; i < 3; i++) {
 //  * @file Disable dropdown buttons which do not have content
 //  */
 
-dropdownBtns = document.getElementsByClassName("dropdown-menu");
+dropdownBtns = document.getElementsByClassName('dropdown-menu');
 for (let btn of dropdownBtns) {
-    if (btn.childElementCount < 1) {
-        btnTag = btn.previousSibling.previousSibling;
-        btnTag.innerText += ' (não disponível)';
-        btnTag.classList.add("disabled");
-    }
+  if (btn.childElementCount < 1) {
+    btnTag = btn.previousSibling.previousSibling;
+    btnTag.classList.add('disabled');
+    const notAvaiable = document.createElement('div');
+    notAvaiable.classList.add('text-center', 'd-none', 'bg-warning');
+    notAvaiable.innerText = '(não disponível)';
+    // btnTag.after(notAvaiable);
+    // btnTag.insertAdjacentHTML('afterend', 'não disponível');
+    btnTag.parentNode.addEventListener('mouseover', (evt) => {
+      console.log('onmouseover');
+      console.log(evt.target.childNodes);
+      // console.log(evt.target.childNodes);
+      evt.target.childNodes[1].innerText += ' (não disponível)';
+    });
+    btnTag.parentNode.addEventListener('mouseout', (evt) => {
+      console.log('onmouseout');
+      evt.target.childNodes[1].innerText =
+        evt.target.childNodes[1].innerText.split(' (')[0];
+      // console.log(evt.target.childNodes);
+      // evt.target.childNodes[2].classList.add('d-none');
+    });
+  }
 }

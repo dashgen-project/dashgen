@@ -16,9 +16,9 @@ const youtubeApiKey = process.env.YOUTUBE_API_KEY; // youtube api key in order t
 
 // show all course dashboards from an specifc user
 module.exports.index = async (req, res) => {
-    const dashboards = await CourseDashboard.find({ author: req.user._id }); // get course dashboard from the database
-    res.render('courseDashboards', { dashboards }); // render view
-}
+  const dashboards = await CourseDashboard.find({ author: req.user._id }); // get course dashboard from the database
+  res.render('courseDashboards', { dashboards }); // render view
+};
 
 // render new course dashboard form
 module.exports.renderNewCourseDashboardForm = async (req, res) => {
@@ -176,7 +176,67 @@ module.exports.renderCourseDashboard = async (req, res) => {
   // forCNE - for class non essential
   // postCE - post class essential
   // postCNE - post class non essential
+  let videoIds = {},
+    videoChaptersData = {},
+    preCEvideoIds = [],
+    preCNEvideoIds = [],
+    forCEvideoIds = [],
+    forCNEvideoIds = [],
+    postCEvideoIds = [],
+    postCNEvideoIds = [];
+
   if (dashboard.classes.length > 0) {
+    for (let i = 0; i < 3; i++) {
+      preCEvideoIds.push(
+        dashboard.classes[classIndex].preClassMaterial.essential.video[i]
+      );
+      preCNEvideoIds.push(
+        dashboard.classes[classIndex].preClassMaterial.nonEssential.video[i]
+      );
+      forCEvideoIds.push(
+        dashboard.classes[classIndex].forClassMaterial.essential.video[i]
+      );
+      forCNEvideoIds.push(
+        dashboard.classes[classIndex].forClassMaterial.nonEssential.video[i]
+      );
+      postCEvideoIds.push(
+        dashboard.classes[classIndex].postClassMaterial.essential.video[i]
+      );
+      postCNEvideoIds.push(
+        dashboard.classes[classIndex].postClassMaterial.nonEssential.video[i]
+      );
+    }
+    // Object.keys(videoIds).forEach( (key0, index0) => {
+    //   Object.keys(key0).forEach((key1, index1) => {
+    //     Object.keys(key1).forEach((key2, index2) => {
+    //       if (index2 === 1) {
+    //         for (let i = 0; i < 3; i++) {
+    //           key2 = dashboard.classes[classIndex]
+    //         }
+    //       }
+    //     })
+    //   })
+    // });
+    videoIds.pre = {
+      essential: { values: preCEvideoIds },
+      nonEssential: { values: preCNEvideoIds },
+    };
+    videoIds.for = {
+      essential: { values: forCEvideoIds },
+      nonEssential: { values: forCNEvideoIds },
+    };
+    videoIds.post = {
+      essential: { values: postCEvideoIds },
+      nonEssential: { values: postCNEvideoIds },
+    };
+
+    // videoIds.pre = { essential: preCEvideoIds, nonEssential: preCNEvideoIds };
+    // videoIds.for = { essential: forCEvideoIds, nonEssential: forCNEvideoIds };
+    // videoIds.post = {
+    //   essential: postCEvideoIds,
+    //   nonEssential: postCNEvideoIds,
+    // };
+
     const preCEvideoId0 =
       dashboard.classes[classIndex].preClassMaterial.essential.video[0];
     const preCEvideoId1 =
@@ -247,6 +307,76 @@ module.exports.renderCourseDashboard = async (req, res) => {
     // forCNE - for class non essential
     // postCE - post class essential
     // postCNE - post class non essential
+
+    // Object.keys(videoIds).forEach((key, index) => {
+
+    // })
+
+    // Object.keys(videoIds.pre).forEach()
+
+    videoChaptersData.pre = {
+      essential: {
+        values: [],
+        text: null,
+      },
+      nonEssential: {
+        values: [],
+        text: null,
+      },
+    };
+    videoChaptersData.for = {
+      essential: {
+        values: [],
+        text: null,
+      },
+      nonEssential: {
+        values: [],
+        text: null,
+      },
+    };
+    videoChaptersData.post = {
+      essential: {
+        values: [],
+        text: null,
+      },
+      nonEssential: {
+        values: [],
+        text: null,
+      },
+    };
+
+    for (let id of videoIds.pre.essential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.pre.essential.values.push(data);
+    }
+    for (let id of videoIds.pre.nonEssential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.pre.nonEssential.values.push(data);
+    }
+    for (let id of videoIds.for.essential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.for.essential.values.push(data);
+    }
+    for (let id of videoIds.for.nonEssential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.for.nonEssential.values.push(data);
+    }
+    for (let id of videoIds.post.essential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.post.essential.values.push(data);
+    }
+    for (let id of videoIds.post.nonEssential.values) {
+      const data = await chapters.getChaptersData(id);
+      videoChaptersData.post.nonEssential.values.push(data);
+    }
+
+    videoChaptersData.pre.essential.text = 'pré-aula-essencial';
+    videoChaptersData.pre.nonEssential.text = 'pré-aula-extra';
+    videoChaptersData.for.essential.text = 'para-aula-essencial';
+    videoChaptersData.for.nonEssential.text = 'para-aula-extra';
+    videoChaptersData.post.essential.text = 'pós-aula-essencial';
+    videoChaptersData.post.nonEssential.text = 'pós-aula-extra';
+
     const preCEchaptersData0 = await chapters.getChaptersData(
       videosIds.preCEvideoId0
     );
@@ -332,6 +462,7 @@ module.exports.renderCourseDashboard = async (req, res) => {
       dashboard,
       classIndex,
       chaptersData,
+      videoChaptersData,
     }); // render view
   } else {
     res.render('dashboards/noClasses', { id }); // render view (there are no classes in the dashboard)
