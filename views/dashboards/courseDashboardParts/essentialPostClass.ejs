@@ -115,7 +115,7 @@
                     <% for (let i = 0; i < dashboard.classes[classIndex].postClassMaterial.essential.reading.length; i++) { %>
                     <% if (dashboard.classes[classIndex].postClassMaterial.essential.reading[i] !== '') { %>
                     <li><a target="_blank" class="dropdown-item"
-                            href="https://www.youtube.com/watch?v=<%= dashboard.classes[classIndex].postClassMaterial.essential.reading[i] %>">
+                            href="<%= dashboard.classes[classIndex].postClassMaterial.essential.reading[i] %>">
                             Leitura <%= i + 1 %>
                         </a></li>
                     <% } %>
