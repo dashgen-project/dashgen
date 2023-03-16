@@ -4,32 +4,17 @@
       <% for (let [index, data] of
       videoChaptersData.pre.essential.values.entries()) { %> <% if (data &&
       data.length) { %>
-      <div
-        class="row dropdown mb-1<% if (index !== 0) { %> d-none<% } %>"
-        id="preCEchaptersDropdown<%= index %>"
-      >
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-          id="preCEchaptersDropdownBtn<%= index %>"
-          aria-haspopup="true"
-          type="button"
-          aria-label="capítulo-do-vídeo-essencial-em-destaque"
-        >
+      <div class="row dropdown mb-1<% if (index !== 0) { %> d-none<% } %>" id="preCEchaptersDropdown<%= index %>">
+        <button class="btn btn-dark dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false"
+          id="preCEchaptersDropdownBtn<%= index %>" aria-haspopup="true" type="button"
+          aria-label="capítulo-do-vídeo-essencial-em-destaque">
           Capítulos do vídeo
         </button>
-        <ul
-          class="dropdown-menu"
-          aria-labelledby="preCEchaptersDropdownBtn<%= index %>"
-          id="preCEchaptersList<%= index %>"
-        >
+        <ul class="dropdown-menu" aria-labelledby="preCEchaptersDropdownBtn<%= index %>"
+          id="preCEchaptersList<%= index %>">
           <% for (let i = 0; i < data.length; i++) { %>
-          <li
-            id="<%= 3600 * data[i].timestamp[0] + 60 * data[i].timestamp[1] + data[i].timestamp[2] %>"
-            aria-controls="preCEvideo"
-            class="dropdown-item btn btn-link text-wrap"
-          >
+          <li id="<%= 3600 * data[i].timestamp[0] + 60 * data[i].timestamp[1] + data[i].timestamp[2] %>"
+            aria-controls="preCEvideo" class="dropdown-item btn btn-link text-wrap">
             <span class="visually-hidden">Capítulo</span>
             <%= data[i].title %>
           </li>
@@ -39,12 +24,8 @@
       <% }} %>
 
       <div class="row dropdown mb-1">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
           Vídeos
         </button>
         <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-videos">
@@ -54,11 +35,8 @@
           (dashboard.classes[classIndex].preClassMaterial.essential.video[i] !==
           '') { %>
           <li>
-            <button
-              class="dropdown-item"
-              id="preCEvideo<%= i %>"
-              value="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.essential.video[i] %>?rel=0"
-            >
+            <button class="dropdown-item" id="preCEvideo<%= i %>"
+              value="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.essential.video[i] %>?rel=0">
               Vídeo <%= i + 1 %>
             </button>
           </li>
@@ -67,13 +45,8 @@
       </div>
       <!-- Slides -->
       <div class="row dropdown mb-1">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          id="pre-aula-essencial-slides"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-slides"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Slides
         </button>
         <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-slides">
@@ -83,11 +56,8 @@
           (dashboard.classes[classIndex].preClassMaterial.essential.slide[i] !==
           '') { %>
           <li>
-            <a
-              target="_blank"
-              class="dropdown-item"
-              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.slide[i] %>"
-            >
+            <a target="_blank" class="dropdown-item"
+              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.slide[i] %>">
               Slide <%= i + 1 %>
             </a>
           </li>
@@ -96,30 +66,19 @@
       </div>
       <!-- Exercises lists -->
       <div class="row dropdown mb-1">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          id="pre-aula-essencial-listas-de-exercicios"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-listas-de-exercicios"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Listas de exercícios
         </button>
-        <ul
-          class="dropdown-menu"
-          aria-labelledby="pre-aula-essencial-listas-de-exercicios"
-        >
+        <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-listas-de-exercicios">
           <% for (let i = 0; i <
           dashboard.classes[classIndex].preClassMaterial.essential.exerciseList.length;
           i++) { %> <% if
           (dashboard.classes[classIndex].preClassMaterial.essential.exerciseList[i]
           !== '') { %>
           <li>
-            <a
-              target="_blank"
-              class="dropdown-item"
-              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.exerciseList[i] %>"
-            >
+            <a target="_blank" class="dropdown-item"
+              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.exerciseList[i] %>">
               Lista <%= i + 1 %>
             </a>
           </li>
@@ -128,13 +87,8 @@
       </div>
       <!-- Readings -->
       <div class="row dropdown mb-1">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          id="pre-aula-essencial-leituras"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-leituras"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Leituras
         </button>
         <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-leituras">
@@ -144,11 +98,8 @@
           (dashboard.classes[classIndex].preClassMaterial.essential.reading[i]
           !== '') { %>
           <li>
-            <a
-              target="_blank"
-              class="dropdown-item"
-              href="https://www.youtube.com/watch?v=<%= dashboard.classes[classIndex].preClassMaterial.essential.reading[i] %>"
-            >
+            <a target="_blank" class="dropdown-item"
+              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.reading[i] %>">
               Leitura <%= i + 1 %>
             </a>
           </li>
@@ -157,30 +108,19 @@
       </div>
       <!-- Quizzes -->
       <div class="row dropdown mb-1">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          id="pre-aula-essencial-questionarios"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-questionarios"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Quizzes
         </button>
-        <ul
-          class="dropdown-menu"
-          aria-labelledby="pre-aula-essencial-questionarios"
-        >
+        <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-questionarios">
           <% for (let i = 0; i <
           dashboard.classes[classIndex].preClassMaterial.essential.quizz.length;
           i++) { %> <% if
           (dashboard.classes[classIndex].preClassMaterial.essential.quizz[i] !==
           '') { %>
           <li>
-            <a
-              target="_blank"
-              class="dropdown-item"
-              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.quizz[i] %>"
-            >
+            <a target="_blank" class="dropdown-item"
+              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.quizz[i] %>">
               Quizz <%= i + 1 %>
             </a>
           </li>
@@ -189,30 +129,19 @@
       </div>
       <!-- External links -->
       <div class="row dropdown">
-        <button
-          class="btn btn-dark dropdown-toggle w-100"
-          type="button"
-          id="pre-aula-essencial-links-externos"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn btn-dark dropdown-toggle w-100" type="button" id="pre-aula-essencial-links-externos"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Links externos
         </button>
-        <ul
-          class="dropdown-menu"
-          aria-labelledby="pre-aula-essencial-links-externos"
-        >
+        <ul class="dropdown-menu" aria-labelledby="pre-aula-essencial-links-externos">
           <% for (let i = 0; i <
           dashboard.classes[classIndex].preClassMaterial.essential.externalLink.length;
           i++) { %> <% if
           (dashboard.classes[classIndex].preClassMaterial.essential.externalLink[i]
           !== '') { %>
           <li>
-            <a
-              target="_blank"
-              class="dropdown-item"
-              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.externalLink[i] %>"
-            >
+            <a target="_blank" class="dropdown-item"
+              href="<%= dashboard.classes[classIndex].preClassMaterial.essential.externalLink[i] %>">
               Link <%= i + 1 %>
             </a>
           </li>
@@ -227,19 +156,11 @@
     <div class="ratio ratio-16x9">
       <iframe
         src="https://www.youtube.com/embed/<%= dashboard.classes[classIndex].preClassMaterial.essential.video[0] %>?rel=0"
-        title="YouTube video"
-        id="preCEvideo"
-        allowfullscreen
-      ></iframe>
+        title="YouTube video" id="preCEvideo" allowfullscreen></iframe>
     </div>
     <% } else { %>
     <p class="text-center fs-4">Não há um vídeo para mostrar aqui.</p>
-    <iframe
-      src=""
-      title="YouTube video"
-      id="preCEvideo"
-      allowfullscreen
-    ></iframe>
+    <iframe src="" title="YouTube video" id="preCEvideo" allowfullscreen></iframe>
     <% } %>
   </div>
 </div>
