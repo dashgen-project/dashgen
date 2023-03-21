@@ -1,123 +1,93 @@
 <h4 class="fs-3 mt-5">Vídeos</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="video<%= i %>" class="form-label fs-4">Vídeo <%= i + 1 %></label>
-<select
-  class="form-select mb-1"
-  aria-label="Select video"
-  name="thisClass[forClassMaterial][essential][video][<%= i %>]"
-  id="forC_E_video<%= i %>"
->
-  <% if (dashboard.classes[classNum]) { %> <% if
-  (dashboard.classes[classNum].forClassMaterial.essential.video[i]) { %>
-  <option value="">Nenhum</option>
-  <% for (let video of videos) { %> <% if (video.videoId ===
-  dashboard.classes[classNum].forClassMaterial.essential.video[i]){ %>
-  <option selected value="<%= video.videoId %>"><%= video.title %></option>
-  <% } else { %>
-  <option value="<%= video.videoId %>"><%= video.title %></option>
-  <% } %> <% } %> <% } else { %>
-  <option selected value="">Nenhum</option>
-  <% for (let video of videos) { %>
-  <option value="<%= video.videoId %>"><%= video.title %></option>
-  <% } %> <% } %> <% } else { %>
-  <option selected value="">Nenhum</option>
-  <% for (let video of videos) { %>
-  <option value="<%= video.videoId %>"><%= video.title %></option>
-  <% } %> <% } %>
+<% for (let i = 0; i < 3; i++) { %>
+<label for="video<%= i %>" class="form-label  fs-4">Vídeo <%= i + 1 %></label>
+<select class="form-select mb-1" aria-label="Select video"
+    name="thisClass[forClassMaterial][essential][video][<%= i %>]" id="forC_E_video<%= i %>">
+    <% if (dashboard.classes[classNum]) { %>
+    <% if (dashboard.classes[classNum].forClassMaterial.essential.video[i]) { %>
+    <option value="">Nenhum</option>
+    <% for (let video of videos) { %>
+    <% if (video.videoId === dashboard.classes[classNum].forClassMaterial.essential.video[i]){ %>
+    <option selected value="<%= video.videoId %>">
+        <%= video.title %>
+    </option>
+    <% } else {  %>
+    <option value="<%= video.videoId %>">
+        <%= video.title %>
+    </option>
+    <% } %>
+    <% } %>
+    <% } else { %>
+    <option selected value="">Nenhum</option>
+    <% for (let video of videos) { %>
+    <option value="<%= video.videoId %>">
+        <%= video.title %>
+    </option>
+    <% } %>
+    <% } %>
+    <% } else { %>
+    <option selected value="">Nenhum</option>
+    <% for (let video of videos) { %>
+    <option value="<%= video.videoId %>">
+        <%= video.title %>
+    </option>
+    <% } %>
+    <% } %>
 </select>
 <% } %>
 <h4 class="fs-3 mt-5">Slides</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="forC_E_slide<%= i %>" class="form-label fs-4"
-  >URL do slide <%= i + 1 %></label
->
+<% for (let i = 0; i < 3; i++)  { %>
+<label for="forC_E_slide<%= i %>" class="form-label  fs-4">URL do slide <%= i + 1 %></label>
 <% if (dashboard.classes[classNum]) { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
-  id="forC_E_slide<%= i %>"
-  value="<%= dashboard.classes[classNum].forClassMaterial.essential.slide[i] %>"
-/>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
+    id="forC_E_slide<%= i %>" value="<%= dashboard.classes[classNum].forClassMaterial.essential.slide[i] %>">
 <% } else { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
-  id="forC_E_slide<%= i %>"
-/>
-<% } %> <% } %>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][slide][<%= i %>]"
+    id="forC_E_slide<%= i %>">
+<% } %>
+<% } %>
 <h4 class="fs-3 mt-5">Listas de exercícios</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="forC_E_lista<%= i %>" class="form-label fs-4"
-  >URL da lista <%= i + 1 %></label
->
+<% for (let i = 0; i < 3; i++)  { %>
+<label for="forC_E_lista<%= i %>" class="form-label  fs-4">URL da lista <%= i + 1 %></label>
 <% if (dashboard.classes[classNum]) { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]"
-  id="forC_E_lista<%= i %>"
-  value="<%= dashboard.classes[classNum].forClassMaterial.essential.exerciseList[i] %>"
-/>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]"
+    id="forC_E_lista<%= i %>" value="<%= dashboard.classes[classNum].forClassMaterial.essential.exerciseList[i] %>">
 <% } else { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]"
-  id="forC_E_lista<%= i %>"
-/>
-<% } %> <% } %>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][exerciseList][<%= i %>]"
+    id="forC_E_lista<%= i %>">
+<% } %>
+<% } %>
 <h4 class="fs-3 mt-5">Leituras</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="forC_E_leitura<%= i %>" class="form-label fs-4"
-  >URL da leitura <%= i + 1 %></label
->
+<% for (let i = 0; i < 3; i++)  { %>
+<label for="forC_E_leitura<%= i %>" class="form-label  fs-4">URL da leitura <%= i + 1 %></label>
 <% if (dashboard.classes[classNum]) { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
-  id="forC_E_leitura<%= i %>"
-  value="<%= dashboard.classes[classNum].forClassMaterial.essential.reading[i] %>"
-/>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
+    id="forC_E_leitura<%= i %>" value="<%= dashboard.classes[classNum].forClassMaterial.essential.reading[i] %>">
 <% } else { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
-  id="forC_E_leitura<%= i %>"
-/>
-<% } %> <% } %>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][reading][<%= i %>]"
+    id="forC_E_leitura<%= i %>">
+<% } %>
+<% } %>
 <h4 class="fs-3 mt-5">Quizzes</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="forC_E_quizz<%= i %>" class="form-label fs-4"
-  >URL do quizz <%= i + 1 %></label
->
+<% for (let i = 0; i < 3; i++)  { %>
+<label for="forC_E_quizz<%= i %>" class="form-label  fs-4">URL do quizz <%= i + 1 %></label>
 <% if (dashboard.classes[classNum]) { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
-  id="forC_E_quizz<%= i %>"
-  value="<%= dashboard.classes[classNum].forClassMaterial.essential.quizz[i] %>"
-/>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
+    id="forC_E_quizz<%= i %>" value="<%= dashboard.classes[classNum].forClassMaterial.essential.quizz[i] %>">
 <% } else { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
-  id="forC_E_quizz<%= i %>"
-/>
-<% } %> <% } %>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][quizz][<%= i %>]"
+    id="forC_E_quizz<%= i %>">
+<% } %>
+<% } %>
 <h4 class="fs-3 mt-5">Links externos</h4>
-<% for (let i = 0; i < 5; i++) { %>
-<label for="forC_E_link<%= i %>" class="form-label fs-4"
-  >URL do link externo <%= i + 1 %></label
->
+<% for (let i = 0; i < 3; i++)  { %>
+<label for="forC_E_link<%= i %>" class="form-label  fs-4">URL do link externo
+    <%= i + 1 %></label>
 <% if (dashboard.classes[classNum]) { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]"
-  id="forC_E_link<%= i %>"
-  value="<%= dashboard.classes[classNum].forClassMaterial.essential.externalLink[i] %>"
-/>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]"
+    id="forC_E_link<%= i %>" value="<%= dashboard.classes[classNum].forClassMaterial.essential.externalLink[i] %>">
 <% } else { %>
-<input
-  class="form-control mb-1"
-  name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]"
-  id="forC_E_link<%= i %>"
-/>
-<% } %> <% } %>
+<input class="form-control mb-1" name="thisClass[forClassMaterial][essential][externalLink][<%= i %>]"
+    id="forC_E_link<%= i %>">
+<% } %>
+<% } %>
