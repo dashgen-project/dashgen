@@ -186,7 +186,7 @@ module.exports.renderCourseDashboard = async (req, res) => {
     postCNEvideoIds = [];
 
   if (dashboard.classes.length > 0) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       preCEvideoIds.push(
         dashboard.classes[classIndex].preClassMaterial.essential.video[i]
       );
@@ -206,17 +206,6 @@ module.exports.renderCourseDashboard = async (req, res) => {
         dashboard.classes[classIndex].postClassMaterial.nonEssential.video[i]
       );
     }
-    // Object.keys(videoIds).forEach( (key0, index0) => {
-    //   Object.keys(key0).forEach((key1, index1) => {
-    //     Object.keys(key1).forEach((key2, index2) => {
-    //       if (index2 === 1) {
-    //         for (let i = 0; i < 3; i++) {
-    //           key2 = dashboard.classes[classIndex]
-    //         }
-    //       }
-    //     })
-    //   })
-    // });
     videoIds.pre = {
       essential: { values: preCEvideoIds },
       nonEssential: { values: preCNEvideoIds },
@@ -229,13 +218,6 @@ module.exports.renderCourseDashboard = async (req, res) => {
       essential: { values: postCEvideoIds },
       nonEssential: { values: postCNEvideoIds },
     };
-
-    // videoIds.pre = { essential: preCEvideoIds, nonEssential: preCNEvideoIds };
-    // videoIds.for = { essential: forCEvideoIds, nonEssential: forCNEvideoIds };
-    // videoIds.post = {
-    //   essential: postCEvideoIds,
-    //   nonEssential: postCNEvideoIds,
-    // };
 
     const preCEvideoId0 =
       dashboard.classes[classIndex].preClassMaterial.essential.video[0];
