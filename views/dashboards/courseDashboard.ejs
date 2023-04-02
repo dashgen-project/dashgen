@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
     <script
       type="application/javascript"
       src="/js/bootstrap.bundle.min.js"
@@ -26,8 +30,14 @@
       <div class="row py-2 px-5 bg-black">
         <% if (!dashboard.environmentUrl && !dashboard.forumUrl) { %>
         <div class="col-12 col-lg-6 text-center text-lg-start">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
+          <div class="text-light p-2 fs-4">
+            <% if (isAuthor){ %><%= dashboard.title %>
+            <a
+              class="text-light"
+              href="/courseDashboards/<%= dashboard.id %>"
+              aria-label="Editar dashboard"
+              ><i class="bi bi-pencil"></i></a
+            ><% } else { %><%= dashboard.title %><% } %>
           </div>
         </div>
         <div class="col-12 col-lg-6 text-center text-lg-end">
@@ -57,8 +67,14 @@
         </div>
         <% } else if (!dashboard.environmentUrl) { %>
         <div class="col-12 col-lg-4 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
+          <div class="text-light p-2 fs-4">
+            <% if (isAuthor){ %><%= dashboard.title %>
+            <a
+              class="text-light"
+              href="/courseDashboards/<%= dashboard.id %>"
+              aria-label="Editar dashboard"
+              ><i class="bi bi-pencil"></i></a
+            ><% } else { %><%= dashboard.title %><% } %>
           </div>
         </div>
         <div class="col-12 col-lg-4 text-center">
@@ -97,8 +113,14 @@
         </div>
         <% } else if (!dashboard.forumUrl) { %>
         <div class="col-12 col-lg-4 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
+          <div class="text-light p-2 fs-4">
+            <% if (isAuthor){ %><%= dashboard.title %>
+            <a
+              class="text-light"
+              href="/courseDashboards/<%= dashboard.id %>"
+              aria-label="Editar dashboard"
+              ><i class="bi bi-pencil"></i></a
+            ><% } else { %><%= dashboard.title %><% } %>
           </div>
         </div>
         <div class="col-12 col-lg-4 text-center">
@@ -137,8 +159,14 @@
         </div>
         <% } else { %>
         <div class="col-12 col-lg-3 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
+          <div class="text-light fs-4 p-2">
+            <% if (isAuthor){ %><%= dashboard.title %>
+            <a
+              class="text-light"
+              href="/courseDashboards/<%= dashboard.id %>"
+              aria-label="Editar dashboard"
+              ><i class="bi bi-pencil"></i></a
+            ><% } else { %><%= dashboard.title %><% } %>
           </div>
         </div>
         <div class="col-12 col-lg-3 text-center">
