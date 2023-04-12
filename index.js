@@ -99,8 +99,10 @@ const frameSrcUrls = [
   'https://app.knowmia.com/',
 ];
 
-/** Allowed font sources (none) */
-const fontSrcUrls = [];
+/** Allowed font sources */
+const fontSrcUrls = [
+  'https://cdn.jsdelivr.net'
+];
 
 const frameAncestors = ['https://edisciplinas.usp.br/'];
 
