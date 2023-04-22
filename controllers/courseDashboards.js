@@ -168,8 +168,9 @@ module.exports.deleteClass = async (req, res) => {
 module.exports.renderCourseDashboard = async (req, res) => {
   const { id, classIndex } = req.params; // get information from request parameters
   const dashboard = await CourseDashboard.findById(id); // find document in the database
+  let isAuthor;
   if (req.user) {
-    const isAuthor = dashboard.author.equals(req.user._id);
+    isAuthor = dashboard.author.equals(req.user._id);
   } else {
     isAuthor = false;
   }
