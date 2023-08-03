@@ -1,320 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <script
-      type="application/javascript"
-      src="/js/bootstrap.bundle.min.js"
-    ></script>
-    <title><%= dashboard.title %></title>
-    <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon.ico" />
-    <style>
-      .gradient-bg-2 {
-        background: rgb(244, 255, 105);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 164, 90, 1) 0%,
-          rgba(244, 255, 105, 1) 50%,
-          rgba(242, 93, 255, 1) 100%
-        );
-      }
-    </style>
-  </head>
-
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-0YTK52V8E8"
-  ></script>
-  <script type="text/javascript" src="/js/googleAnalytics.js"></script>
-
-  <body class="" style="background-color: #820052">
-    <div class="container-fluid bg-dark">
-      <!-- Classes -->
-      <div class="row py-2 px-5 bg-black">
-        <% if (!dashboard.environmentUrl && !dashboard.forumUrl) { %>
-        <div class="col-12 col-lg-6 text-center text-lg-start">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6 text-center text-lg-end">
-          <div class="dropdown">
-            <button
-              class="text-light btn btn-black dropdown-toggle fs-4"
-              id="aulas"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Aulas
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="aulas">
-              <% if (dashboard.classes.length) { for (let i = 0; i <
-              dashboard.classes.length; i++) { %>
-              <li>
-                <a
-                  class="dropdown-item fs-4"
-                  href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>"
-                  >Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
-                  <%= dashboard.classes[i].title %> <% } %></a
-                >
-              </li>
-              <% }} %>
-            </ul>
-          </div>
-        </div>
-        <% } else if (!dashboard.environmentUrl) { %>
-        <div class="col-12 col-lg-4 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <a
-            class="text-light btn btn-black fs-4"
-            aria-current="page"
-            href="<%= dashboard.forumUrl %>"
-            target="_blank"
-            >Fórum</a
-          >
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <div class="dropdown">
-            <button
-              class="text-light btn btn-black dropdown-toggle fs-4"
-              id="aulas"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Aulas
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="aulas">
-              <% if (dashboard.classes.length) { for (let i = 0; i <
-              dashboard.classes.length; i++) { %>
-              <li>
-                <a
-                  class="dropdown-item fs-4"
-                  href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>"
-                  >Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
-                  <%= dashboard.classes[i].title %> <% } %></a
-                >
-              </li>
-              <% }} %>
-            </ul>
-          </div>
-        </div>
-        <% } else if (!dashboard.forumUrl) { %>
-        <div class="col-12 col-lg-4 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <a
-            class="text-light btn btn-black fs-4"
-            aria-current="page"
-            href="<%= dashboard.environmentUrl %>"
-            target="_blank"
-            >Ambiente da disciplina</a
-          >
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <div class="dropdown">
-            <button
-              class="text-light btn btn-black dropdown-toggle fs-4"
-              id="aulas"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Aulas
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="aulas">
-              <% if (dashboard.classes.length) { for (let i = 0; i <
-              dashboard.classes.length; i++) { %>
-              <li>
-                <a
-                  class="dropdown-item fs-4"
-                  href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>"
-                  >Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
-                  <%= dashboard.classes[i].title %> <% } %></a
-                >
-              </li>
-              <% }} %>
-            </ul>
-          </div>
-        </div>
-        <% } else { %>
-        <div class="col-12 col-lg-3 text-center">
-          <div class="text-light btn btn-black fs-4">
-            <%= dashboard.title %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 text-center">
-          <a
-            class="text-light btn btn-black fs-4"
-            aria-current="page"
-            href="<%= dashboard.environmentUrl %>"
-            target="_blank"
-            >Ambiente da disciplina</a
-          >
-        </div>
-        <div class="col-12 col-lg-3 text-center">
-          <a
-            class="text-light btn btn-black fs-4"
-            aria-current="page"
-            href="<%= dashboard.forumUrl %>"
-            target="_blank"
-            >Fórum</a
-          >
-        </div>
-        <div class="col-12 col-lg-3 text-center">
-          <div class="dropdown">
-            <button
-              class="text-light btn btn-black dropdown-toggle fs-4"
-              id="aulas"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Aulas
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="aulas">
-              <% if (dashboard.classes.length) { for (let i = 0; i <
-              dashboard.classes.length; i++) { %>
-              <li>
-                <a
-                  class="dropdown-item fs-4"
-                  href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>"
-                  >Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
-                  <%= dashboard.classes[i].title %> <% } %></a
-                >
-              </li>
-              <% }} %>
-            </ul>
-          </div>
-        </div>
-        <% } %>
-      </div>
-
-      <!-- Class parts -->
-      <div class="row py-2">
-        <div class="col-12 col-lg-4 text-center">
-          <a
-            class="text-light btn btn-dark fs-4"
-            href="#preClassMaterial"
-            id="preClassBtn"
-            >Pré-aula</a
-          >
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <a
-            class="text-light btn btn-dark fs-2"
-            href="#forClassMaterial"
-            id="forClassBtn"
-            >Aula</a
-          >
-        </div>
-        <div class="col-12 col-lg-4 text-center">
-          <a
-            class="text-light btn btn-dark fs-4"
-            href="#postClassMaterial"
-            id="postClassBtn"
-            >Pós-aula</a
-          >
-        </div>
+<%- include("./partials/header") %>
+<div class="container-fluid bg-dark">
+  <!-- Classes -->
+  <div class="row py-2 px-5 bg-black">
+    <% if (!dashboard.environmentUrl && !dashboard.forumUrl) { %>
+    <div class="col-12 col-lg-6 text-center text-lg-start">
+      <div class="text-light btn btn-black fs-4">
+        <%= dashboard.title %>
       </div>
     </div>
-    <!-- <div class="d-flex justify-content-center pt-5">
+    <div class="col-12 col-lg-6 text-center text-lg-end">
+      <div class="dropdown">
+        <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown" aria-expanded="false">
+          Aulas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="aulas">
+          <% if (dashboard.classes.length) { for (let i = 0; i <
+              dashboard.classes.length; i++) { %>
+          <li>
+            <a class="dropdown-item fs-4" href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
+              <%= dashboard.classes[i].title %> <% } %></a>
+          </li>
+          <% }} %>
+        </ul>
+      </div>
+    </div>
+    <% } else if (!dashboard.environmentUrl) { %>
+    <div class="col-12 col-lg-4 text-center">
+      <div class="text-light btn btn-black fs-4">
+        <%= dashboard.title %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.forumUrl %>" target="_blank">Fórum</a>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <div class="dropdown">
+        <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown" aria-expanded="false">
+          Aulas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="aulas">
+          <% if (dashboard.classes.length) { for (let i = 0; i <
+              dashboard.classes.length; i++) { %>
+          <li>
+            <a class="dropdown-item fs-4" href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
+              <%= dashboard.classes[i].title %> <% } %></a>
+          </li>
+          <% }} %>
+        </ul>
+      </div>
+    </div>
+    <% } else if (!dashboard.forumUrl) { %>
+    <div class="col-12 col-lg-4 text-center">
+      <div class="text-light btn btn-black fs-4">
+        <%= dashboard.title %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.environmentUrl %>" target="_blank">Ambiente da disciplina</a>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <div class="dropdown">
+        <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown" aria-expanded="false">
+          Aulas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="aulas">
+          <% if (dashboard.classes.length) { for (let i = 0; i <
+              dashboard.classes.length; i++) { %>
+          <li>
+            <a class="dropdown-item fs-4" href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
+              <%= dashboard.classes[i].title %> <% } %></a>
+          </li>
+          <% }} %>
+        </ul>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="col-12 col-lg-3 text-center">
+      <div class="text-light btn btn-black fs-4">
+        <%= dashboard.title %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3 text-center">
+      <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.environmentUrl %>" target="_blank">Ambiente da disciplina</a>
+    </div>
+    <div class="col-12 col-lg-3 text-center">
+      <a class="text-light btn btn-black fs-4" aria-current="page" href="<%= dashboard.forumUrl %>" target="_blank">Fórum</a>
+    </div>
+    <div class="col-12 col-lg-3 text-center">
+      <div class="dropdown">
+        <button class="text-light btn btn-black dropdown-toggle fs-4" id="aulas" data-bs-toggle="dropdown" aria-expanded="false">
+          Aulas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="aulas">
+          <% if (dashboard.classes.length) { for (let i = 0; i <
+              dashboard.classes.length; i++) { %>
+          <li>
+            <a class="dropdown-item fs-4" href="/knowmiaCourseDashboards/<%= dashboard._id %>/dash/<%= i %>">Aula <%= i + 1 %> <% if (dashboard.classes[i].title) { %> :
+              <%= dashboard.classes[i].title %> <% } %></a>
+          </li>
+          <% }} %>
+        </ul>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <!-- Class parts -->
+  <div class="row py-2">
+    <div class="col-12 col-lg-4 text-center">
+      <a class="text-light btn btn-dark fs-4" href="#preClassMaterial" id="preClassBtn">Pré-aula</a>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <a class="text-light btn btn-dark fs-2" href="#forClassMaterial" id="forClassBtn">Aula</a>
+    </div>
+    <div class="col-12 col-lg-4 text-center">
+      <a class="text-light btn btn-dark fs-4" href="#postClassMaterial" id="postClassBtn">Pós-aula</a>
+    </div>
+  </div>
+</div>
+<!-- <div class="d-flex justify-content-center pt-5">
                 <a href="/courseDashboards/<%= //dashboard.id %>/accesible" class="text-black fs-4">
                     Visualizar versão acessível da página
                 </a>
             </div> -->
 
-    <main class="container-fluid p-5">
-      <h1 class="text-light text-center text-uppercase mb-5">
-        Aula <%= parseInt(classIndex, 10) + 1 %>
-      </h1>
-      <section
-        id="preClassMaterial"
-        class="container-fluid py-3 rounded rounded-5 bg-light mb-3 d-none"
-      >
-        <div class="row">
-          <h1 class="col-12 text-center">Pré-aula</h1>
-        </div>
+<main class="container-fluid p-5">
+  <h1 class="text-light text-center text-uppercase mb-5">
+    Aula <%= parseInt(classIndex, 10) + 1 %>
+  </h1>
+  <section id="preClassMaterial" class="container-fluid py-3 rounded rounded-5 bg-light mb-3 d-none">
+    <div class="row">
+      <h1 class="col-12 text-center">Pré-aula</h1>
+    </div>
 
-        <div
-          class="row mx-5 mb-3"
-          style="height: 5px; background-color: #820052"
-        ></div>
+    <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052"></div>
 
-        <!-- Pre-class material (essential) -->
-        <div class="row">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/essentialPreClass") %>
+    <!-- Pre-class material (essential) -->
+    <div class="row">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/essentialPreClass") %>
 
-        <!-- Pre-class material (non-essential) -->
-        <div class="row mt-3">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/nonEssentialPreClass") %>
-      </section>
+    <!-- Pre-class material (non-essential) -->
+    <div class="row mt-3">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/nonEssentialPreClass") %>
+  </section>
 
-      <section
-        id="forClassMaterial"
-        class="container-fluid py-3 rounded rounded-5 bg-light mb-3"
-      >
-        <div class="row">
-          <h1 class="col-12 text-center">Aula</h1>
-        </div>
+  <section id="forClassMaterial" class="container-fluid py-3 rounded rounded-5 bg-light mb-3">
+    <div class="row">
+      <h1 class="col-12 text-center">Aula</h1>
+    </div>
 
-        <div
-          class="row mx-5 mb-3"
-          style="height: 5px; background-color: #820052"
-        ></div>
+    <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052"></div>
 
-        <!-- For class material (essential) -->
-        <div class="row">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/essentialForClass") %>
+    <!-- For class material (essential) -->
+    <div class="row">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/essentialForClass") %>
 
-        <!-- For class material (non-essential) -->
-        <div class="row mt-3">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/nonEssentialForClass") %>
-      </section>
+    <!-- For class material (non-essential) -->
+    <div class="row mt-3">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/nonEssentialForClass") %>
+  </section>
 
-      <section
-        id="postClassMaterial"
-        class="container-fluid py-3 rounded rounded-5 bg-light mb-3 d-none"
-      >
-        <div class="row">
-          <h1 class="col-12 text-center">Pós-aula</h1>
-        </div>
+  <section id="postClassMaterial" class="container-fluid py-3 rounded rounded-5 bg-light mb-3 d-none">
+    <div class="row">
+      <h1 class="col-12 text-center">Pós-aula</h1>
+    </div>
 
-        <div
-          class="row mx-5 mb-3"
-          style="height: 5px; background-color: #820052"
-        ></div>
+    <div class="row mx-5 mb-3" style="height: 5px; background-color: #820052"></div>
 
-        <!-- Post-class material (essential) -->
-        <div class="row">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/essentialPostClass") %>
+    <!-- Post-class material (essential) -->
+    <div class="row">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Essencial</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/essentialPostClass") %>
 
-        <!-- Post-class material (non-essential) -->
-        <div class="row mt-3">
-          <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
-        </div>
-        <%- include("./knowmiaCourseDashboardParts/nonEssentialPostClass") %>
-      </section>
-    </main>
+    <!-- Post-class material (non-essential) -->
+    <div class="row mt-3">
+      <h2 class="col-12 px-5">&#10148;&nbsp;Extra</h2>
+    </div>
+    <%- include("./knowmiaCourseDashboardParts/nonEssentialPostClass") %>
+  </section>
+</main>
 
-    <script src="../../../js/knowmiaVideoControls.js"></script>
-    <script src="../../../js/disableBtns.js"></script>
-  </body>
-</html>
+<script src="../../../js/knowmiaVideoControls.js"></script>
+<script src="../../../js/disableBtns.js"></script>
+<%- include("./partials/footer") %>

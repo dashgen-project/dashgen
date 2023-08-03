@@ -2,6 +2,7 @@
  * @file Main file, everything starts here
  */
 
+// if not on production, load .env file variables
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -18,7 +19,6 @@ const MongoStore = require('connect-mongo'); /** MongoDB session store for Conne
 const flash = require('connect-flash'); /** Communicates things to the user via flash messages */
 const cors = require('cors'); /** Middleware to enable CORS */
 const mongoSanitize = require('express-mongo-sanitize');
-const bodyParser = require('body-parser');
 
 /** Routes requires */
 const howToUseRoutes = require('./routes/howToUse');
@@ -61,12 +61,13 @@ const sessionConfig = {
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
-    expires: Date.now() + 1000 * 3600 * 24 * 7 /** 7 days from now (in ms) */,
-    maxAge: 1000 * 3600 * 24 * 7 /** 7 days in ms */,
+    expires: Date.now() + 1000 * 3600 * 24 * 30 /** 30 days from now (in ms) */,
+    maxAge: 1000 * 3600 * 24 * 30 /** 30 days in ms */,
   },
 };
 
 /** Allowed script sources */
+/** TODO: check which ones are really necessary */
 const scriptSrcUrls = [
   'https://stackpath.bootstrapcdn.com' /** Bootstrap */,
   'https://kit.fontawesome.com' /** Font Awesome */,
@@ -74,10 +75,11 @@ const scriptSrcUrls = [
   'https://cdn.jsdelivr.net' /** Jsdelivr (js cloud delivery network) */,
   'https://youtube.googleapis.com' /** YouTube API (get playlist and video data) */,
   'https://www.youtube.com' /** YouTube */,
-  'https://www.googletagmanager.com',
+  'https://www.googletagmanager.com' /** Google tag manager */,
 ];
 
 /** Allowed style sources */
+/** TODO: check which ones are really necessary */
 const styleSrcUrls = [
   'https://kit-free.fontawesome.com' /** Font Awesome */,
   'https://stackpath.bootstrapcdn.com' /** Bootstrap */,
@@ -86,13 +88,15 @@ const styleSrcUrls = [
   'https://cdn.jsdelivr.net' /** Jsdelivr (js cloud delivery network) */,
 ];
 
-/** Allowed server connection sources*/
+/** Allowed server connection sources */
+/** TODO: check which ones are really necessary */
 const connectSrcUrls = [
   'https://youtube.googleapis.com',
   'https://www.youtube.com',
   'https://www.google-analytics.com',
 ];
 
+/** Allowed frame sources */
 const frameSrcUrls = [
   'https://www.youtube.com',
   'https://youtu.be',
@@ -100,11 +104,8 @@ const frameSrcUrls = [
 ];
 
 /** Allowed font sources */
-const fontSrcUrls = [
-  'https://cdn.jsdelivr.net'
-];
-
-const frameAncestors = ['https://edisciplinas.usp.br/'];
+/** TODO: check if is necessary */
+const fontSrcUrls = ['https://cdn.jsdelivr.net'];
 
 const app = express(); /** Express application creation */
 
@@ -113,49 +114,43 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 /** Mounts middlewares that will be executed for every requiest */
-app.use(
-  express.static(path.join(__dirname, 'public'))
-); /** Allows access to the "public/" directory */
-app.use(
-  express.urlencoded({ extended: true })
-); /** Parse only urlencoded bodies with qs library */
-app.use(
-  methodOverride('_method')
-); /** Use "_method=[PUT|DELETE]" in action attribute of the form tag */
-app.use(cors()); /** Allows cors */
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(mongoSanitize());
-app.use(
-  mongoSanitize({
-    replaceWith: '_',
-  })
-);
-
-/** Set Content-Security-Policy header to mitigate xss */
-/** In practice, it sets a "Content-Security-Policy" HTTP header telling the browser where to accept content from */
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: [],
-      connectSrc: ["'self'", ...connectSrcUrls],
-      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-      workerSrc: ["'self'", 'blob:'],
-      childSrc: ['blob:'],
-      objectSrc: [],
-      imgSrc: ["'self'", 'blob:', 'data:'],
-      fontSrc: ["'self'", ...fontSrcUrls],
-      frameSrc: ["'self'", 'blob:', ...frameSrcUrls],
-      frameAncestors: ['https://edisciplinas.usp.br/'],
-    },
-  })
-);
-app.use(session(sessionConfig)); /** Mount session middleware */
-app.use(flash()); /** Mount flash middleware */
-app.use(passport.initialize()); /** Mount passport initialize middleware */
-app.use(passport.session()); /** Mount passport session middleware */
+app
+  .use(
+    express.static(path.join(__dirname, 'public'))
+  ) /** Allows access to the "public/" directory from inside .ejs files */
+  .use(
+    express.urlencoded({ extended: true })
+  ) /** Parse urlencoded bodies with qs (https://www.npmjs.com/package/qs) library */
+  .use(
+    methodOverride('_method')
+  ) /** Use "_method=[PUT|DELETE]" in action attribute of the form tag */
+  .use(cors()) /** Allows cors */
+  .use(
+    mongoSanitize({
+      replaceWith: '_',
+    })
+  )
+  .use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: [],
+        connectSrc: ["'self'", ...connectSrcUrls],
+        scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+        styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+        workerSrc: ["'self'", 'blob:'],
+        childSrc: ['blob:'],
+        objectSrc: [],
+        imgSrc: ["'self'", 'blob:', 'data:'],
+        fontSrc: ["'self'", ...fontSrcUrls],
+        frameSrc: ["'self'", 'blob:', ...frameSrcUrls],
+        frameAncestors: ['https://edisciplinas.usp.br/'],
+      },
+    })
+  ) /** Set Content-Security-Policy header to mitigate xss */
+  .use(session(sessionConfig)) /** Mount session middleware */
+  .use(flash()) /** Mount flash middleware */
+  .use(passport.initialize()) /** Mount passport initialize middleware */
+  .use(passport.session()); /** Mount passport session middleware */
 
 passport.use(
   new LocalStrategy(User.authenticate())
@@ -200,12 +195,11 @@ app.use('/videoDashboards', videoDashboardRoutes);
 /** Main function */
 async function main() {
   await mongoose.connect(dbUrl); /** Connect to Mongo database */
+  /** Creates server listener at specified port */
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
 }
-
-/** Creates server listener at specified port */
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
 
 /** Try to call main and if there are any errors, log it to the console */
 main().catch((err) => console.log(err));
