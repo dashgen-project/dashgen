@@ -1,13 +1,13 @@
 <%- include("./partials/header") %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light fs-4 mb-3 border-bottom border-primary border-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light fs-4 mb-3 p-3 pe-4">
   <div class="container-fluid">
-    <span class="me-3 mb-2 mb-xs-0">
+    <span class="me-3 mb-1 mb-xs-0 fs-3 text-light text-wrap">
       <%= dashboard.title %>
       <% if (isAuthor) { %>
-      <a class="text-light text-decoration-none" href="/courseDashboards/<%= dashboard.id %>" aria-label="Editar dashboard"><i class="bi bi-arrow-counterclockwise"></i></a>
+      <a class="text-light text-decoration-none" href="/courseDashboards/<%= dashboard.id %>" aria-label="Editar dashboard"><i class="bi bi-arrow-counterclockwise text-light"></i></a>
       <% } %>
     </span>
-    <button class="navbar-toggler mb-2 mb-xs-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Expandir ou recolher barra de navegação">
+    <button class="navbar-toggler mb-2 mb-xs-0 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Expandir ou recolher barra de navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -46,9 +46,9 @@
   </div>
 </nav>
 
-<div class="px-3 text-light fs-5">
+<div class="px-4 text-light fs-5 text-center">
   <p>
-    Você está visualizando o material <span id="shownMaterial">de aula</span>. Selecione o material desejado:
+    Você está visualizando o material <span id="shownMaterial" class="text-primary">de aula</span>. Selecione o material desejado:
   </p>
   <ul class="px-0">
     <li class="btn btn-secondary fs-5 mb-2 mb-sm-0" id="preClassBtn">Material pré-aula</li>
@@ -58,7 +58,7 @@
 </div>
 
 <main class="container-fluid p-3">
-  <h1 class="text-light text-center text-uppercase mb-5">
+  <h1 class="text-center text-uppercase mb-5 text-primary">
     Aula <%= parseInt(classIndex, 10) + 1 %>
   </h1>
   <section id="preClassMaterial" class="container-fluid py-3 rounded rounded-5 bg-light mb-3 d-none">
@@ -70,13 +70,13 @@
 
     <!-- Pre-class material (essential) -->
     <div class="row">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Essencial</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Essencial</h2>
     </div>
     <%- include("./courseDashboardParts/essentialPreClass") %>
 
     <!-- Pre-class material (non-essential) -->
     <div class="row mt-3">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Extra</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Extra</h2>
     </div>
     <%- include("./courseDashboardParts/nonEssentialPreClass") %>
   </section>
@@ -90,13 +90,13 @@
 
     <!-- For class material (essential) -->
     <div class="row">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Essencial</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Essencial</h2>
     </div>
     <%- include("./courseDashboardParts/essentialForClass") %>
 
     <!-- For class material (non-essential) -->
     <div class="row mt-3">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Extra</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Extra</h2>
     </div>
     <%- include("./courseDashboardParts/nonEssentialForClass") %>
   </section>
@@ -110,17 +110,21 @@
 
     <!-- Post-class material (essential) -->
     <div class="row">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Essencial</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Essencial</h2>
     </div>
     <%- include("./courseDashboardParts/essentialPostClass") %>
 
     <!-- Post-class material (non-essential) -->
     <div class="row mt-3">
-      <h2 class="col-12 px-3">&#10148;&nbsp;Extra</h2>
+      <h2 class="col-12 p-3 text-center fs-1">Extra</h2>
     </div>
     <%- include("./courseDashboardParts/nonEssentialPostClass") %>
   </section>
 </main>
+
+<footer class="p-4 text-light fs-5 text-center">
+  <p>O DashGen é parte de um projeto acadêmico, por isso é importante o feedback do usuário. Ajude a melhorar o trabalho respondendo <a href="https://forms.gle/RwSbYLVqa35SMmkT7" target="_blank">este formulário</a>.</p>
+</footer>
 
 <script src="../../../js/videoControls.js"></script>
 <script src="../../../js/disableBtns.js"></script>

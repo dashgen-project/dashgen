@@ -101,6 +101,7 @@ const frameSrcUrls = [
   'https://www.youtube.com',
   'https://youtu.be',
   'https://app.knowmia.com/',
+  'https://login.techsmith.com'
 ];
 
 /** Allowed font sources */

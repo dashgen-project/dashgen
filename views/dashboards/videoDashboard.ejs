@@ -1,6 +1,6 @@
-<%- include("./partials/footer") %>
-<div class="navbar navbar-expand-lg px-3">
-  <div class="container-fluid d-flex justify-content-center border-bottom border-3">
+<%- include("./partials/header") %>
+<div class="navbar navbar-expand-lg px-3 bg-primary">
+  <div class="container-fluid d-flex justify-content-center">
     <h1 class="text-light fs-1 text-wrap" href="#">
       <%= dashboard.title %>
     </h1>
@@ -8,8 +8,13 @@
 </div>
 <div class="container-fluid py-3">
   <div class="row">
+    <div class="py-2 <% if (chaptersData.length) {%>col-12 col-md-9<% } else { %>d-inline-flex flex-row align-items-center justify-content-center<% } %>">
+      <div class="ratio ratio-16x9 <% if (!chaptersData.length) {%>d-inline w-75<% } %>">
+        <iframe src="https://www.youtube.com/embed/<%= dashboard.videoId %>?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
     <% if (chaptersData.length) { %>
-    <div class="col-12 col-md-3 overflow-auto py-2">
+    <div class="col-12 col-md-3 py-2">
       <div class="justify-content-center">
         <div class="dropdown mb-1">
           <button class="btn btn-light dropdown-toggle w-100 text-wrap fs-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,12 +31,12 @@
       </div>
     </div>
     <% } %>
-    <div class="py-2 <% if (chaptersData.length) {%>col-12 col-md-9<% } else { %>d-inline-flex flex-row align-items-center justify-content-center<% } %>">
-      <div class="ratio ratio-16x9 <% if (!chaptersData.length) {%>d-inline w-75<% } %>">
-        <iframe src="https://www.youtube.com/embed/<%= dashboard.videoId %>?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
   </div>
 </div>
+
+<footer class="p-4 text-light fs-5 text-center">
+  <p>O DashGen é parte de um projeto acadêmico, por isso é importante o feedback do usuário. Ajude a melhorar o trabalho respondendo <a href="https://forms.gle/RwSbYLVqa35SMmkT7" target="_blank">este formulário</a>.</p>
+</footer>
+
 <script src="../../../js/dashboardControls.js"></script>
 <%- include("./partials/footer") %>
