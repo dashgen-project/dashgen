@@ -40,11 +40,11 @@ const getCtrlElements = (classPart) => {
   let baseStr = `${classPart}video`;
   const videoFrame = document.getElementById(baseStr);
   let videoBtns = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     videoBtns.push(document.getElementById(`${baseStr}${i}`));
   }
   let chaptersDropdowns = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     chaptersDropdowns.push(
       document.getElementById(`${classPart}chaptersDropdown${i}`)
     );
@@ -81,6 +81,10 @@ const chaptersSrcHandler = (videoFrame, videoId, chaptersList) => {
   if (chaptersList) {
     chaptersList.addEventListener('click', (e) => {
       let timeInSeconds = e.target.id;
+      // console.log('changed time');
+      // console.log(`time in seconds = ${timeInSeconds}`);
+      // console.log(timeInSeconds);
+      // console.log(typeof timeInSeconds);
       if (timeInSeconds === '0') timeInSeconds = 1;
       videoFrame.src = `https://www.youtube.com/embed/${videoId}?start=${timeInSeconds}&autoplay=1&rel=0`;
     });
