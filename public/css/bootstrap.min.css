@@ -7650,6 +7650,18 @@ fieldset:disabled .btn {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important
 }
 
+.shadow-light {
+    box-shadow: 0 .5rem 1rem rgba(225, 225, 225, .15) !important
+}
+
+.shadow-light-sm {
+    box-shadow: 0 .125rem .25rem rgba(225, 225, 225, .075) !important
+}
+
+.shadow-light-lg {
+    box-shadow: 0 1rem 3rem rgba(225, 225, 225, .175) !important
+}
+
 .shadow-none {
     box-shadow: none !important
 }

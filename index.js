@@ -76,6 +76,8 @@ const scriptSrcUrls = [
   'https://youtube.googleapis.com' /** YouTube API (get playlist and video data) */,
   'https://www.youtube.com' /** YouTube */,
   'https://www.googletagmanager.com' /** Google tag manager */,
+  'https://app.knowmia.com',
+  'https://cdn.cloud.techsmith.com'
 ];
 
 /** Allowed style sources */
@@ -94,14 +96,17 @@ const connectSrcUrls = [
   'https://youtube.googleapis.com',
   'https://www.youtube.com',
   'https://www.google-analytics.com',
+  'https://app.knowmia.com',
+  'https://cdn.cloud.techsmith.com'
 ];
 
 /** Allowed frame sources */
 const frameSrcUrls = [
   'https://www.youtube.com',
   'https://youtu.be',
-  'https://app.knowmia.com/',
-  'https://login.techsmith.com'
+  'https://app.knowmia.com',
+  'https://login.techsmith.com',
+  'https://cdn.cloud.techsmith.com'
 ];
 
 /** Allowed font sources */
