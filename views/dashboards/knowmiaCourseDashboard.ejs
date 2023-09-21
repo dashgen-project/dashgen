@@ -58,7 +58,7 @@
   <h1 class="text-center text-uppercase mb-5 text-primary">
     Aula <%= parseInt(classIndex, 10) + 1 %>
   </h1>
-  <section id="preClassMaterial" class="container-fluid py-3 px-1 px-md-5 rounded rounded-5 bg-light mb-3 d-none">
+  <section id="preClassMaterial" class="container-fluid py-3 rounded rounded-5 bg-light mb-3">
     <div class="row">
       <h1 class="col-12 text-center">Material pré-aula</h1>
     </div>
@@ -70,8 +70,9 @@
       <div class="row">
         <h2 class="col-12 p-3 text-center fs-1">Essencial</h2>
       </div>
+      <%- include("./knowmiaCourseDashboardParts/essentialPreClass") %>
     </div>
-    <%- include("./knowmiaCourseDashboardParts/essentialPreClass") %>
+
 
     <!-- Pre-class material (non-essential) -->
     <div class="" style="background-color: coral;">
