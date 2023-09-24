@@ -7,30 +7,29 @@
 
 <form action="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>?_method=PUT" method="POST" class="mb-3">
 
-    <input type="number" name="thisClass[classNumber]" value="<%= classNum %>" class="d-none">
+  <input type="number" name="thisClass[classNumber]" value="<%= classNum %>" class="d-none">
 
-    <label for="title" class="form-label fs-4">Título da aula:</label>
+  <label for="title" class="form-label fs-4">Título da aula:</label>
 
-    <% if (dashboard.classes[classNum]) { %>
-    <input type="text" class="form-control mb-3" name="thisClass[title]" id="title"
-        value="<%= dashboard.classes[classNum].title %>">
-    <% } else { %>
-    <input type="text" class="form-control mb-3" name="thisClass[title]" id="title">
-    <% } %>
+  <% if (dashboard.classes[classNum]) { %>
+  <input type="text" class="form-control mb-3" name="thisClass[title]" id="title" value="<%= dashboard.classes[classNum].title %>">
+  <% } else { %>
+  <input type="text" class="form-control mb-3" name="thisClass[title]" id="title">
+  <% } %>
 
-    <div class="d-none"><%- include('./partials/preClassEssential') %></div>
+  <div class="d-none"><%- include('./partials/preClassEssential') %></div>
 
-    <div class="d-none"><%- include('./partials/preClassNonEssential') %></div>
+  <div class="d-none"><%- include('./partials/preClassNonEssential') %></div>
 
-    <div class="d-none"><%- include('./partials/forClassEssential') %></div>
+  <div class="d-none"><%- include('./partials/forClassEssential') %></div>
 
-    <div class="d-none"><%- include('./partials/forClassNonEssential') %></div>
+  <div class="d-none"><%- include('./partials/forClassNonEssential') %></div>
 
-    <div class="d-none"><%- include('./partials/postClassEssential') %></div>
+  <div class="d-none"><%- include('./partials/postClassEssential') %></div>
 
-    <div class="d-none"><%- include('./partials/postClassNonEssential') %></div>
+  <div class="d-none"><%- include('./partials/postClassNonEssential') %></div>
 
-    <button type="submit" class="btn btn-outline-success">Salvar</button>
+  <button type="submit" class="btn btn-outline-success">Salvar</button>
 
 </form>
 
@@ -38,29 +37,29 @@
 </h1>
 
 <ul>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/preClassEssential">
-            Adicionar material pré-aula essencial
-        </a></li>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/preClassNonEssential">
-            Adicionar material pré-aula extra
-        </a></li>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/forClassEssential">
-            Adicionar material para a aula essencial
-        </a></li>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/forClassNonEssential">
-            Adicionar material para a aula extra
-        </a></li>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/postClassEssential">
-            Adicionar material pós-aula essencial
-        </a></li>
-    <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/postClassNonEssential">
-            Adicionar material pós-aula extra
-        </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/preClassEssential">
+      Adicionar material pré-aula essencial
+    </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/preClassNonEssential">
+      Adicionar material pré-aula extra
+    </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/forClassEssential">
+      Adicionar material para a aula essencial
+    </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/forClassNonEssential">
+      Adicionar material para a aula extra
+    </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/postClassEssential">
+      Adicionar material pós-aula essencial
+    </a></li>
+  <li class="mb-3"><a href="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>/postClassNonEssential">
+      Adicionar material pós-aula extra
+    </a></li>
 </ul>
 
 <form action="/courseDashboards/<%= dashboard._id %>/classes/<%= classNum %>?_method=DELETE" method="POST">
-    <button class="btn btn-outline-danger" type="submit">Deletar
-        aula</button>
+  <button class="btn btn-outline-danger" type="submit">Deletar
+    aula</button>
 </form>
 
 <%- include('../partials/footer'); -%>

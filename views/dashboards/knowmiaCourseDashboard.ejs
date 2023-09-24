@@ -1,5 +1,15 @@
 <%- include("./partials/header") %>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light fs-4 mb-3 p-3 pe-4 shadow mb-5">
+<!-- const docBody = document.querySelector('body');
+loadingEl.style.height = '100vh';
+loadingEl.style.width = '100vw';
+loadingEl.style.backgroundColor = 'black';
+loadingEl.style.cssText += 'position:fixed;top:0;left:0;z-index:2' -->
+<div id="gamb" class="text-center" style="height: 100vh; width: 100vw; background-color: black; position: fixed; top: 0px; left: 0px; z-index: 2;">
+  <h1 class="p-5 text-center text-light">Aguarde enquanto a página é carregada...</h1>
+  <iframe src="https://giphy.com/embed/N256GFy1u6M6Y" width="480" height="319" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <p><a href="https://giphy.com/gifs/game-icon-loading-N256GFy1u6M6Y">via GIPHY</a></p>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light fs-4 mb-3 p-3 pe-4 shadow mb-5" id="navBarTop">
   <div class="container-fluid">
     <span class="me-3 mb-1 mb-xs-0 fs-3 text-light text-wrap">
       <%= dashboard.title %>
@@ -131,11 +141,27 @@
     </div>
   </section>
 </main>
+<script>
+  const loadingEl = document.createElement('div');
+  const fn = e => setTimeout(() => {
+    document.getElementById('navBarTop').scrollIntoView();
+    document.getElementById('gamb').remove();
+    //
+  }, 3000);
+  fn();
+  // const docBody = document.querySelector('body');
+  // loadingEl.style.height = '100vh';
+  // loadingEl.style.width = '100vw';
+  // loadingEl.style.backgroundColor = 'black';
+  // loadingEl.style.cssText += 'position:fixed;top:0;left:0;z-index:2'
+  // docBody.append(loadingEl);
+  // docBody.insertBefore(loadingEl, docBody.firstChild);
 
-<footer class="p-4 text-light fs-5 text-center">
-  <p>O DashGen é parte de um projeto acadêmico, por isso é importante o feedback do usuário. Ajude a melhorar o trabalho respondendo <a href="https://forms.gle/RwSbYLVqa35SMmkT7" target="_blank">este formulário</a>.</p>
-</footer>
-
+  // docBody.style.cssText += 'height:100vh;overflow:hidden;';
+  // docBody.scrollIntoView({
+  //   behavior: 'smooth'
+  // });
+</script>
 <script src="../../../js/knowmiaVideoControls.js"></script>
 <script src="../../../js/disableBtns.js"></script>
 <%- include("./partials/footer") %>
