@@ -20,9 +20,9 @@
           Ver vídeos em nova guia
         </button>
         <ul class="dropdown-menu" aria-labelledby="para-a-aula-nao-essencial-videos">
-          <% for (let i = 0; i < dashboard.classes[classIndex].forClassMaterial.essential.video.length; i++) { %>
-          <% if (dashboard.classes[classIndex].forClassMaterial.essential.video[i] !== '') { %>
-          <li><a class="dropdown-item" target="_blank" href="<%= dashboard.classes[classIndex].forClassMaterial.essential.video[i] %>">
+          <% for (let i = 0; i < dashboard.classes[classIndex].forClassMaterial.nonEssential.video.length; i++) { %>
+          <% if (dashboard.classes[classIndex].forClassMaterial.nonEssential.video[i] !== '') { %>
+          <li><a class="dropdown-item" target="_blank" href="<%= dashboard.classes[classIndex].forClassMaterial.nonEssential.video[i] %>">
               Vídeo <%= i + 1 %>
             </a></li>
           <% } %>
