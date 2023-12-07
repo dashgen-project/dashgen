@@ -19,7 +19,7 @@ DashGen uses a cloud NoSQL databse named [MongoDB Atlas](https://www.mongodb.com
 
 3. After signing up, you will be taking to a welcome page, asking some information about you. Just go through the questions, your answers will not affect the experience.
 
-4. Then you will be taken to a page to deploy your database. Choose the "MO" cluster option, then pick your provider (I have always used aws), select your region and enter your cluster name ("DashGenCluster" for example). Finally, click the "Create" button. If you are not automatically taken to this page, access [https://cloud.mongodb.com/](https://cloud.mongodb.com/) and click the "+" (plus sign) next to "Database Deployments".
+4. Then you will be taken to a page to deploy your database. Choose the "M0" cluster option, then pick your provider (I have always used aws), select your region and enter your cluster name ("DashGenCluster" for example). Finally, click the "Create" button. If you are not automatically taken to this page, access [https://cloud.mongodb.com/](https://cloud.mongodb.com/) and click the "+" (plus sign) next to "Database Deployments".
 
 5. Now, MongoDB will ask you some security-related questions.  For the connection authentication, choose the "Username and Password" option. At this point, MongoDB have probably generated a username and password for you already. Copy these to a secure location and click the "Create User" button. When asked "Where would you like to connect from", choose the "My Local Environment" option and add your current IP address to the IP Access List (right under the "My Local Environment" option box). Finally, click the "Finish and Close" button.
 
