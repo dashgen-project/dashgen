@@ -1,6 +1,6 @@
 # DashGen
 
-This is an ongoing academic project from São Carlos School of Engineering - University of São Paulo (EESC-USP) to help teachers easily deliver course materials. The website can be accessed by clicking <a href="https://dashgen.vercel.app">here</a>.
+This is an ongoing academic project from São Carlos School of Engineering - University of São Paulo (EESC-USP) to help teachers easily deliver course materials. The website can be accessed by clicking <a href="https://dashgen.vercel.app">here</a>. The application is hosted with [Vercel](https://vercel.com/).
 
 ## How to run locally
 
@@ -77,4 +77,3 @@ node index.js
 ```
 
 If everything goes well, DashGen should be running locally on your computer and you can access DashGen with any browser using the following link: **http://localhost:3000/**.
-
