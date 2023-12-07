@@ -11,7 +11,7 @@ This is an ongoing academic project from São Carlos School of Engineering - Uni
 
 ### Setting up the database
 
-This is only needed if you want to use your own database instance. If you want to use the database instance currently being used by the production version of DashGen, get in touch with me through my [e-mail](henriquesander27@gmail.com) to get the necessary information to connect to the database. DashGen uses a cloud NoSQL databse named [MongoDB Atlas](https://www.mongodb.com/atlas/database). It's document-oriented and JSON-encoded. Let's set it up:
+This is only needed if you want to use your own database instance. If you want to use the database instance currently being used by the production version of DashGen, get in touch with me to get the necessary information to connect to the database. DashGen uses a cloud NoSQL databse named [MongoDB Atlas](https://www.mongodb.com/atlas/database). It's document-oriented and JSON-encoded. Let's set it up:
 
 1. Access [MongoDB Atlas website](MongoDB Atlas) and click the "Try Free" button.
 
@@ -68,6 +68,13 @@ SECRET=<secret>
 DB_URL=<connectionString>
 ```
 
-If you are using your own database instance, replace `<connectionString>` with your connection string, otherwise get in touch with me through my [e-mail](henriquesander27@gmail.com) to get the connection string. `EMAIL_PWD` is the password of the e-mail being used to send the password recovery codes to the users. Currently, we are using a Zoho e-mail with a Hostinger domain. `PORT` is the port which the server will be listening to when running locally. `YOUTUBE_API_KEY` is the YouTube Data API key, to use yours check [YouTube Data API Overview](https://developers.google.com/youtube/v3/getting-started) and [Obtaining authorization credentials](https://developers.google.com/youtube/registering_an_application) for more information. `SECRET` is the MongoDB session storage to encrypt session id according to OWASP recommendations (sincerely,I didn't quite understand what this is used for, but I think that you can set it to whatever you want). You will also have to replace `<emailPwd>`, `<youtubeApiKey>` and `<secret>` for valid values, which you may get by getting in touch with me through my [e-mail](henriquesander27@gmail.com). You can create and use your own YouTube Data API key and *probably* use any value as `SECRET`, but I highly recommend that you get the `EMAIL_PWD` with me, because it's not that simple to create and set up an e-mail for this application.
+`EMAIL_PWD` is the password of the e-mail being used to send the password recovery codes to the users. Currently, we are using a Zoho e-mail with a Hostinger domain. `PORT` is the port which the server will be listening to when running locally. `YOUTUBE_API_KEY` is the YouTube Data API key, to use yours check [YouTube Data API Overview](https://developers.google.com/youtube/v3/getting-started) and [Obtaining authorization credentials](https://developers.google.com/youtube/registering_an_application) for more information. `SECRET` is the MongoDB session storage to encrypt session id according to OWASP recommendations (sincerely,I didn't quite understand what this is used for, but I think that you can set it to whatever you want). `DB_URL` is the connection string of the cloud database. You will have to replace `<emailPwd>`, `<youtubeApiKey>`, `<secret>` and `<connectionString>` for valid values, which you may get in the file "secret" of [this Google Drive folder](https://drive.google.com/drive/folders/1SGLZjO1zWzIceZX4-Miwwy9wMEcb2ZSi?usp=drive_link) (you will have to get in touch with me to get access to this folder). If you are using your own database instance, you can replace `<connectionString>` with your connection string. You can also create and use your own YouTube Data API key and *probably* use any value for `SECRET`, but I highly recommend that you get the value for `EMAIL_PWD` with me, because it's not that simple to create and set up an e-mail for this application.
 
+By now, everything should ready for you to run the application:
+
+```
+node index.js
+```
+
+If everything goes well, DashGen should be running locally on your computer and you can access DashGen with any browser using the following link: **http://localhost:3000/**.
 
