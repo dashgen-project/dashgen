@@ -104,6 +104,6 @@ If everything goes well, DashGen should be running locally on your computer and 
 
 ## Accounts management
 
-Official DashGen accounts have been created for Google, Vercel, MongoDB and Zoho. The only platform which access is possible only through my personal account is Hostinger, responsible for the domain management of the e-mail used in Zoho. This is because it has my credit card information to pay for the domain. Get in touch with me for more information.
+Official DashGen accounts have been created for the necessary tools to this application: Google, Vercel, MongoDB, Zoho and Hostinger. Get in touch with me for more information.
 
 Copyright 2021-2023 &copy; Henrique Sander Lourenço (henriquesander27@gmail.com)
