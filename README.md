@@ -2,6 +2,30 @@
 
 This is an ongoing academic project from São Carlos School of Engineering - University of São Paulo (EESC-USP) to help teachers easily deliver course materials. The website can be accessed by clicking <a href="https://dashgen.vercel.app">here</a>. The application is hosted with [Vercel](https://vercel.com/).
 
+## Repository content
+
+These are the main folders and files contained by this repository:
+
+- **index.js** is the entry point of the application, i.e., where everything starts. Application settings, database connection and server listening is handled in this file.
+- **schemas.js** contains schemas for all database objects, in order to validate requests bodies (these validations happen in **middleware.js**)
+- **middleware.js** contains middleware functions to
+  - check if a user is logged in
+  - check if a user is the author of a dashboard
+  - validate requests to create and edit dashboards
+  - validate requests to perform login and registration
+  - validate requests to send password recovery e-mail
+  - validate requests to change password
+- **package.json** contains information about the npm packages necessary for running this application
+- **vercel.json** contains configurations for hosting the application with Vercel
+- **.gitignore** contains files and names to be ignored by Git
+- **models/** contains the database models for each collection
+- **seeds/** contains code for seeding the database (not necessary and not sure if it's still working)
+- **utils/** contains multiple JavaScript utilies used accross the application
+- **views/** contains the views of the application as EJS files
+- **routes/** contains the routes of the application, i.e., it's where the HTTP requests are handled
+- **controllers/** contains the functions called for each route of the application (these functions are called in the files of the folder **routes/**, but they are defined in the files of this folder)
+- **public/** contains additional JavaScript, CSS and images that can be accessed from the application views, including the Bootstrap JavaScript and CSS files
+
 ## How to run locally
 
 ### Prerequisites
