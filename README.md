@@ -61,11 +61,13 @@ touch .env
 4. Add the following lines to the ".env" file:
 
 ```
-EMAIL_PWD=D8xJEkmr6Y![9Rp
+EMAIL_PWD=<emailPwd>
 PORT=3000
-YOUTUBE_API_KEY=AIzaSyCanu6tK7_Fjq2xl4ZtgYSTuFt9U_XcCpw
-SECRET=D?%%-M]sVO9=*hP
+YOUTUBE_API_KEY=<youtubeApiKey>
+SECRET=<secret>
 DB_URL=<connectionString>
 ```
 
-If you are using your own database instance, replace `<connectionString>` with your connection string, otherwise get in touch with me through my [e-mail](henriquesander27@gmail.com) to get the connection string. `EMAIL_PWD` is the password of the e-mail being used to send the password recovery codes to the users. Currently, a Zoho e-mail is being used. `PORT` is the port which the server will be listening to when running locally. `YOUTUBE_API_KEY` is the YouTube Data API key, to use yours check [YouTube Data API Overview](https://developers.google.com/youtube/v3/getting-started) and [Obtaining authorization credentials](https://developers.google.com/youtube/registering_an_application) for more information. `SECRET` is the MongoDB session storage to encrypt session id according to OWASP recommendations (sincerely,I didn't quite understand what this is used for, but I think that you can set it to whatever you want).
+If you are using your own database instance, replace `<connectionString>` with your connection string, otherwise get in touch with me through my [e-mail](henriquesander27@gmail.com) to get the connection string. `EMAIL_PWD` is the password of the e-mail being used to send the password recovery codes to the users. Currently, we are using a Zoho e-mail with a Hostinger domain. `PORT` is the port which the server will be listening to when running locally. `YOUTUBE_API_KEY` is the YouTube Data API key, to use yours check [YouTube Data API Overview](https://developers.google.com/youtube/v3/getting-started) and [Obtaining authorization credentials](https://developers.google.com/youtube/registering_an_application) for more information. `SECRET` is the MongoDB session storage to encrypt session id according to OWASP recommendations (sincerely,I didn't quite understand what this is used for, but I think that you can set it to whatever you want). You will also have to replace `<emailPwd>`, `<youtubeApiKey>` and `<secret>` for valid values, which you may get by getting in touch with me through my [e-mail](henriquesander27@gmail.com). You can create and use your own YouTube Data API key and *probably* use any value as `SECRET`, but I highly recommend that you get the `EMAIL_PWD` with me, because it's not that simple to create and set up an e-mail for this application.
+
+
