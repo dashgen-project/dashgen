@@ -37,7 +37,7 @@ These are the main folders and files contained by this repository:
 
 This is only needed if you want to use your own database instance. If you want to use the database instance currently being used by the production version of DashGen, get in touch with me to get the necessary information to connect to the database. DashGen uses a cloud NoSQL databse named [MongoDB Atlas](https://www.mongodb.com/atlas/database). It's document-oriented and JSON-encoded. Let's set it up:
 
-1. Access [MongoDB Atlas website](MongoDB Atlas) and click the "Try Free" button.
+1. Access [MongoDB Atlas website](https://www.mongodb.com/atlas/database and click the "Try Free" button.
 
 2. You will be taken to the "Sign up" page. You can sign up by using your Google account or inserting you information in this page's form.
 
