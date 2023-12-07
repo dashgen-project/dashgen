@@ -33,7 +33,7 @@ These are the main folders and files contained by this repository:
 - Having [Git](https://git-scm.com/downloads) installed
 - Having [Node.js](https://nodejs.org/en) installed
 
-### Setting up the database
+### Setting up a new database instance
 
 This is only needed if you want to use your own database instance. If you want to use the database instance currently being used by the production version of DashGen, get in touch with me to get the necessary information to connect to the database. DashGen uses a cloud NoSQL databse named [MongoDB Atlas](https://www.mongodb.com/atlas/database). It's document-oriented and JSON-encoded. Let's set it up:
 
@@ -101,3 +101,9 @@ node index.js
 ```
 
 If everything goes well, DashGen should be running locally on your computer and you can access DashGen with any browser using the following link: **http://localhost:3000/**.
+
+## Accounts management
+
+Official DashGen accounts have been created for Google, Vercel, MongoDB and Zoho. The only platform which access is possible only through my personal account is Hostinger, responsible for the domain management of the e-mail used in Zoho. This is because it has my credit card information to pay for the domain. Get in touch with me for more information.
+
+Copyright 2021-2023 &copy; Henrique Sander Lourenço (henriquesander27@gmail.com)
